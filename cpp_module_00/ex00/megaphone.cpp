@@ -10,12 +10,11 @@ int	main(int argc, char* argv[])
 	else
 	{
 		for (int i = 1; i < argc; ++i) {
-
 			std::string current_word = argv[i];
 
 			for (size_t j = 0; j < current_word.length(); ++j)
 			{
-				std::cout << (char)std::toupper(current_word[j]);
+				std::cout << (char) std::toupper(current_word[j]);
 			}
 		}
 	}

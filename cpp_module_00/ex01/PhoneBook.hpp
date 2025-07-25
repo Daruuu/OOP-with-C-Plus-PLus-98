@@ -1,14 +1,12 @@
-#ifndef PHONEBOOK_H
-#define PHONEBOOK_H
-# include <iostream>
-# include <string>
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
 #include "Contact.hpp"
 
 class PhoneBook
 {
 private:
-	Contact arrayContacts[8];
+	Contact contacts_[8];
 	size_t indexContact_;
 	size_t maxContact_;
 
@@ -18,11 +16,16 @@ public:
 	PhoneBook(size_t maxContact_);
 
 	//	getters
+	size_t	PhoneBook::getIndexContact();
+	size_t	PhoneBook::getMaxContact();
 
-	//	setters
+	// setters
+	// void	PhoneBook::setIndexContact(size_t index_contact);
+	// void	PhoneBook::setMaxContact(size_t maxContact);
 
 	//	methods
+	void	addNewContact(Contact contact);
+	void	searchContact(size_t index);
 };
 
-
-#endif //PHONEBOOK_H
+#endif
