@@ -8,12 +8,11 @@ class PhoneBook
 private:
 	Contact contacts_[8];
 	size_t indexContact_;
-	size_t maxContact_;
 
 public:
 	PhoneBook();
 	~PhoneBook();
-	PhoneBook(size_t maxContact_);
+	size_t maxContact_;
 
 	//	getters
 	size_t	PhoneBook::getIndexContact();
