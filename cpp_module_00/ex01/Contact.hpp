@@ -8,7 +8,7 @@ private:
 	std::string firstName_;
 	std::string lastName_;
 	std::string nickname_;
-	long		phoneNumber_;
+	std::string	phoneNumber_;
 	std::string darkestSecret_;
 
 public:
@@ -19,14 +19,14 @@ public:
 	std::string Contact::getFirstName();
 	std::string Contact::getLast_name();
 	std::string Contact::getNickname();
-	long		Contact::getPhone_number();
+	std::string	Contact::getPhone_number();
 	std::string Contact::getDarkest_secret();
 
 	//	prototypes setters
 	void	setFirstName(std::string newName);
 	void	setLastName(std::string newLastName);
 	void	setNickName(std::string newNickName);
-	void	setPhoneNumber(long newPhoneNumber);
+	void	setPhoneNumber(std::string newPhoneNumber);
 	void	setDarkestSecret(std::string newDarkestSecret);
 
 };

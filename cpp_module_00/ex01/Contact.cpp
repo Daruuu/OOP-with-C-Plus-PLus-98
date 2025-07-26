@@ -25,7 +25,7 @@ std::string Contact::getNickname()
 	return this->nickname_;
 }
 
-long	Contact::getPhone_number()
+std::string Contact::getPhone_number()
 {
 	return this->phoneNumber_;
 }
@@ -52,7 +52,7 @@ void	Contact::setNickName(std::string newNickName)
 	this->nickname_ = newNickName;
 }
 
-void	Contact::setPhoneNumber(long newPhoneNumber)
+void	Contact::setPhoneNumber(std::string newPhoneNumber)
 {
 	this->phoneNumber_ = newPhoneNumber;
 }
