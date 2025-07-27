@@ -16,11 +16,11 @@ public:
 	~Contact();
 
 	//	prototypes getters
-	std::string Contact::getFirstName();
-	std::string Contact::getLast_name();
-	std::string Contact::getNickname();
-	std::string	Contact::getPhone_number();
-	std::string Contact::getDarkest_secret();
+	std::string getFirstName();
+	std::string getLast_name();
+	std::string getNickname();
+	std::string	getPhone_number();
+	std::string	getDarkest_secret();
 
 	//	prototypes setters
 	void	setFirstName(std::string newName);
