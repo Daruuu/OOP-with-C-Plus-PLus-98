@@ -1,18 +1,11 @@
 #include "Account.hpp"
 
-/*
-[19920104_091532] index:0;amount:42;created
-[19920104_091532] index:1;amount:54;created
-[19920104_091532] index:2;amount:957;created
-[19920104_091532] index:3;amount:432;created
-[19920104_091532] index:4;amount:1234;created
-[19920104_091532] index:5;amount:0;created
-[19920104_091532] index:6;amount:754;created
-[19920104_091532] index:7;amount:16576;created
+int	Account::_nbAccounts = 0;
+int	Account::_totalAmount = 0;
+int	Account::_totalNbDeposits= 0;
+int	Account::_totalNbWithdrawals= 0;
 
-[19920104_091532] accounts:8;total:20049;deposits:0;withdrawals:0
-*/
-static void	_displayTimestamp( void )
+void	Account::_displayTimestamp( void )
 {
 	std::time_t now = std::time(NULL);
 	std::tm* tmPtr = std::localtime(&now);
@@ -29,17 +22,16 @@ static void	_displayTimestamp( void )
 		<< ']';
 }
 
-
 Account::Account( int initial_deposit )
 {
+	_nbAccounts ++;
 	_accountIndex = _nbAccounts;
-	_nbAccounts = _nbAccounts + 1;
 	_amount = initial_deposit;
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
 	// [19920104_091532] index:0;amount:42;created
 	_displayTimestamp();
-	std::cout << "index:" << _accountIndex << ";amount:"
+	std::cout << " index:" << _accountIndex << ";amount:"
 	<< initial_deposit << ";created" << std::endl;
 }
 
@@ -51,3 +43,63 @@ static void	displayAccountsInfos( void )
 
 }
 */
+
+/*
+static int	getNbAccounts( void )
+{
+	return 0;
+}
+
+static int	getTotalAmount( void )
+{
+	return 0;
+}
+static int	getNbDeposits( void )
+{
+	return 0;
+}
+
+static int	getNbWithdrawals( void )
+{
+	return 0;
+}
+
+static void	displayAccountsInfos( void )
+{
+}
+*/
+
+Account::Account(void)
+{
+	// _accountIndex = 0;
+	// _amount=0;
+	// _nbDeposits=0;
+	// _nbWithdrawals=0;
+}
+
+/*
+Account::~Account( void )
+{
+
+}
+void	Account::makeDeposit( int deposit )
+{
+
+}
+
+bool	Account::makeWithdrawal( int withdrawal )
+{
+	return false;
+}
+
+int		Account::checkAmount( void ) const
+{
+	return 0;
+}
+
+void	Account::displayStatus( void ) const
+{
+
+}
+*/
+
