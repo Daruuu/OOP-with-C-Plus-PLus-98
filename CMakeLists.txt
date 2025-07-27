@@ -8,8 +8,12 @@ add_executable(Starting_with_Cpp main.cpp
 )
 
 
+project(Exer_02)
 
-add_executable(Ex01_phonebook
-        /ex01/main.cpp
+set(CMAKE_CXX_STANDARD 98)
 
+add_executable( Ex02_phonebook
+        cpp_module_00/ex02/tests.cpp
+        cpp_module_00/ex02/Account.cpp
+        cpp_module_00/ex02/Account.hpp
 )

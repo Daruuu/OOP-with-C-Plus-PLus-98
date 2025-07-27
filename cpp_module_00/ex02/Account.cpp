@@ -9,7 +9,6 @@ void	Account::_displayTimestamp( void )
 {
 	std::time_t now = std::time(NULL);
 	std::tm* tmPtr = std::localtime(&now);
-	// std::ostringstream oss;
 
 	std::cout << '['
 		<< std::setw(4) << std::setfill('0') << (tmPtr->tm_year + 1900)
@@ -24,7 +23,7 @@ void	Account::_displayTimestamp( void )
 
 Account::Account( int initial_deposit )
 {
-	_nbAccounts ++;
+	_nbAccounts++;
 	_accountIndex = _nbAccounts;
 	_amount = initial_deposit;
 	_nbDeposits = 0;
@@ -32,56 +31,58 @@ Account::Account( int initial_deposit )
 	// [19920104_091532] index:0;amount:42;created
 	_displayTimestamp();
 	std::cout << " index:" << _accountIndex << ";amount:"
-	<< initial_deposit << ";created" << std::endl;
+		<< _amount << ";created" << std::endl;
 }
 
-/*
-static void	displayAccountsInfos( void )
+Account::~Account()
 {
-	// _displayTimestamp();
-	// std::cout << << std::endl;
-
-}
-*/
-
-/*
-static int	getNbAccounts( void )
-{
-	return 0;
+	Account::_displayTimestamp();
+	std::cout << "index:" << _accountIndex
+		<< ";amount:" << _amount
+		<< ";closed" << std::endl;
 }
 
-static int	getTotalAmount( void )
+void	Account::displayAccountsInfos( void )
 {
-	return 0;
-}
-static int	getNbDeposits( void )
-{
-	return 0;
-}
-
-static int	getNbWithdrawals( void )
-{
-	return 0;
+	_displayTimestamp();
+	std::cout << " accounts:" << _nbAccounts << ";total:"
+	<< _totalAmount << ";deposits" << _totalNbDeposits << ";withdrawals:"
+	<< _totalNbWithdrawals << std::endl;
 }
 
-static void	displayAccountsInfos( void )
+void	Account::displayStatus() const
 {
+	_displayTimestamp();
+	std::cout << " index:" << _accountIndex
+			<< ";amount:" << _amount
+			<< ";deposits:" << _nbDeposits
+			<< ";withdrawals:" << _nbWithdrawals << std::endl;
 }
-*/
+
+int	Account::getNbAccounts()
+{
+	return (Account::_nbAccounts);
+}
+
+int	Account::getTotalAmount()
+{
+	return (Account::_totalAmount);
+}
+
+int	Account::getNbDeposits()
+{
+	return (Account::_totalNbDeposits);
+}
+
+int	Account::getNbWithdrawals()
+{
+	return (Account::_totalNbWithdrawals);
+}
 
 Account::Account(void)
 {
-	// _accountIndex = 0;
-	// _amount=0;
-	// _nbDeposits=0;
-	// _nbWithdrawals=0;
 }
 
-/*
-Account::~Account( void )
-{
-
-}
 void	Account::makeDeposit( int deposit )
 {
 
@@ -96,10 +97,3 @@ int		Account::checkAmount( void ) const
 {
 	return 0;
 }
-
-void	Account::displayStatus( void ) const
-{
-
-}
-*/
-

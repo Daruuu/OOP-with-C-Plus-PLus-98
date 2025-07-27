@@ -19,12 +19,10 @@ int		main( void ) {
 	typedef std::vector<int>								  ints_t;
 	typedef std::pair<accounts_t::iterator, ints_t::iterator> acc_int_t;
 
-	//	array de cantidades.
 	int	const				amounts[]	= { 42, 54, 957, 432, 1234, 0, 754, 16576 };
-	//	get size of amounts
-	size_t const			amounts_size( sizeof(amounts) / sizeof(int) );
+	size_t	const			amounts_size( sizeof(amounts) / sizeof(int) );
 
-	//	create a new vextor of accounts
+	//	create a new vector of accounts
 	// std::vector<Account> accounts(amounts, amounts + amounts_size);
 	accounts_t				accounts( amounts, amounts + amounts_size );
 	accounts_t::iterator	acc_begin	= accounts.begin();
@@ -42,9 +40,9 @@ int		main( void ) {
 	ints_t::iterator	wit_begin	= withdrawals.begin();
 	ints_t::iterator	wit_end		= withdrawals.end();
 
+	Account::displayAccountsInfos();
 	return (1);
 	/*
-	Account::displayAccountsInfos();
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
 	for ( acc_int_t it( acc_begin, dep_begin );
