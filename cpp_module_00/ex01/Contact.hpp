@@ -17,10 +17,10 @@ public:
 
 	//	prototypes getters
 	std::string getFirstName();
-	std::string getLast_name();
+	std::string getLastName();
 	std::string getNickname();
-	std::string	getPhone_number();
-	std::string	getDarkest_secret();
+	std::string	getPhoneNumber();
+	std::string	getDarkestSecret();
 
 	//	prototypes setters
 	void	setFirstName(std::string newName);
@@ -30,6 +30,5 @@ public:
 	void	setDarkestSecret(std::string newDarkestSecret);
 
 };
-
 
 #endif

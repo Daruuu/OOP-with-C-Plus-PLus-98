@@ -6,3 +6,10 @@ set(CMAKE_CXX_STANDARD 98)
 add_executable(Starting_with_Cpp main.cpp
 
 )
+
+
+
+add_executable(Ex01_phonebook
+        /ex01/main.cpp
+
+)

@@ -15,7 +15,7 @@ std::string	Contact::getFirstName()
 	return this->firstName_;
 }
 
-std::string Contact::getLast_name()
+std::string Contact::getLastName()
 {
 	return this->lastName_;
 }
@@ -25,12 +25,12 @@ std::string Contact::getNickname()
 	return this->nickname_;
 }
 
-std::string Contact::getPhone_number()
+std::string Contact::getPhoneNumber()
 {
 	return this->phoneNumber_;
 }
 
-std::string Contact::getDarkest_secret()
+std::string Contact::getDarkestSecret()
 {
 	return this->darkestSecret_;
 }

@@ -1,13 +1,13 @@
 CXX = c++
 
 # Flags de compilación (opcional)
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # name of executable
 NAME = phonebook
 
 # sources
-SRCS = PhoneBook.cpp PhoneBook.hpp Contact.cpp Contact.hpp
+SRCS = main.cpp PhoneBook.cpp Contact.cpp
 
 # objects
 OBJS = $(SRCS:.cpp=.o)
@@ -20,7 +20,7 @@ $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 # Regla para compilar archivos .cpp en archivos .o
-%.o: %.cpp  Makefile 
+%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Regla para limpiar archivos generados

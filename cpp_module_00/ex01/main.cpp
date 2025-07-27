@@ -1,7 +1,6 @@
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
 
-int	main(int argc, char* argv[])
+int	main(void)
 {
 	PhoneBook	phone_book;
 	std::string	command;
@@ -22,11 +21,11 @@ int	main(int argc, char* argv[])
 
 		if (command == "ADD")
 		{
-			phoneBook.addNewContact();
+			phone_book.addNewContact();
 		}
 		else if (command == "SEARCH")
 		{
-			phoneBook.printContacts();
+			phone_book.printContacts();
 			std::cout << "Enter index of contact to view details: ";
 			std::getline(std::cin, command);
 
@@ -39,11 +38,11 @@ int	main(int argc, char* argv[])
 			if (!command.empty() && std::isdigit(command[0]))
 			{
 				int index = std::atoi(command.c_str());
-				phoneBook.searchContact(index);
+				phone_book.searchContact(index);
 			}
 			else
 			{
-				std::cout << "❌ Invalid index input." << std::endl;
+				std::cout << "❌ Index out of range." << std::endl;
 			}
 		}
 		else if (command == "EXIT")

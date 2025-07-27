@@ -2,10 +2,10 @@
 # define PHONEBOOK_HPP
 
 # include "Contact.hpp"
-# include "Contact.cpp"
 # include <string>
 # include <iostream>
-#include <iomanip>
+# include <iomanip>
+# include <cstdlib>
 
 class	PhoneBook
 {
@@ -20,9 +20,7 @@ public:
 	~PhoneBook();
 
 	//	getters
-	// size_t	getTotalContacts();
 	size_t	getCurrentIndex();
-
 
 	//	methods
 	void	addNewContact();
