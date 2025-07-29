@@ -2,6 +2,11 @@
 
 Contact::Contact()
 {
+	this->firstName_ = "";
+	this->lastName_ = "";
+	this->nickname_ = "";
+	this->phoneNumber_ = "";
+	this->darkestSecret_ = "";
 };
 
 Contact::~Contact()

@@ -25,7 +25,7 @@ public:
 	//	methods
 	void	addNewContact();
 	void	searchContact(size_t index);
-	Contact	getContact(size_t index);
+	// Contact	getContact(size_t index);
 	void	printContacts();
 };
 

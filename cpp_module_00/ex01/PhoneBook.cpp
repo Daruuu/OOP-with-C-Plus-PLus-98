@@ -56,8 +56,6 @@ void	PhoneBook::addNewContact()
 	std::cout << "✅ Contact added!" << std::endl;
 }
 
-int	protectGetLine(std::string *data);
-
 void	PhoneBook::searchContact(size_t index)
 {
 	if (index >= currentIndex_)
@@ -74,9 +72,7 @@ void	PhoneBook::searchContact(size_t index)
 	std::cout << "Darkest secret: " << contact.getDarkestSecret() << std::endl;
 }
 
-// Helper para truncar y formatear
-
-static std::string truncateField(std::string str)
+static std::string	truncateField(std::string str)
 {
 	if (str.length() > 10)
 		return (str.substr(0, 9) + ".");
@@ -90,19 +86,18 @@ void	PhoneBook::printContacts()
 				<< std::setw(10) << "Last Name" << "|"
 				<< std::setw(10) << "Nick name" << std::endl;
 
-	size_t	count = this->currentIndex_ < 8 ? this->currentIndex_ : 8;
+	size_t	count;
+	if (this->currentIndex_ < this->totalContacts_)
+		count = this->currentIndex_;
+	else
+		 count = 8;
 
 	for (size_t i = 0; i < count; ++i)
 	{
-		std::cout << std::setw(10) << i << "|"
-				  << std::setw(10) << truncateField(contacts_[i].getFirstName()) << "|"
-				  << std::setw(10) << truncateField(contacts_[i].getLastName()) << "|"
-				  << std::setw(10) << truncateField(contacts_[i].getNickname()) << std::endl;
+		std::cout	<< std::setw(10) << i << "|"
+					<< std::setw(10) << truncateField(contacts_[i].getFirstName()) << "|"
+					<< std::setw(10) << truncateField(contacts_[i].getLastName()) << "|"
+					<< std::setw(10) << truncateField(contacts_[i].getNickname())
+					<< std::endl;
 	}
-}
-
-int	validateAtributes(std::string firstName, std::string lastName, std::string nickName, std::string phoneNumber, std::string darkSecret)
-{
-	return (firstName.length() != 0 || lastName.length() != 0 || nickName.length() != 0 || \
-			phoneNumber.length() != 0 || darkSecret.length() != 0);
 }

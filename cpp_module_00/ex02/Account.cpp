@@ -5,7 +5,7 @@ int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits= 0;
 int	Account::_totalNbWithdrawals= 0;
 
-void	Account::_displayTimestamp( void )
+void	Account::_displayTimestamp( )
 {
 	std::time_t now = std::time(NULL);
 	std::tm* tmPtr = std::localtime(&now);
@@ -26,17 +26,18 @@ void	Account::displayAccountsInfos(void)
 	_displayTimestamp();
 	std::cout	<< " accounts:" << _nbAccounts
 				<< ";total:" << _totalAmount
-				<< ";deposits" << _totalNbDeposits
+				<< ";deposits:" << _totalNbDeposits
 				<< ";withdrawals:" << _totalNbWithdrawals
 	<< std::endl;
 }
 
 Account::Account( int initial_deposit )
 {
-	++_nbAccounts;
 	// _totalAmount += initial_deposit;
 	_accountIndex = _nbAccounts;
+	++_nbAccounts;
 	_amount = initial_deposit;
+	_totalAmount += initial_deposit;
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
 	// [19920104_091532] index:0;amount:42;created
@@ -92,13 +93,15 @@ void	Account::makeDeposit( int deposit )
 			<< std::endl;
 }
 
-//	verify is hace minimum money to extract
-//	if the account not have minimum money : declined the opeation
-//	if has money:
-//		- update the values in the account
-//		- update the global values (_totalAmount, _totalNbWithdrawals)
-//		- show a log of changes
-//	return TRUE if completed the substract of money
+	/*
+	verify is hace minimum money to extract
+	if the account not have minimum money : declined the opeation
+	if has money:
+		- update the values in the account
+		- update the global values (_totalAmount, _totalNbWithdrawals)
+		- show a log of changes
+	return TRUE if completed the substract of money
+	*/
 
 bool	Account::makeWithdrawal( int withdrawal )
 {
@@ -107,8 +110,8 @@ bool	Account::makeWithdrawal( int withdrawal )
 	{
 		_displayTimestamp();
 		std::cout	<< " index:" << _accountIndex
-					<< ";p_amount;" << _amount
-					<< ";withdrawal:refused" << _amount
+					<< ";p_amount:" << _amount
+					<< ";withdrawal:refused"
 					<< std::endl;
 		return false;
 	}
@@ -126,15 +129,15 @@ bool	Account::makeWithdrawal( int withdrawal )
 	//	5. print log with updated values
 	_displayTimestamp();
 	std::cout	<< " index:" << _accountIndex
-				<< ";p_amount;" << previous_amount
-				<< ";withdrawals:" << withdrawal
-				<< ";amount;" << _amount
+				<< ";p_amount:" << previous_amount
+				<< ";withdrawal:" << withdrawal
+				<< ";amount:" << _amount
 				<< ";nb_withdrawals:" << _nbWithdrawals
 				<< std::endl;
 	return true;
 }
 
-int		Account::checkAmount( void ) const
+int		Account::checkAmount( ) const
 {
 	return this->_amount;
 }
@@ -147,7 +150,6 @@ void	Account::displayStatus() const
 			<< ";deposits:" << _nbDeposits
 			<< ";withdrawals:" << _nbWithdrawals << std::endl;
 }
-
 
 Account::Account(void)
 {
