@@ -4,11 +4,7 @@ project(Starting_with_Cpp)
 set(CMAKE_CXX_STANDARD 98)
 
 add_executable(Starting_with_Cpp main.cpp
-
 )
-
-
-project(Exer_02)
 
 set(CMAKE_CXX_STANDARD 98)
 
@@ -16,4 +12,13 @@ add_executable( Ex02_phonebook
         cpp_module_00/ex02/tests.cpp
         cpp_module_00/ex02/Account.cpp
         cpp_module_00/ex02/Account.hpp
+)
+
+
+set(CMAKE_CXX_STANDARD 98)
+
+add_executable(Ex00
+        cpp_module_01/Zombie.cpp
+        cpp_module_01/Zombie.hpp
+
 )
