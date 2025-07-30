@@ -76,7 +76,6 @@ int	Account::getNbWithdrawals()
 	return (Account::_totalNbWithdrawals);
 }
 
-//	TODO: end understand this function
 void	Account::makeDeposit( int deposit )
 {
 	int	previous_amount = _amount;
@@ -93,19 +92,8 @@ void	Account::makeDeposit( int deposit )
 			<< std::endl;
 }
 
-	/*
-	verify is hace minimum money to extract
-	if the account not have minimum money : declined the opeation
-	if has money:
-		- update the values in the account
-		- update the global values (_totalAmount, _totalNbWithdrawals)
-		- show a log of changes
-	return TRUE if completed the substract of money
-	*/
-
 bool	Account::makeWithdrawal( int withdrawal )
 {
-	//	1. check if enough balance
 	if (withdrawal > _amount)
 	{
 		_displayTimestamp();
@@ -118,15 +106,13 @@ bool	Account::makeWithdrawal( int withdrawal )
 
 	int	previous_amount = _amount;
 
-	//	3. update current account state
+	//	update current account state
 	_amount -= withdrawal;
 	_nbWithdrawals++;
 
-	//	4. update static variables
 	_totalAmount -= withdrawal;
 	_totalNbWithdrawals++;
 
-	//	5. print log with updated values
 	_displayTimestamp();
 	std::cout	<< " index:" << _accountIndex
 				<< ";p_amount:" << previous_amount

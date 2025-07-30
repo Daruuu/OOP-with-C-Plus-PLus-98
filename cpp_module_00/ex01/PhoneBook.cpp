@@ -15,6 +15,8 @@ size_t	PhoneBook::getCurrentIndex()
 	return this->currentIndex_;
 }
 
+//	methods
+
 void	PhoneBook::addNewContact()
 {
 	Contact		newContact;
@@ -23,7 +25,10 @@ void	PhoneBook::addNewContact()
 	std::cout << "Enter first name: ";
 	std::getline(std::cin, input);
 	if (input.empty())
+	{
+		std::cout << "Invalid input." << std::endl;
 		return;
+	}
 	newContact.setFirstName(input);
 
 	std::cout << "Enter last name: ";
@@ -53,7 +58,7 @@ void	PhoneBook::addNewContact()
 	this->contacts_[this->currentIndex_ % 8] = newContact;
 	this->currentIndex_++;
 
-	std::cout << "✅ Contact added!" << std::endl;
+	std::cout << "Contact added!" << std::endl;
 }
 
 void	PhoneBook::searchContact(size_t index)
@@ -63,7 +68,8 @@ void	PhoneBook::searchContact(size_t index)
 		std::cout << "Invalid index." << std::endl;
 		return ;
 	}
-	Contact contact = contacts_[index];
+
+	Contact	contact = contacts_[index];
 
 	std::cout << "First name:     " << contact.getFirstName() << std::endl;
 	std::cout << "Last name:      " << contact.getLastName() << std::endl;
@@ -90,7 +96,7 @@ void	PhoneBook::printContacts()
 	if (this->currentIndex_ < this->totalContacts_)
 		count = this->currentIndex_;
 	else
-		 count = 8;
+		 count = this->totalContacts_;
 
 	for (size_t i = 0; i < count; ++i)
 	{

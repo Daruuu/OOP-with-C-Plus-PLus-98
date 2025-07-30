@@ -17,7 +17,7 @@ int	main(int argc, char* argv[])
 				std::cout << (char) std::toupper(current_word[j]);
 			}
 		}
+		std::cout << std::endl;
 	}
-	std::cout << std::endl;
 	return (0);
 }

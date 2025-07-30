@@ -55,7 +55,6 @@ int	main(void)
 			std::cout << "❌ Unknown command. Try again." << std::endl;
 		}
 	}
-
 	return (0);
 }
 

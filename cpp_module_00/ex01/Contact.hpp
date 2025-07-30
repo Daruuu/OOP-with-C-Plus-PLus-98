@@ -2,8 +2,8 @@
 #define CONTACT_HPP
 # include <string>
 
-class Contact
-{
+class	Contact {
+
 private:
 	std::string firstName_;
 	std::string lastName_;
