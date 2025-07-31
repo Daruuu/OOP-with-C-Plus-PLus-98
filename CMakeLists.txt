@@ -18,7 +18,7 @@ add_executable( Ex02_phonebook
 set(CMAKE_CXX_STANDARD 98)
 
 add_executable(Ex00
-        cpp_module_01/Zombie.cpp
-        cpp_module_01/Zombie.hpp
+        cpp_module_01/ex00/Zombie.cpp
+        cpp_module_01/ex00/Zombie.hpp
 
 )
