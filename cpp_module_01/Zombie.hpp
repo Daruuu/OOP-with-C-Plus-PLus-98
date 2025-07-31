@@ -8,11 +8,11 @@ private:
 	std::string	name_;
 
 public:
-	Zombie();
+	Zombie(std::string name);
 	~Zombie();
 	//	methods
 	void	announce();
-	Zombie	newZombie(std::string name);
+	Zombie	*newZombie(std::string name);
 	void	randomChump(std::string name);
 
 };

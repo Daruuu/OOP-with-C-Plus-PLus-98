@@ -1,28 +1,39 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie(){ }
+Zombie::Zombie(std::string name)
+{
+	this->name_ = name;
+}
 
 Zombie::~Zombie(){ }
 
-void Zombie::announce()
+//	add brainzzz out
+void Zombie::announce() { }
+
+//	usamos el HEAP
+//	al usar new Object()
+//	use Delete() para hacer un free
+Zombie *Zombie::newZombie(std::string name)
 {
 
-}
+	if (name.compare(NULL))
+		this->name_ = "";
 
-Zombie Zombie::newZombie(std::string name)
-{
 	Zombie* newZombie = new Zombie();
-	if (name.compare(NULL))
-		this->name_ = "";
 	this->name_ = name;
-	return *newZombie;
+	return newZombie;
 }
 
-void Zombie::randomChump(std::string name)
+//	se instancia en STACK
+
+void	randomChump(std::string name)
 {
-	if (name.compare(NULL))
-		this->name_ = "";
-	this->name_ = name;
+	// if (name.compare(NULL))
+		// this->name_ = "";
+	// this->name_ = name;
+	Zombie	newZombieInStack(name);
+	newZombieInStack.announce();
+
 }
 
 
