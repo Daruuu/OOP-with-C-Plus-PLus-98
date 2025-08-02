@@ -21,8 +21,9 @@ public:
 
 	//	methods
 	void	announce();
-	Zombie	*zombieHorde(int N, std::string name);
 
 };
+
+Zombie	*zombieHorde(int N, std::string name);
 
 #endif //ZOMBIE_HPP
