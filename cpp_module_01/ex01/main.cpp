@@ -6,12 +6,13 @@ int main(void)
 {
 	std::cout << std::setw(30) << "---------------------------------------" << std::endl;
 
-	Zombie*	zombieHorde = new Zombie();
-
-	zombieHorde->zombieHorde(4, "c++ is the best");
+	//Zombie*	zombieHorde = new Zombie();
+	int	n = 4;
+	Zombie*	zombieHorde = zombieHorde(n, "c++ is the best");
+	//zombieHorde->zombieHorde(n, "c++ is the best");
 
 	std::cout << std::setw(30) << "---------------------------------------" << std::endl;
 
-	delete  zombieHorde;
+	delete[]  zombieHorde;
 	return (0);
 }
