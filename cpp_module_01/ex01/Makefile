@@ -1,13 +1,13 @@
 CXX = c++
 
 # Flags de compilación (opcional)
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 # name of executable
 NAME = moar_brainz
 
 # sources
-SRCS = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRCS = main.cpp Zombie.cpp zombieHorde.cpp 
 
 # objects
 OBJS = $(SRCS:.cpp=.o)
