@@ -4,7 +4,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # name of executable
-NAME = BraiiiiiiinnnzzzZ
+NAME = moar_brainz
 
 # sources
 SRCS = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
