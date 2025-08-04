@@ -31,6 +31,7 @@ add_executable(Cpp_01_ex01
 )
 
 add_executable( Cpp_01_ex03
+        cpp_module_01/ex03/main.cpp
         cpp_module_01/ex03/Weapon.cpp
         cpp_module_01/ex03/Weapon.hpp
         cpp_module_01/ex03/HumanA.cpp

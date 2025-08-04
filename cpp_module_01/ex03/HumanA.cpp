@@ -3,10 +3,7 @@
 #include <iostream>
 
 HumanA::HumanA(const std::string& name, Weapon& weapon)
-{
-	this->name_ = name;
-	new Weapon(weapon);
-}
+	: name_(name), weapon_(weapon) { }
 
 HumanA::~HumanA()
 {
