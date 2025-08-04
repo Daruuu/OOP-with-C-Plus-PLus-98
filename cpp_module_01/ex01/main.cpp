@@ -6,11 +6,9 @@ int main(void)
 {
 	std::cout << std::setw(30) << "---------------------------------------" << std::endl;
 
-	int	n = 4;
+	int	n = 3;
 
-	Zombie*	horde = zombieHorde(n, "c++ is the best");
-
-	// zombieHorde->zombieHorde(n, "c++ is the best");
+	Zombie*	horde = zombieHorde(n, "horde 01");
 
 	for (int i = 0; i < n; ++i)
 	{
