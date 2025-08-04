@@ -1,47 +1,25 @@
-# include <iostream>
 
-int main(void)
-{
-	std::string greeting = "HI THIS IS BRAIN";
 
-	std::string* stringPTR = &greeting;
-	std::string& stringREF = greeting;
-
-	std::cout << "-------------------------------" << std::endl;
-
-	std::cout << "Memory Address of greeting:   [" << &greeting << "]" << std::endl;
-	std::cout << "Memory Address held by PTR:   [" << stringPTR << "]" << std::endl;
-	std::cout << "Memory Address of reference:  [" << &stringREF << "]" << std::endl;
-
-	std::cout << "-------------------------------" << std::endl;
-
-	std::cout << "Value of greeting:            [" << greeting << "]" << std::endl;
-	std::cout << "Value pointed by PTR:         [" << *stringPTR << "]" << std::endl;
-	std::cout << "Value of reference:           [" << stringREF << "]" << std::endl;
-
-	std::cout << "-------------------------------" << std::endl;
-
-	return 0;
-}
-
-/*
-#include <iostream>
-using namespace std;
+#include "HumanA.hpp"
+#include "HumanB.hpp"
+#include "Weapon.hpp"
 
 int main()
 {
-    // declare variables
-    int var1 = 3;
-    int var2 = 24;
-    int var3 = 17;
-
-    // print address of var1
-    cout << "Address of var1: "<< &var1 << endl;
-
-    // print address of var2
-    cout << "Address of var2: " << &var2 << endl;
-
-    // print address of var3
-    cout << "Address of var3: " << &var3 << endl;
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+	return 0;
 }
-*/

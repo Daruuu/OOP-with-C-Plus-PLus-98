@@ -26,7 +26,16 @@ set(CMAKE_CXX_STANDARD 98)
 
 add_executable(Cpp_01_ex01
         cpp_module_01/ex01/main.cpp
-#        cpp_module_01/ex01/Zombie.cpp
         cpp_module_01/ex01/Zombie.hpp
         cpp_module_01/ex01/zombieHorde.cpp
+)
+
+add_executable( Cpp_01_ex03
+        cpp_module_01/ex03/Weapon.cpp
+        cpp_module_01/ex03/Weapon.hpp
+        cpp_module_01/ex03/HumanA.cpp
+        cpp_module_01/ex03/HumanA.hpp
+        cpp_module_01/ex03/HumanB.cpp
+        cpp_module_01/ex03/HumanB.hpp
+
 )
