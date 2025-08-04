@@ -6,7 +6,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = hi_this_is_brain 
 
 # sources
-SRCS = main.cpp HumanA.hpp HumanB.hpp Weapon.hpp 
+SRCS = main.cpp
 
 # objects
 OBJS = $(SRCS:.cpp=.o)
