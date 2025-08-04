@@ -6,7 +6,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 NAME = hi_this_is_brain 
 
 # sources
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRCS = main.cpp
 
 # objects
 OBJS = $(SRCS:.cpp=.o)
