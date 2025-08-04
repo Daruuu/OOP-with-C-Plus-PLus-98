@@ -2,6 +2,26 @@
 
 // no es recomendable utlizar namespace cuando utilizas mas de una libreria.
 // using namespace std;
+
+int main()
+{
+	int	i = 0;
+
+	int	*ptr_i = &i;
+	int	&ref_i = i;
+
+	std::cout << "int i = " << i << std::endl;
+
+	std::cout << "ptr_i = " << ptr_i << std::endl;
+
+	std::cout << "ref_i = " << ref_i << std::endl;
+
+	std::cout << "ref_i = " << &ref_i << std::endl;
+
+	return 0;
+}
+
+/*
 int main()
 {
 	// const char *lang = "C++";
@@ -59,3 +79,4 @@ int main()
 	return 0;
 	// TIP See CLion help at <a href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>. Also, you can try interactive lessons for CLion by selecting 'Help | Learn IDE Features' from the main menu.
 }
+*/
