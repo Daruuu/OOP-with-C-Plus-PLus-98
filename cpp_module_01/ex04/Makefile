@@ -3,10 +3,10 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 # name of executable
-NAME = hi_this_is_brain 
+NAME = sedIsForLosers 
 
 # sources
-SRCS = main.cpp
+SRCS = main.cpp Replace.cpp
 
 # objects
 OBJS = $(SRCS:.cpp=.o)
