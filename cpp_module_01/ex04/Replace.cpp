@@ -1,15 +1,15 @@
 #include "Replace.hpp"
 
+Replace::Replace() { }
+
 Replace::Replace(const std::string& file, const std::string& target,
 	const std::string& replacement)
 	: inputFilename_(file), target_(target), replacement_(replacement)
 { }
 
-Replace::Replace() { }
-
 Replace::~Replace() { }
 
-void	Replace::replaceAll(std::string& str,
+void	Replace::replaceOcurrences(std::string& str,
 	const std::string& sOne, const std::string& sTwo)
 {
 	if (sOne.empty())
@@ -24,7 +24,7 @@ void	Replace::replaceAll(std::string& str,
 	}
 }
 
-void Replace::replaceInFile()
+void	Replace::replaceInFile()
 {
 	if (inputFilename_.empty())
 	{
@@ -45,7 +45,7 @@ void Replace::replaceInFile()
 	std::string content = buffer.str();
 	inputFile.close();
 
-	replaceAll(content, target_, replacement_);
+	replaceOcurrences(content, target_, replacement_);
 
 	std::string outputFileName = this->inputFilename_ + ".replace";
 
