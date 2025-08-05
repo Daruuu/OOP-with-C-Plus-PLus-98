@@ -45,3 +45,9 @@ add_executable( Cpp_01_ex04
         cpp_module_01/ex04/Replace.cpp
         cpp_module_01/ex04/Replace.hpp
 )
+
+add_executable( Cpp_01_ex05
+        cpp_module_01/ex05/main.cpp
+        cpp_module_01/ex05/Harl.cpp
+        cpp_module_01/ex05/Harl.hpp
+)
