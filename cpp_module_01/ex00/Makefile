@@ -1,7 +1,7 @@
 CXX = c++
 
 # Flags de compilación (opcional)
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 # name of executable
 NAME = BraiiiiiiinnnzzzZ

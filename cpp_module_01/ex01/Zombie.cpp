@@ -9,7 +9,6 @@
 
 Zombie::Zombie()
 {
-	this->name_ = "";
 	std::cout << MAGENTA << "[Zombie]" << GREEN << "[Constructor] "
 	<< std::endl;
 }
@@ -20,17 +19,12 @@ Zombie::~Zombie()
 	<< std::endl;
 }
 
-std::string	Zombie::getName()
-{
-	return (this->name_);
-}
-
 void	Zombie::setName(std::string name)
 {
 	this->name_ = name;
 }
 
-void Zombie::announce()
+void	Zombie::announce()
 {
 	std::cout << MAGENTA << "[Zombie]" << CYAN << "[Announce] "
 			  << YELLOW << this->name_ << ": BraiiiiiiinnnzzzZ..." << RESET << std::endl;

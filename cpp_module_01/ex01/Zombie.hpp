@@ -13,16 +13,13 @@ public:
 	Zombie();
 	~Zombie();
 
-	//	getter & setter	
-	
-	std::string	getName();
-	void		setName(std::string name);
-
+	//	setter
+	void	setName(std::string name);
 	//	methods
 	void	announce();
 
 };
 
-Zombie	*zombieHorde(int N, std::string name);
+Zombie*	zombieHorde(int N, std::string name);
 
 #endif //ZOMBIE_HPP

@@ -7,7 +7,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 NAME = moar_brainz
 
 # sources
-SRCS = main.cpp Zombie.cpp zombieHorde.cpp 
+SRCS = main.cpp Zombie.cpp zombieHorde.cpp
 
 # objects
 OBJS = $(SRCS:.cpp=.o)
