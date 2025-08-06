@@ -3,7 +3,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 # name of executable
-NAME = Harl_2.0
+NAME = HarlFilter
 
 # sources
 SRCS = main.cpp Harl.cpp
