@@ -12,7 +12,7 @@
 void Harl::debug_()
 {
 	std::cout << GREEN << "[ DEBUG ]" << RESET << std::endl;
-	std::cout << "I love having extra bacon for my "
+	std::cout << "	I love having extra bacon for my "
 		"7XL-double-cheese-triple-pickle-specialketchup burger."
 		" I really do!"
 	<< std::endl;
@@ -21,7 +21,7 @@ void Harl::debug_()
 void Harl::info_()
 {
 	std::cout << CYAN << "[ INFO ]" << RESET << std::endl;
-	std::cout << "I cannot believe adding extra bacon costs more money."
+	std::cout << "	I cannot believe adding extra bacon costs more money."
 				 "You didn't put enough bacon in my burger!"
 				 "If you did, I wouldn't be asking for more!"
 	<< std::endl;
@@ -30,7 +30,7 @@ void Harl::info_()
 void Harl::warning_()
 {
 	std::cout << YELLOW << "[ WARNING ]" << RESET << std::endl;
-	std::cout << "I think I deserve to have some extra bacon for free. "
+	std::cout << "	I think I deserve to have some extra bacon for free. "
 	"I’ve been coming for years, whereas you started working here just last month."
 	<< std::endl;
 }
@@ -38,7 +38,7 @@ void Harl::warning_()
 void Harl::error_()
 {
 	std::cout << RED << "[ ERROR ]" << RESET << std::endl;
-	std::cout << "This is unacceptable! I want to speak to the manager now."
+	std::cout << "	This is unacceptable! I want to speak to the manager now."
 	<< std::endl;
 }
 
@@ -66,5 +66,5 @@ void	Harl::complain(std::string level)
 			break;
 		}
 	}
-	std::cout << "[ End of complain function.]" << std::endl;
+	// std::cout << "[ End of complain function.]" << std::endl;
 }
