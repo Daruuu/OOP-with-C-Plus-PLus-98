@@ -1,13 +1,14 @@
 #include "HumanB.hpp"
+#include <iostream>
 
 HumanB::HumanB(const std::string& name) : name_(name), weapon_(NULL)
 {
-	std::cout << " Constructor HumanB: " << this->name_ << std::endl;
+	std::cout << GREEN << "[Constructor HumanB] " << name_ << RESET << std::endl;
 }
 
 HumanB::~HumanB()
 {
-	std::cout << " Destructor HumanB: " << name_ << std::endl;
+	std::cout << RED << "[Destructor HumanB] " << name_ << RESET << std::endl;
 }
 
 void	HumanB::setWeapon(Weapon& weapon) {
@@ -17,9 +18,8 @@ void	HumanB::setWeapon(Weapon& weapon) {
 void	HumanB::attack() const
 {
 	if (this->weapon_)
-		std::cout << this->name_ << " attacks with his " << this->weapon_->getType() << std::endl;
+		std::cout << CYAN << this->name_ << " attacks with his "
+				  << this->weapon_->getType() << RESET << std::endl;
 	else
-	{
-		std::cout << this->name_ << " has NO weapon to attack." << std::endl;
-	}
+		std::cout << YELLOW << this->name_ << " has NO weapon to attack." << RESET << std::endl;
 }

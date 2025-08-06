@@ -2,19 +2,23 @@
 
 // ANSI Colors
 #define RESET   "\033[0m"
-#define GREEN   "\033[32m"
-#define CYAN    "\033[36m"
-#define YELLOW  "\033[33m"
 #define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+#define WHITE   "\033[37m"
+
 
 #include <iostream>
 
 void Harl::debug_()
 {
 	std::cout << GREEN << "[ DEBUG ]" << RESET << std::endl;
-	std::cout << "	I love having extra bacon for my "
+	std::cout << BLUE << "	I love having extra bacon for my "
 		"7XL-double-cheese-triple-pickle-specialketchup burger."
-		" I really do!"
+		" I really do!" << BLUE
 	<< std::endl;
 }
 
@@ -30,8 +34,8 @@ void Harl::info_()
 void Harl::warning_()
 {
 	std::cout << YELLOW << "[ WARNING ]" << RESET << std::endl;
-	std::cout << "	I think I deserve to have some extra bacon for free. "
-	"I’ve been coming for years, whereas you started working here just last month."
+	std::cout << MAGENTA << "	I think I deserve to have some extra bacon for free. "
+	"I’ve been coming for years, whereas you started working here just last month." MAGENTA
 	<< std::endl;
 }
 
@@ -66,5 +70,4 @@ void	Harl::complain(std::string level)
 			break;
 		}
 	}
-	// std::cout << "[ End of complain function.]" << std::endl;
 }
