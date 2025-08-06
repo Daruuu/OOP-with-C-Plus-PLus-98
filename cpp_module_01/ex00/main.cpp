@@ -11,7 +11,7 @@ int main(void)
 
 	std::cout << std::setw(30) << "---------------------------------------" << std::endl;
 
-	heapZombie->randomChump("stack Zombie");
+	randomChump("stack Zombie");
 
 	delete heapZombie;
 	return (0);

@@ -1,23 +1,3 @@
-/*
-#include "Zombie.hpp"
-
-Zombie::Zombie(std::string name)
-{
-	this->name_ = name;
-	std::cout << "Zombie Constructor:" << this->name_ << std::endl;
-}
-
-Zombie::~Zombie()
-{
-	std::cout << "Zombie Destructor:" << this->name_ << std::endl;
-}
-
-//	add brainzzz out
-void	Zombie::announce()
-{
-	std::cout << this->name_ << ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
-}
-*/
 #include "Zombie.hpp"
 
 #define RESET       "\033[0m"
@@ -31,7 +11,7 @@ Zombie::Zombie(std::string name)
 {
 	this->name_ = name;
 	std::cout << MAGENTA << "[Zombie]" << GREEN << "[Constructor] "
-			  << YELLOW << this->name_ << RESET << std::endl;
+	<< YELLOW << this->name_ << RESET << std::endl;
 }
 
 Zombie::~Zombie()

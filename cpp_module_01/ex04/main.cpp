@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "Replace.hpp"
 
 int main(int argc, char** argv)
@@ -17,7 +15,6 @@ int main(int argc, char** argv)
 	replace.replaceInFile();
 
 	std::cout << GREEN << "[INFO] Finished! Output file: " << argv[1] << ".replace\n" << RESET;
-
 
 	return 0;
 }

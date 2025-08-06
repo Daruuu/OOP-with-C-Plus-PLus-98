@@ -11,7 +11,7 @@ static int getLevelIndex(std::string level)
 		if (levels[i] == level)
 			return (i);
 	}
-	return (42);
+	return (-1);
 }
 
 int main(int ac, char** av)
@@ -28,21 +28,22 @@ int main(int ac, char** av)
 
 	switch (index)
 	{
-		case 0:
-			harl.complain("DEBUG");
-			break;
-		case 1:
-			harl.complain("INFO");
-			break;
-		case 2:
-			harl.complain("WARNING");
-			break;
-		case 3:
-			harl.complain("ERROR");
-			break;
-		default:
-			std::cerr << RED << "[ Probably complaining about insignificant problems ]" << RESET
-				<< std::endl;
+	case 0:
+		harl.complain("DEBUG");
+		// fall through
+	case 1:
+		harl.complain("INFO");
+		// fall through
+	case 2:
+		harl.complain("WARNING");
+		// fall through
+	case 3:
+		harl.complain("ERROR");
+		break;
+	default:
+		std::cerr << RED <<
+			"[ Probably complaining about insignificant problems ]" << RESET
+			<< std::endl;
 	}
 	return 0;
 }

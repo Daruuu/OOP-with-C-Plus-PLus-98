@@ -12,7 +12,6 @@
 #define YELLOW	"\033[33m"
 #define CYAN	"\033[36m"
 
-
 class Replace
 {
 private:
