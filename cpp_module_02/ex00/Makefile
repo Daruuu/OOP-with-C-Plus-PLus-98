@@ -5,15 +5,16 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 # name of executable
 NAME = MyFirstClassinOrthodoxCanonicalForm
 
+
 # sources
-SRCS = main.cpp
+SRCS = main.cpp Fixed.cpp
 
 # objects
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) Fixed.hpp
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp  Makefile
