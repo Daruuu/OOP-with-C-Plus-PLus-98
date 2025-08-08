@@ -3,8 +3,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 # name of executable
-NAME = MyFirstClassinOrthodoxCanonicalForm
-
+NAME = Towardsamoreusefulfixed-pointnumberclass
 
 # sources
 SRCS = main.cpp Fixed.cpp
