@@ -1,6 +1,6 @@
 CXX = c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -O2 #-fsanitize=address
 
 # name of executable
 NAME = Towardsamoreusefulfixed-pointnumberclass

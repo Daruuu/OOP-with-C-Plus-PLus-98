@@ -5,7 +5,7 @@
 Fixed::Fixed() : fixedPointValue_(0)
 {
 	std::cout << BLUE "Default constructor called" RESET
-	<< std::endl;
+		<< std::endl;
 }
 
 Fixed::Fixed(const Fixed& other)
@@ -25,21 +25,20 @@ Fixed& Fixed::operator=(const Fixed& other)
 
 Fixed::~Fixed()
 {
-	std::cout << RED "Destructor of Fixed" RESET
-	<< std::endl;
+	std::cout << RED "Destructor called" RESET << std::endl;
 }
 
 int Fixed::getRawBits() const
 {
-	std::cout << CYAN "getRawBits member function called." RESET
-	<< std::endl;
+	// std::cout << CYAN "getRawBits member function called." RESET
+		// << std::endl;
 	return (this->fixedPointValue_);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	std::cout << CYAN "setRawBits member function called." RESET
-	<< std::endl;
+	// std::cout << CYAN "setRawBits member function called." RESET
+		// << std::endl;
 	this->fixedPointValue_ = raw;
 }
 
@@ -62,7 +61,7 @@ Fixed::Fixed(const float floatValue)
 
 float Fixed::toFloat() const
 {
-	return (float) this->fixedPointValue_ / (1 << fractionalBits_);
+	return (float)this->fixedPointValue_ / (1 << fractionalBits_);
 }
 
 int Fixed::toInt() const
