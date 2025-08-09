@@ -31,22 +31,26 @@ public:
 	float toFloat(void) const;
 	int toInt(void) const;
 
-	//	public member functions OVERLOAD
+	//	public member functions OVERLOAD (sobrecarga)
 	bool operator>(const Fixed& other) const;
 	bool operator<(const Fixed& other) const;
+
 	bool operator>=(const Fixed& other) const;
 	bool operator<=(const Fixed& other) const;
+
 	bool operator==(const Fixed& other) const;
 	bool operator!=(const Fixed& other) const;
 
 	// The 4 arithmetic operators: +, -, *, /
 	Fixed operator+(const Fixed& other) const;
 	Fixed operator-(const Fixed& other) const;
+
 	Fixed operator*(const Fixed& other) const;
 	Fixed operator/(const Fixed& other) const;
 
 	Fixed& operator++();
 	Fixed operator++(int);
+
 	Fixed& operator--();
 	Fixed& operator--(int);
 };
