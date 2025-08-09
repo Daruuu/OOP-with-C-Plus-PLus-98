@@ -1,7 +1,5 @@
 #include "Fixed.hpp"
 
-#include <iostream>
-
 Fixed::Fixed() : fixedPointValue_(0)
 {
 	std::cout << BLUE "Default constructor called" RESET
@@ -20,7 +18,6 @@ Fixed& Fixed::operator=(const Fixed& other)
 
 	if (this != &other)
 		this->fixedPointValue_ = other.getRawBits();
-
 	return *this;
 }
 
@@ -43,3 +40,4 @@ void Fixed::setRawBits(int const raw)
 	<< std::endl;
 	this->fixedPointValue_ = raw;
 }
+

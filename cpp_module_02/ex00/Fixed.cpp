@@ -1,7 +1,5 @@
 #include "Fixed.hpp"
 
-#include <iostream>
-
 Fixed::Fixed() : fixedPointValue_(0)
 {
 	std::cout << BLUE "Default constructor called" RESET
@@ -11,7 +9,6 @@ Fixed::Fixed() : fixedPointValue_(0)
 Fixed::Fixed(const Fixed& other)
 {
 	std::cout << GREEN "Copy constructor called" RESET << std::endl;
-	// *this = other;
 	this->fixedPointValue_ = other.getRawBits();
 }
 
@@ -21,7 +18,6 @@ Fixed& Fixed::operator=(const Fixed& other)
 
 	if (this != &other)
 		this->fixedPointValue_ = other.getRawBits();
-
 	return *this;
 }
 

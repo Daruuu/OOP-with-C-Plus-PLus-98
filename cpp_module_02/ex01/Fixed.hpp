@@ -1,6 +1,8 @@
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
+#include <iostream>
+
 #define	RESET   "\033[0m"
 #define RED     "\033[31m"
 #define GREEN   "\033[32m"
@@ -30,4 +32,5 @@ public:
 	float	toFloat( void ) const;
 	int		toInt( void ) const;
 };
+
 #endif //FIXED_HPP

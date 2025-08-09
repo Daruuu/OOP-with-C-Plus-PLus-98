@@ -7,6 +7,7 @@ int main()
 	std::cout << "[We are in the main of ex 00]"
 			<< std::endl;
 	Fixed a;
+	// a.setRawBits(0);
 	Fixed b( a );
 	Fixed c;
 	c = b;

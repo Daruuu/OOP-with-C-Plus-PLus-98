@@ -10,6 +10,8 @@
 #define CYAN    "\033[36m"
 #define WHITE   "\033[37m"
 
+#include <iostream>
+
 class Fixed
 {
 
