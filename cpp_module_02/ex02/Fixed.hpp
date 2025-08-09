@@ -48,11 +48,31 @@ public:
 	Fixed operator*(const Fixed& other) const;
 	Fixed operator/(const Fixed& other) const;
 
+	//	4 increment and decrement with reference and using parameter
 	Fixed& operator++();
 	Fixed operator++(int);
 
 	Fixed& operator--();
 	Fixed& operator--(int);
+
+	//	4 public OVERLOAD member functions
+
+	// 	A static member function min that takes two references to fixed-point numbers as
+	// parameters, and returns a reference to the smallest one.
+	static Fixed& min(Fixed& a, Fixed& b);
+
+	// A static member function min that takes two references to constant fixed-point
+	// numbers as parameters, and returns a reference to the smallest one.
+	static const Fixed& min(const Fixed& a, const Fixed& b);
+
+	// A static member function max that takes two references to fixed-point numbers as
+	// parameters, and returns a reference to the greatest one.
+	static Fixed& max(Fixed& a, Fixed& b);
+
+	//	A static member function max that takes two references to constant fixed-point
+	// numbers as parameters, and returns a reference to the greatest one
+	static const Fixed& max(const Fixed& a, const Fixed& b);
+
 };
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed);

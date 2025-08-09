@@ -30,15 +30,11 @@ Fixed::~Fixed()
 
 int Fixed::getRawBits() const
 {
-	// std::cout << CYAN "getRawBits member function called." RESET
-		// << std::endl;
 	return (this->fixedPointValue_);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	// std::cout << CYAN "setRawBits member function called." RESET
-		// << std::endl;
 	this->fixedPointValue_ = raw;
 }
 
@@ -73,4 +69,118 @@ std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
 {
 	out << fixed.toFloat();
 	return out;
+}
+//	COMPARISON OPERATORS OVERLOAD----------------------------------
+bool Fixed::operator>(const Fixed& other) const
+{
+	return (this->fixedPointValue_ > other.fixedPointValue_);
+}
+
+bool Fixed::operator<(const Fixed& other) const
+{
+	return this->fixedPointValue_ < other.fixedPointValue_;
+}
+
+bool Fixed::operator>=(const Fixed& other) const
+{
+	return this->fixedPointValue_ >= other.fixedPointValue_;
+}
+
+bool Fixed::operator<=(const Fixed& other) const
+{
+	return this->fixedPointValue_ <= other.fixedPointValue_;
+}
+
+bool Fixed::operator==(const Fixed& other) const
+{
+	return this->fixedPointValue_ == other.fixedPointValue_;
+}
+
+bool Fixed::operator!=(const Fixed& other) const
+{
+	return this->fixedPointValue_ != other.fixedPointValue_;
+}
+
+//	4 ARITHMETIC OPERATORS
+
+Fixed Fixed::operator+(const Fixed& other) const
+{
+	Fixed result;
+	result.setRawBits(this->fixedPointValue_ + other.getRawBits());
+	return (result);
+}
+
+Fixed Fixed::operator-(const Fixed& other) const
+{
+	Fixed result;
+	result.setRawBits(this->fixedPointValue_ - other.getRawBits());
+	return (result);
+}
+
+Fixed Fixed::operator*(const Fixed& other) const
+{
+	Fixed result;
+	result.setRawBits((this->fixedPointValue_ * other.getRawBits()) >> fractionalBits_);
+	return (result);
+}
+
+Fixed Fixed::operator/(const Fixed& other) const
+{
+	Fixed	result;
+	if (other.getRawBits() == 0)
+	{
+		std::cout << "Error: divide 0" << std::endl;
+		return (result);
+	}
+	result.setRawBits((this->fixedPointValue_ << fractionalBits_) / other.getRawBits());
+	return result;
+}
+
+//	2 increment and 2 decrement (reference and value)
+Fixed& Fixed::operator++()
+{
+	++this->fixedPointValue_;
+	return (*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed tmp(*this);
+	++fixedPointValue_;
+	return (tmp);
+}
+
+Fixed& Fixed::operator--()
+{
+	--this->fixedPointValue_;
+	return (*this);
+}
+
+Fixed& Fixed::operator--(int)
+{
+	Fixed tmp(*this);
+	--fixedPointValue_;
+	return (*this);
+}
+
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+	if (a < b)
+		return a;
+	return b;
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+	return (a < b) ? a : b;
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+	return (a > b) ? a : b;
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+	return (a > b) ? a : b;
 }
