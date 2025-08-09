@@ -15,5 +15,8 @@ int main()
 	std::cout << b.getRawBits() << std::endl;
 	std::cout << c.getRawBits() << std::endl;
 
+	std::cout << "print A: " << std::endl;
+	std::cout << a << std::endl;
+
 	return 0;
 }
