@@ -11,10 +11,12 @@ private:
 public:
 	Point();
 	Point(const float numFloatOne, const float numFloatTwo);
-
 	Point(const Point& other); //copy constructor
 	Point& operator=(const Point& other); //copy operator overload
 	~Point();
+
+	Fixed getX() const;
+	Fixed getY() const;
 };
 
 #endif //POINT_HPP

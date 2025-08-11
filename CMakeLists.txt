@@ -58,5 +58,4 @@ add_executable(Cpp_02_ex03
         cpp_module_02/ex03/Fixed.hpp
         cpp_module_02/ex03/Point.cpp
         cpp_module_02/ex03/Point.hpp
-#        cpp_module_02/ex03/bsp.cpp
 )
