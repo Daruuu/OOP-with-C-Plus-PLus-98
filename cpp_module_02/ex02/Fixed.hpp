@@ -70,7 +70,7 @@ public:
 	Fixed operator++(int);	//pos-increment
 
 	Fixed& operator--();	//pre-decrement
-	Fixed& operator--(int);	//pos-decrement
+	Fixed operator--(int);	//pos-decrement
 
 	/*
 	 * STATIC MIN / MAX FUNCTIONS

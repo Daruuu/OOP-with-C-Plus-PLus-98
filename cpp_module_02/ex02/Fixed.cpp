@@ -183,11 +183,11 @@ Fixed& Fixed::operator--()
 	return (*this);
 }
 
-Fixed& Fixed::operator--(int)
+Fixed Fixed::operator--(int)
 {
 	Fixed tmp(*this);
-	--fixedPointValue_;
-	return (*tmp);
+	fixedPointValue_--;
+	return (tmp);
 }
 
 // ============================================================
@@ -201,10 +201,7 @@ const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
 	return (a < b) ? a : b;
 }
 
-Fixed& Fixed::max(Fixed& a, Fixed& b)
-{
-	return (a > b) ? a : b;
-}
+Fixed& Fixed::max(Fixed& a, Fixed& b) { return (a > b) ? a : b; }
 
 const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
 {
