@@ -2,6 +2,7 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
 
 #define	RESET   "\033[0m"
 #define RED     "\033[31m"
@@ -19,6 +20,8 @@ private:
 	static const int fractionalBits_ = 8;
 
 public:
+	// CONSTRUCTORS / DESTRUCTOR / ASSIGNMENT OPERATOR
+
 	Fixed();
 	Fixed(const int intValue);
 	Fixed(const float floatValue);
@@ -26,12 +29,18 @@ public:
 	Fixed& operator =(const Fixed& other);
 	~Fixed();
 
+	// ACCESSORS AND CONVERSION METHODS
+
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
 	float toFloat(void) const;
 	int toInt(void) const;
 
-	//	public member functions OVERLOAD (sobrecarga)
+	/*
+	 * COMPARISON OPERATOR OVERLOADS
+	 * Allow comparing two Fixed objects using:
+	 * >, <, >=, <=, ==, !=
+	*/
 	bool operator>(const Fixed& other) const;
 	bool operator<(const Fixed& other) const;
 
@@ -41,38 +50,39 @@ public:
 	bool operator==(const Fixed& other) const;
 	bool operator!=(const Fixed& other) const;
 
-	// The 4 arithmetic operators: +, -, *, /
+	/*
+	 * ARITHMETIC OPERATOR OVERLOADS
+	 * Allow performing math operations (+, -, *, /)
+	 * directly between Fixed objects.
+	*/
 	Fixed operator+(const Fixed& other) const;
 	Fixed operator-(const Fixed& other) const;
 
 	Fixed operator*(const Fixed& other) const;
 	Fixed operator/(const Fixed& other) const;
 
-	//	4 increment and decrement with reference and using parameter
-	Fixed& operator++();
-	Fixed operator++(int);
+	/*
+	 * INCREMENT / DECREMENT OPERATOR OVERLOADS
+	 * Pre-increment (++x) and post-increment (x++),
+	 * pre-decrement (--x) and post-decrement (x--).
+	*/
+	Fixed& operator++();	//pre-increment
+	Fixed operator++(int);	//pos-increment
 
-	Fixed& operator--();
-	Fixed& operator--(int);
+	Fixed& operator--();	//pre-decrement
+	Fixed& operator--(int);	//pos-decrement
 
-	//	4 public OVERLOAD member functions
+	/*
+	 * STATIC MIN / MAX FUNCTIONS
+	 * Return a reference to the smallest or largest value
+	 * between two Fixed objects (overloaded for const and non-const).
+	*/
 
-	// 	A static member function min that takes two references to fixed-point numbers as
-	// parameters, and returns a reference to the smallest one.
 	static Fixed& min(Fixed& a, Fixed& b);
-
-	// A static member function min that takes two references to constant fixed-point
-	// numbers as parameters, and returns a reference to the smallest one.
 	static const Fixed& min(const Fixed& a, const Fixed& b);
 
-	// A static member function max that takes two references to fixed-point numbers as
-	// parameters, and returns a reference to the greatest one.
 	static Fixed& max(Fixed& a, Fixed& b);
-
-	//	A static member function max that takes two references to constant fixed-point
-	// numbers as parameters, and returns a reference to the greatest one
 	static const Fixed& max(const Fixed& a, const Fixed& b);
-
 };
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed);

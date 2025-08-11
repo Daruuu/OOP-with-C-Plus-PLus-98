@@ -1,19 +1,23 @@
 #include "Fixed.hpp"
 
-#include <cmath>
-
+// ============================================================
+//  1. CONSTRUCTORS & DESTRUCTOR
+// ============================================================
+//	Default constructor
 Fixed::Fixed() : fixedPointValue_(0)
 {
 	std::cout << BLUE "Default constructor called" RESET
 		<< std::endl;
 }
 
+//	Copy constructor
 Fixed::Fixed(const Fixed& other)
 {
 	std::cout << GREEN "Copy constructor called" RESET << std::endl;
 	this->fixedPointValue_ = other.getRawBits();
 }
 
+//	Copy assignment operator
 Fixed& Fixed::operator=(const Fixed& other)
 {
 	std::cout << YELLOW "Copy assignment operator called" RESET << std::endl;
@@ -23,10 +27,34 @@ Fixed& Fixed::operator=(const Fixed& other)
 	return *this;
 }
 
+//	Destructor
 Fixed::~Fixed()
 {
 	std::cout << RED "Destructor called" RESET << std::endl;
 }
+
+// Constructor from int
+Fixed::Fixed(const int intValue)
+{
+	std::cout << "Int constructor called" << std::endl;
+	// 00000000 00000000 00000000 00101010   ← 42 in binary before shift
+	// 00000000 00000000 00101010 00000000   ← after shift
+	this->fixedPointValue_ = intValue << fractionalBits_;
+}
+
+// Constructor from float
+Fixed::Fixed(const float floatValue)
+{
+	std::cout << "Float constructor called" << std::endl;
+	//	(1 << 8 ) = 256
+	//	42.42f * (256) = 10859.52
+	//	rounf ( 10859.52) = 10860
+	this->fixedPointValue_ = roundf(floatValue * (1 << fractionalBits_));
+}
+
+// ============================================================
+//  2. GETTERS / SETTERS
+// ============================================================
 
 int Fixed::getRawBits() const
 {
@@ -38,23 +66,9 @@ void Fixed::setRawBits(int const raw)
 	this->fixedPointValue_ = raw;
 }
 
-Fixed::Fixed(const int intValue)
-{
-	std::cout << "Int constructor called" << std::endl;
-	// 00000000 00000000 00000000 00101010   ← 42 in binary before shift
-	// 00000000 00000000 00101010 00000000   ← after shift
-	this->fixedPointValue_ = intValue << fractionalBits_;
-}
-
-Fixed::Fixed(const float floatValue)
-{
-	std::cout << "Float constructor called" << std::endl;
-	//	(1 << 8 ) = 256
-	//	42.42f * (256) = 10859.52
-	//	rounf ( 10859.52) = 10860
-	this->fixedPointValue_ = roundf(floatValue * (1 << fractionalBits_));
-}
-
+// ============================================================
+//  3. TYPE CONVERSIONS
+// ============================================================
 float Fixed::toFloat() const
 {
 	return (float)this->fixedPointValue_ / (1 << fractionalBits_);
@@ -65,12 +79,18 @@ int Fixed::toInt() const
 	return this->fixedPointValue_ >> fractionalBits_;
 }
 
+// ============================================================
+//  4. STREAM OUTPUT OVERLOAD
+// ============================================================
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
 {
 	out << fixed.toFloat();
 	return out;
 }
-//	COMPARISON OPERATORS OVERLOAD----------------------------------
+
+// ============================================================
+//  5. COMPARISON OPERATORS
+// ============================================================
 bool Fixed::operator>(const Fixed& other) const
 {
 	return (this->fixedPointValue_ > other.fixedPointValue_);
@@ -101,7 +121,9 @@ bool Fixed::operator!=(const Fixed& other) const
 	return this->fixedPointValue_ != other.fixedPointValue_;
 }
 
-//	4 ARITHMETIC OPERATORS
+// ============================================================
+//  6. ARITHMETIC OPERATORS
+// ============================================================
 
 Fixed Fixed::operator+(const Fixed& other) const
 {
@@ -120,23 +142,28 @@ Fixed Fixed::operator-(const Fixed& other) const
 Fixed Fixed::operator*(const Fixed& other) const
 {
 	Fixed result;
-	result.setRawBits((this->fixedPointValue_ * other.getRawBits()) >> fractionalBits_);
+	result.setRawBits(
+		(this->fixedPointValue_ * other.getRawBits()) >> fractionalBits_);
 	return (result);
 }
 
 Fixed Fixed::operator/(const Fixed& other) const
 {
-	Fixed	result;
+	Fixed result;
 	if (other.getRawBits() == 0)
 	{
-		std::cout << "Error: divide 0" << std::endl;
+		std::cout << "Error: division by zero" << std::endl;
 		return (result);
 	}
-	result.setRawBits((this->fixedPointValue_ << fractionalBits_) / other.getRawBits());
+	//	(5 << 8) / 0
+	result.setRawBits(
+		(this->fixedPointValue_ << fractionalBits_) / other.getRawBits());
 	return result;
 }
+// ============================================================
+//  7. INCREMENT & DECREMENT OPERATORS
+// ============================================================
 
-//	2 increment and 2 decrement (reference and value)
 Fixed& Fixed::operator++()
 {
 	++this->fixedPointValue_;
@@ -160,15 +187,14 @@ Fixed& Fixed::operator--(int)
 {
 	Fixed tmp(*this);
 	--fixedPointValue_;
-	return (*this);
+	return (*tmp);
 }
 
-Fixed& Fixed::min(Fixed& a, Fixed& b)
-{
-	if (a < b)
-		return a;
-	return b;
-}
+// ============================================================
+//  8. MIN / MAX STATIC FUNCTIONS
+// ============================================================
+
+Fixed& Fixed::min(Fixed& a, Fixed& b) { return (a < b) ? a : b;}
 
 const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
 {
