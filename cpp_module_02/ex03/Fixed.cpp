@@ -6,21 +6,21 @@
 //	Default constructor
 Fixed::Fixed() : fixedPointValue_(0)
 {
-	std::cout << BLUE "Default constructor called" RESET
-		<< std::endl;
+	// std::cout << BLUE "Default constructor called" RESET
+		// << std::endl;
 }
 
 //	Copy constructor
 Fixed::Fixed(const Fixed& other)
 {
-	std::cout << GREEN "Copy constructor called" RESET << std::endl;
+	// std::cout << GREEN "Copy constructor called" RESET << std::endl;
 	this->fixedPointValue_ = other.getRawBits();
 }
 
 //	Copy assignment operator
 Fixed& Fixed::operator=(const Fixed& other)
 {
-	std::cout << YELLOW "Copy assignment operator called" RESET << std::endl;
+	// std::cout << YELLOW "Copy assignment operator called" RESET << std::endl;
 
 	if (this != &other)
 		this->fixedPointValue_ = other.getRawBits();
@@ -30,13 +30,13 @@ Fixed& Fixed::operator=(const Fixed& other)
 //	Destructor
 Fixed::~Fixed()
 {
-	std::cout << RED "Destructor called" RESET << std::endl;
+	// std::cout << RED "Destructor called" RESET << std::endl;
 }
 
 // Constructor from int
 Fixed::Fixed(const int intValue)
 {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 	// 00000000 00000000 00000000 00101010   ← 42 in binary before shift
 	// 00000000 00000000 00101010 00000000   ← after shift
 	this->fixedPointValue_ = intValue << fractionalBits_;
@@ -45,7 +45,7 @@ Fixed::Fixed(const int intValue)
 // Constructor from float
 Fixed::Fixed(const float floatValue)
 {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 	//	(1 << 8 ) = 256
 	//	42.42f * (256) = 10859.52
 	//	rounf ( 10859.52) = 10860

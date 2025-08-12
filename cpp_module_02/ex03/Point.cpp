@@ -18,7 +18,7 @@ Point::Point(const Point& other) : x_(other.x_), y_(other.y_)
 
 Point::~Point()
 {
-	std::cout << RED "Destructor POINT called" RESET << std::endl;
+	// std::cout << RED "Destructor POINT called" RESET << std::endl;
 }
 
 Fixed Point::getX() const
