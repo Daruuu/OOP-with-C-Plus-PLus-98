@@ -75,20 +75,13 @@ void ClapTrap::setAttackDamage(int attack_damage)
 	this->attackDamage_ = attack_damage;
 }
 
-/*
-
-When ClapTrap repairs itself, it regains <amount> hit points. Attacking and repairing
-each cost 1 energy point.
-
-Of course, ClapTrap can’t do anything if it has no hit points or
-energy points left.
-
-However, since these exercises serve as an introduction, the ClapTrap
-instances should not interact directly with one another, and the parameters will not refer
-to another instance of ClapTrap
-*/
-
-// When ClapTrap attacks, it causes its target to lose <attack damage> hit points.
+/**
+ * @brief   Attacks a target, causing damage equal to attackDamage_.
+ *          Costs 1 energy point to perform the attack.
+ *          Does nothing if hitPoints_ <= 0 or energyPoints_ <= 0.
+ *
+ * @param   target The name of the entity being attacked.
+ */
 void ClapTrap::attack(const std::string& target)
 {
 	if (hitPoints_ <= 0 || energyPoints_ <= 0)
@@ -101,6 +94,12 @@ void ClapTrap::attack(const std::string& target)
 		<< ", causing " << attackDamage_ << " points of damage!" << std::endl;
 }
 
+/**
+ * @brief   Reduces the ClapTrap's hit points by the given amount.
+ *          If hitPoints_ drops below 0, it is set to 0.
+ *
+ * @param   amount The amount of damage to take.
+ */
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	hitPoints_ -= amount;
@@ -110,6 +109,13 @@ void ClapTrap::takeDamage(unsigned int amount)
 		<< " points of damage! Remaining HP: " << hitPoints_ << std::endl;
 }
 
+/**
+ * @brief   Repairs the ClapTrap by increasing hitPoints_ by the given amount.
+ *          Costs 1 energy point to perform the repair.
+ *          Does nothing if hitPoints_ <= 0 or energyPoints_ <= 0.
+ *
+ * @param   amount The amount of HP to restore.
+ */
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (hitPoints_ <= 0 || energyPoints_ <= 0)
