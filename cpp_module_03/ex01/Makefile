@@ -3,13 +3,13 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -O2 -fsanitize=address -MMD
 
 # name of executable
-NAME = Aaaaand...OPEN 
+NAME = Serena_my_love 
 
 # sources
-SRCS = main.cpp ClapTrap.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
+
 OBJS = $(SRCS:.cpp=.o)
 DEPENDS = $(OBJS:.o=.d)
--include $(DEPENDS)
 
 all: $(NAME)
 
@@ -27,4 +27,5 @@ fclean: clean
 
 re: fclean all
 
+-include $(DEPENDS)
 .PHONY: all clean fclean re

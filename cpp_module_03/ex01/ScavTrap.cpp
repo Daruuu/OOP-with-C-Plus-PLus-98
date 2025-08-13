@@ -14,7 +14,7 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 	hitPoints_ = 100;
 	energyPoints_ = 50;
 	attackDamage_ = 20;
-	std::cout << "ScavTrap " << _name << " is created!"
+	std::cout << "ScavTrap " << name_ << " is created!"
 	<< std::endl;
 }
 
@@ -40,13 +40,24 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::attack(const std::string& target)
 {
-	if (hitPoints_ > 0 || energyPoints_ > 0)
+	if (hitPoints_ > 0 && energyPoints_ > 0)
 	{
 		std::cout << "ScavTrap " << name_ << " attacks " << target << ", causing " << attackDamage_ << " points of damage!"
 		<< std::endl;
+		energyPoints_--;
 	}
+	else if (hitPoints_ <= 0)
+	{
+		std::cout << "ScavTrap " << name_ << " cannot attack because it's out of hit points!"
+		<< std::endl;
+	}
+	else
+		std::cout << "ScavTrap " << name_ << " is out of energy and cannot attack!"
+		<< std::endl;
 }
 
 void ScavTrap::guardGate()
 {
+	std::cout << "ScavTrap " << name_ << " is now in Gate keeper mode."
+	<< std::endl;
 }
