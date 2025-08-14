@@ -6,7 +6,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -O2 -fsanitize=address -MMD
 NAME = Now_its_weird
 
 # sources
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp Diamond.cpp 
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 DEPENDS = $(OBJS:.o=.d)
