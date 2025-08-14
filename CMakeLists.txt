@@ -59,3 +59,15 @@ add_executable(Cpp_02_ex03
         cpp_module_02/ex03/Point.cpp
         cpp_module_02/ex03/Point.hpp
 )
+
+add_executable(Cpp_03_ex03
+        cpp_module_03/ex03/main.cpp
+        cpp_module_03/ex03/ClapTrap.hpp
+        cpp_module_03/ex03/ClapTrap.cpp
+        cpp_module_03/ex03/ScavTrap.hpp
+        cpp_module_03/ex03/ScavTrap.cpp
+        cpp_module_03/ex03/FragTrap.hpp
+        cpp_module_03/ex03/FragTrap.cpp
+        cpp_module_03/ex03/DiamondTrap.hpp
+        cpp_module_03/ex03/DiamondTrap.cpp
+)
