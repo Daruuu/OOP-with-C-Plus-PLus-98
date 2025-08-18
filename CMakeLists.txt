@@ -71,3 +71,9 @@ add_executable(Cpp_03_ex03
         cpp_module_03/ex03/DiamondTrap.hpp
         cpp_module_03/ex03/DiamondTrap.cpp
 )
+
+add_executable(Cpp04_ex00
+        cpp_module_04/ex00/main.cpp
+        cpp_module_04/ex00/Animal.cpp
+
+)
