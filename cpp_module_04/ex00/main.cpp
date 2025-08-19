@@ -5,6 +5,7 @@
 #include "WrongCat.hpp"
 
 
+/*
 int main()
 {
 	const Animal* meta = new Animal();
@@ -20,7 +21,8 @@ int main()
 	delete i;
 	return 0;
 }
-/*
+*/
+
 int main()
 {
     std::cout << "\n=== Test 1: Basic instances ===" << std::endl;
@@ -124,8 +126,6 @@ int main()
     std::cout << "\n=== All tests finished ===" << std::endl;
     return 0;
 }
-*/
-
 
 /*
 int main()

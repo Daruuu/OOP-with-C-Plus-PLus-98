@@ -5,8 +5,6 @@
 
 class WrongCat : public WrongAnimal
 {
-private:
-	std::string type_;
 
 public:
 	WrongCat();
@@ -14,8 +12,7 @@ public:
 	WrongCat& operator=(const WrongCat& other);
 	~WrongCat();
 
-	void makeSound();
-	// std::string getType() const;
+	void makeSound();	// not VIRTUAL no polymorfism
 };
 
 #endif //WRONGCAT_HPP

@@ -34,10 +34,3 @@ void WrongCat::makeSound()
 	std::cout << GREEN << "WrongCat sound  wrong :(" << RESET
 	<< std::endl;
 }
-
-/*
-std::string WrongCat::getType() const
-{
-return this->type_;
-}
-*/
