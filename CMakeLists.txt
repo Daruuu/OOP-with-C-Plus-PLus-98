@@ -79,5 +79,9 @@ add_executable(Cpp04_ex00
         cpp_module_04/ex00/Dog.hpp
         cpp_module_04/ex00/Cat.cpp
         cpp_module_04/ex00/Cat.hpp
+        cpp_module_04/ex00/WrongCat.cpp
+        cpp_module_04/ex00/WrongCat.hpp
+        cpp_module_04/ex00/WrongAnimal.cpp
+        cpp_module_04/ex00/WrongAnimal.hpp
 
 )

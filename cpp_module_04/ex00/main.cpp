@@ -1,6 +1,8 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
@@ -51,37 +53,48 @@ int main()
 
     std::cout << "\n=== Test 4: Array of Animals ===" << std::endl;
     const Animal* animals[4];
+
     for (int i = 0; i < 2; ++i)
+    {
     	animals[i] = new Dog();
+    }
     for (int i = 2; i < 4; ++i)
+    {
     	animals[i] = new Cat();
+    }
 
-    for (int i = 0; i < 4; ++i)
-        animals[i]->makeSound();
+	std::cout << "\n=== Test 1: Basic instances with WrongAnimals ===" << std::endl;
+	WrongAnimal wa;
+	wa.makeSound();
 
-    for (int i = 0; i < 4; ++i)
-        delete animals[i];
+	WrongCat wc;
+	wc.makeSound();
 
-	/*
-    std::cout << "\n=== Test 5: WrongAnimal vs WrongCat (no virtual) ===" << std::endl;
-    class WrongAnimal {
-    public:
-        void makeSound() const { std::cout << "WrongAnimal sound\n"; }
-        ~WrongAnimal() { std::cout << "WrongAnimal destructor\n"; }
-    };
+	std::cout << "\n=== Test 2: Polymorphism without virtual ===" << std::endl;
+	const WrongAnimal* wrong = new WrongCat();
 
-    class WrongCat : public WrongAnimal {
-    public:
-        void makeSound() const { std::cout << "Meow???\n"; }
-        ~WrongCat() { std::cout << "WrongCat destructor\n"; }
-    };
+	std::cout << "Type: " << wrong->getType() << std::endl;
+	wrong->makeSound(); // should call WrongAnimal::makeSound()
 
-    const WrongAnimal* wa = new WrongCat();
-    wa->makeSound(); // sorpresa: imprime "WrongAnimal sound", no "Meow???"
-    delete wa;       // se llama solo ~WrongAnimal (no virtual destructor)
+	delete wrong;
 
-	*/
-    std::cout << "\n=== All tests finished ===" << std::endl;
+	std::cout << "\n=== Test 3: Copy & Assignment ===" << std::endl;
+	WrongCat wc1;
+	WrongCat wc2(wc1);   // copy constructor
+	WrongCat wc3;
+	wc3 = wc1;           // copy assignment
+
+	for (int i = 0; i < 4; ++i)
+	{
+		animals[i]->makeSound();
+	}
+
+	for (int i = 0; i < 4; ++i)
+	{
+		delete animals[i];
+	}
+	std::cout << "\n=== All tests finished ===" << std::endl;
+
     return 0;
 }
 
