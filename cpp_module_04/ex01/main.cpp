@@ -1,3 +1,5 @@
+#include <cstdlib>
+
 #include "Animal.hpp"
 #include "Brain.hpp"
 #include "Dog.hpp"
@@ -5,10 +7,27 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
+// void check_leaks()
+// {
+// 	system("leaks Polypolymorphism");
+// }
+
 int main()
 {
 	Brain*	brainTest = new Brain();
 	brainTest->getIdea(10);
+
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	delete j;
+	delete i;
+
+	const Animal *animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
+	for (int i = 0; i < 4; i++)
+		delete animals[i];
+
+	// atexit(check_leaks);
+
 
 	return 0;
 }
