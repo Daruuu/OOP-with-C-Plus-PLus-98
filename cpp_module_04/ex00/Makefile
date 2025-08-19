@@ -6,7 +6,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -O2 -fsanitize=address -MMD
 NAME = Polymorphism
 
 # sources
-SRCS = main.cpp #.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 DEPENDS = $(OBJS:.o=.d)

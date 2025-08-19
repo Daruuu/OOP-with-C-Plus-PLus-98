@@ -1,5 +1,5 @@
-#ifndef STARTING_WITH_CPP_ANIMAL_HPP
-#define STARTING_WITH_CPP_ANIMAL_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
@@ -22,9 +22,10 @@ public:
 	Animal();
 	Animal(const Animal& other);
 	Animal& operator=(const Animal& other);
-	~Animal();
+	virtual ~Animal();
 
-	void makesound();
+	virtual void makeSound() const;
+	std::string getType() const;
 
 };
 #endif //STARTING_WITH_CPP_ANIMAL_HPP
