@@ -1,4 +1,4 @@
-#ifndef STARTING_WITH_CPP_DOG_HPP
+#ifndef DOG_HPP
 #define DOG_HPP
 #include "Animal.hpp"
 
@@ -14,4 +14,4 @@ public:
 	void makeSound() const;
 };
 
-#endif //STARTING_WITH_CPP_DOG_HPP
+#endif //DOG_HPP

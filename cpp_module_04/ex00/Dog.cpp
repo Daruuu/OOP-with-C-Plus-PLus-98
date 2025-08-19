@@ -30,6 +30,6 @@ Dog::~Dog()
 
 void Dog::makeSound() const
 {
-	std::cout << MAGENTA << "Dog sound " << RESET << type_
+	std::cout << MAGENTA << "Dog sound: guaooo" << RESET
 	<< std::endl;
 }
