@@ -83,5 +83,20 @@ add_executable(Cpp04_ex00
         cpp_module_04/ex00/WrongCat.hpp
         cpp_module_04/ex00/WrongAnimal.cpp
         cpp_module_04/ex00/WrongAnimal.hpp
+)
+
+add_executable(Cpp04_ex01
+        cpp_module_04/ex01/main.cpp
+        cpp_module_04/ex01/Animal.cpp
+        cpp_module_04/ex01/Dog.cpp
+        cpp_module_04/ex01/Dog.hpp
+        cpp_module_04/ex01/Cat.cpp
+        cpp_module_04/ex01/Cat.hpp
+        cpp_module_04/ex01/WrongCat.cpp
+        cpp_module_04/ex01/WrongCat.hpp
+        cpp_module_04/ex01/WrongAnimal.cpp
+        cpp_module_04/ex01/WrongAnimal.hpp
+        cpp_module_04/ex01/Brain.cpp
+        cpp_module_04/ex01/Brain.hpp
 
 )
