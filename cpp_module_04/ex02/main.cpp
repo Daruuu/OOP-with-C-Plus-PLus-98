@@ -47,8 +47,8 @@ int main()
 	std::cout << "---------------------\n";
 
 	std::cout << "*********************************\n";
-	dog->makeSound(); // should bark
-	cat->makeSound(); // should meow
+	dog->makeSound();
+	cat->makeSound();
 	std::cout << "*********************************\n";
 
 	delete dog;
@@ -56,7 +56,7 @@ int main()
 
 	std::cout << std::endl << "---- Test 3: Destructores virtuales ----" << std::endl;
 	const AAnimal* test = new Dog();
-	delete test; // si AAnimal destructor no es virtual → leak
+	delete test;
 
 	std::cout << std::endl << "---- Test 4: Copia y asignación ----" << std::endl;
 	Dog basic;
