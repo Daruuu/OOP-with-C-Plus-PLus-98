@@ -1,9 +1,12 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.1.1 Chrome/132.0.6834.210 Electron/34.3.3 Safari/537.36" version="26.1.1">
   <diagram name="Page-1" id="efa7a0a1-bf9b-a30e-e6df-94a7791c09e9">
-    <mxGraphModel dx="1301" dy="606" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="826" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1195" dy="704" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="826" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="hZEDpm0toGvUgialIUDV-120" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" vertex="1" parent="1">
+          <mxGeometry x="5520" y="40" width="1090" height="1600" as="geometry" />
+        </mxCell>
         <mxCell id="hZEDpm0toGvUgialIUDV-3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" vertex="1" parent="1">
           <mxGeometry x="1800" y="40" width="1000" height="2450" as="geometry" />
         </mxCell>
@@ -1168,6 +1171,278 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="hZEDpm0toGvUgialIUDV-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="fwsMMfWR81BA29WD7r7V-107" target="fwsMMfWR81BA29WD7r7V-164">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-40" value="AAnimal.hpp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="5936" y="191" width="280" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-41" value="&lt;div&gt;# - type_ : std::string&amp;nbsp;&lt;/div&gt;" style="text;strokeColor=#b85450;fillColor=#f8cecc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-40">
+          <mxGeometry y="26" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-42" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="hZEDpm0toGvUgialIUDV-40">
+          <mxGeometry y="52" width="280" height="2" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-43" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ AAnimal()&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-40">
+          <mxGeometry y="54" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-44" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ AAnimal(const&amp;amp;)&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-40">
+          <mxGeometry y="80" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-45" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ operator=(const&amp;amp;)&lt;/p&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-40">
+          <mxGeometry y="106" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-46" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ virtual ~Animal()&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-40">
+          <mxGeometry y="132" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-47" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ virtual makeSound() const = 0;&lt;/p&gt;" style="text;strokeColor=#82b366;fillColor=#d5e8d4;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-40">
+          <mxGeometry y="158" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-48" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ getType()&amp;nbsp; const&lt;/p&gt;" style="text;strokeColor=#9673a6;fillColor=#e1d5e7;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-40">
+          <mxGeometry y="184" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-49" value="Dog.hpp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="5760" y="585" width="160" height="184" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-50" value="- Brain* brain_;" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-49">
+          <mxGeometry y="26" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-51" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="hZEDpm0toGvUgialIUDV-49">
+          <mxGeometry y="52" width="160" height="2" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-52" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ Dog()&amp;nbsp;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;//&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;new Brain&lt;/p&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-49">
+          <mxGeometry y="54" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-53" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ Dog(const &amp;amp;)&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-49">
+          <mxGeometry y="80" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-54" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ operator=&lt;/p&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-49">
+          <mxGeometry y="106" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-55" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ ~Dog()&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-49">
+          <mxGeometry y="132" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-56" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ makeSound() const&lt;/p&gt;" style="text;strokeColor=#9673a6;fillColor=#e1d5e7;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-49">
+          <mxGeometry y="158" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-57" value="Cat.hpp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="6080" y="585" width="160" height="184" as="geometry">
+            <mxRectangle x="4232" y="510" width="80" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-58" value="- Brain* brain_;" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-57">
+          <mxGeometry y="26" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-59" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="hZEDpm0toGvUgialIUDV-57">
+          <mxGeometry y="52" width="160" height="2" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-60" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ Cat()&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;new Brain&lt;/span&gt;&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-57">
+          <mxGeometry y="54" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-61" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ Cat(const &amp;amp;)&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-57">
+          <mxGeometry y="80" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-62" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ operator=&lt;/p&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-57">
+          <mxGeometry y="106" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-63" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ ~Cat()&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-57">
+          <mxGeometry y="132" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-64" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ makeSound() const&lt;/p&gt;" style="text;strokeColor=#9673a6;fillColor=#e1d5e7;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-57">
+          <mxGeometry y="158" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.43;entryY=0.962;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" source="hZEDpm0toGvUgialIUDV-49" target="hZEDpm0toGvUgialIUDV-48" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.563;entryY=1.027;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" source="hZEDpm0toGvUgialIUDV-57" target="hZEDpm0toGvUgialIUDV-48" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-67" value="Una clase abstracta en C++ se crea declarando &lt;strong data-end=&quot;720&quot; data-start=&quot;683&quot;&gt;al menos una función virtual pura&lt;/strong&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="6290" y="130" width="300" height="53.5" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="hZEDpm0toGvUgialIUDV-47" target="hZEDpm0toGvUgialIUDV-67" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-69" value="&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Cuando un metodo es virtual, va de la mano poner el destructor virtual tambien&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;En C++ se consulta la &lt;/span&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;1176&quot; data-start=&quot;1166&quot;&gt;vtable&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; (tabla de funciones virtuales).&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Se ejecuta primero &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;1240&quot; data-start=&quot;1232&quot;&gt;~Dog()&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;, después &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;1261&quot; data-start=&quot;1250&quot;&gt;~Animal()&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Todo se libera correctamente → no hay fugas.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="5550" y="60" width="360" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" source="hZEDpm0toGvUgialIUDV-46" target="hZEDpm0toGvUgialIUDV-69" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-71" value="WrongAnimal.hpp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="5580" y="1013" width="280" height="184" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-72" value="&lt;div&gt;# - type_ : std::string&amp;nbsp;&lt;/div&gt;" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-71">
+          <mxGeometry y="26" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-73" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="hZEDpm0toGvUgialIUDV-71">
+          <mxGeometry y="52" width="280" height="2" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-74" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ WrongAnimal()&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-71">
+          <mxGeometry y="54" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-75" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ WrongAnimal(const&amp;amp;)&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-71">
+          <mxGeometry y="80" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-76" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ operator=(const&amp;amp;)&lt;/p&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-71">
+          <mxGeometry y="106" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-77" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ ~WrongAnimal()&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-71">
+          <mxGeometry y="132" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-78" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ makeSound() const&amp;nbsp;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;// ⚠️ NOT virtual&lt;/span&gt;&lt;/p&gt;" style="text;strokeColor=#82b366;fillColor=#d5e8d4;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-71">
+          <mxGeometry y="158" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" source="hZEDpm0toGvUgialIUDV-81" target="hZEDpm0toGvUgialIUDV-71" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="hZEDpm0toGvUgialIUDV-81" target="hZEDpm0toGvUgialIUDV-90" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-81" value="WrongCat.hpp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="5580" y="1275" width="280" height="184" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-82" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="hZEDpm0toGvUgialIUDV-81">
+          <mxGeometry y="26" width="280" height="2" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-83" value="" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-81">
+          <mxGeometry y="28" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-84" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ WrongCat()&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-81">
+          <mxGeometry y="54" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-85" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ WrongCat(const &amp;amp;)&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-81">
+          <mxGeometry y="80" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-86" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ operator==(const&amp;amp;)&lt;/p&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-81">
+          <mxGeometry y="106" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-87" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ ~WrongCat()&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-81">
+          <mxGeometry y="132" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-88" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ makeSound()&amp;nbsp;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;// not overriding virtual&lt;/span&gt;&lt;/p&gt;" style="text;strokeColor=#9673a6;fillColor=#e1d5e7;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-81">
+          <mxGeometry y="158" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-89" value="&lt;div style=&quot;&quot;&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2340&quot; data-start=&quot;2327&quot;&gt;WrongAnimal&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; no declara &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2365&quot; data-start=&quot;2352&quot;&gt;makeSound()&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; como virtual → &lt;/span&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2402&quot; data-start=&quot;2381&quot;&gt;polimorfismo roto&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;.&lt;/span&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="5910" y="1128.75" width="270" height="46.25" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-90" value="&lt;div style=&quot;&quot;&gt;&lt;p data-end=&quot;2324&quot; data-start=&quot;2308&quot;&gt;&lt;/p&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2418&quot; data-start=&quot;2408&quot;&gt;&lt;div style=&quot;text-align: center;&quot;&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2418&quot; data-start=&quot;2408&quot;&gt;WrongCat&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-family: Helvetica;&quot;&gt; implementa &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2443&quot; data-start=&quot;2430&quot;&gt;makeSound()&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-family: Helvetica;&quot;&gt;, pero si usas un puntero &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2483&quot; data-start=&quot;2469&quot;&gt;WrongAnimal*&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-family: Helvetica;&quot;&gt; a un &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2499&quot; data-start=&quot;2489&quot;&gt;WrongCat&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-family: Helvetica;&quot;&gt;, se llamará la versión de &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2539&quot; data-start=&quot;2526&quot;&gt;WrongAnimal&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-family: Helvetica;&quot;&gt;.&lt;/span&gt;&lt;/div&gt;&lt;/code&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="5920" y="1331.25" width="270" height="71.5" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-91" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#0050ef;strokeColor=#001DBC;" edge="1" source="hZEDpm0toGvUgialIUDV-93" target="hZEDpm0toGvUgialIUDV-50" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="6420" y="885" />
+              <mxPoint x="5980" y="885" />
+              <mxPoint x="5980" y="624" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-92" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#0050ef;strokeColor=#001DBC;" edge="1" source="hZEDpm0toGvUgialIUDV-93" target="hZEDpm0toGvUgialIUDV-58" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="6420" y="905" />
+              <mxPoint x="6020" y="905" />
+              <mxPoint x="6020" y="624" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-93" value="Brain.hpp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="6250" y="935" width="280" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-94" value="&lt;div&gt;- idea_[100] : std::string&amp;nbsp;&lt;/div&gt;" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-93">
+          <mxGeometry y="26" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-95" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="hZEDpm0toGvUgialIUDV-93">
+          <mxGeometry y="52" width="280" height="2" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-96" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ Brain()&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-93">
+          <mxGeometry y="54" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-97" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ Brain(const&amp;amp;)&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-93">
+          <mxGeometry y="80" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-98" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ operator=(const&amp;amp;)&lt;/p&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-93">
+          <mxGeometry y="106" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-99" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ ~Brain()&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-93">
+          <mxGeometry y="132" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-100" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ setIdea(index : int, idea: std::string);&lt;/p&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-93">
+          <mxGeometry y="158" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-101" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ getIdea(index : int);&lt;/p&gt;" style="text;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="hZEDpm0toGvUgialIUDV-93">
+          <mxGeometry y="184" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-102" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Sirve como ejemplo de &lt;/span&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;419&quot; data-start=&quot;404&quot;&gt;composición&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: un objeto que vive dentro de otro.&lt;/span&gt;&lt;/div&gt;&lt;pre data-end=&quot;662&quot; data-start=&quot;460&quot; class=&quot;overflow-visible!&quot;&gt;&lt;div class=&quot;contain-inline-size rounded-2xl relative bg-token-sidebar-surface-primary&quot;&gt;&lt;div class=&quot;sticky top-9&quot;&gt;&lt;div class=&quot;absolute end-0 bottom-0 flex h-9 items-center pe-2&quot;&gt;&lt;div class=&quot;bg-token-bg-elevated-secondary text-token-text-secondary flex items-center gap-4 rounded-sm px-2 font-sans text-xs&quot;&gt;&lt;span data-state=&quot;closed&quot; class=&quot;&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div dir=&quot;ltr&quot; class=&quot;overflow-y-auto p-4&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="6340" y="815" width="230" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-103" value="Update constructor &amp;amp; initilize Brain *." style="rounded=1;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="5570" y="585" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-104" value="Add delete of Brain_." style="rounded=1;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="5585" y="769" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-105" value="Update constructor &amp;amp; initilize Brain." style="rounded=1;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="6290" y="585" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-106" value="Add delete of Brain_." style="rounded=1;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="6300" y="769" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-107" value="&lt;div style=&quot;&quot;&gt;&lt;strong data-end=&quot;630&quot; data-start=&quot;616&quot;&gt;NO virtual&lt;/strong&gt; → se produce &lt;em data-end=&quot;662&quot; data-start=&quot;644&quot;&gt;binding estático&lt;/em&gt; (resolución en tiempo de compilación).&lt;p&gt;&lt;/p&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="5910" y="1209" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-108" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="hZEDpm0toGvUgialIUDV-78" target="hZEDpm0toGvUgialIUDV-89" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-109" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="hZEDpm0toGvUgialIUDV-78" target="hZEDpm0toGvUgialIUDV-107" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-110" value="Con &lt;code data-end=&quot;2020&quot; data-start=&quot;2007&quot;&gt;WrongAnimal&lt;/code&gt; → aunque el objeto real es &lt;code data-end=&quot;2058&quot; data-start=&quot;2048&quot;&gt;WrongCat&lt;/code&gt;, al no ser &lt;code data-end=&quot;2083&quot; data-start=&quot;2070&quot;&gt;makeSound()&lt;/code&gt; virtual, &lt;strong data-end=&quot;2129&quot; data-start=&quot;2093&quot;&gt;se llama siempre la versión base&lt;/strong&gt;." style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="5921" y="1416" width="269" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-111" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="hZEDpm0toGvUgialIUDV-88" target="hZEDpm0toGvUgialIUDV-110" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="hZEDpm0toGvUgialIUDV-63" target="hZEDpm0toGvUgialIUDV-106" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-113" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="hZEDpm0toGvUgialIUDV-55" target="hZEDpm0toGvUgialIUDV-104" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-114" value="Add delete of Brain_ and create new pointer Brain." style="rounded=1;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="5580" y="679" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-115" value="Add delete of Brain_ and create new pointer Brain." style="rounded=1;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="6300" y="679" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-116" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="hZEDpm0toGvUgialIUDV-62" target="hZEDpm0toGvUgialIUDV-115" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-117" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="hZEDpm0toGvUgialIUDV-54" target="hZEDpm0toGvUgialIUDV-114" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-118" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" source="hZEDpm0toGvUgialIUDV-60" target="hZEDpm0toGvUgialIUDV-105" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-119" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" source="hZEDpm0toGvUgialIUDV-52" target="hZEDpm0toGvUgialIUDV-103" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-121" value="&lt;h1&gt;&lt;b&gt;Module CPP 04&lt;/b&gt;&lt;/h1&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="5937" y="40" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-122" value="&lt;h1&gt;&lt;b&gt;Ex 02&lt;/b&gt;&lt;/h1&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="6126" y="40" width="90" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-124" value="virtual function pure" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="6290" y="239" width="120" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-125" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="hZEDpm0toGvUgialIUDV-47" target="hZEDpm0toGvUgialIUDV-124">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-126" value="&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Esto convierte a &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;1112&quot; data-start=&quot;1104&quot;&gt;Animal&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; en una &lt;/span&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;1139&quot; data-start=&quot;1120&quot;&gt;clase abstracta&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Ya &lt;/span&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;1183&quot; data-start=&quot;1148&quot;&gt;no se puede instanciar &lt;code data-end=&quot;1181&quot; data-start=&quot;1173&quot;&gt;Animal&lt;/code&gt;&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; directamente.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Solo las clases derivadas (&lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;1234&quot; data-start=&quot;1229&quot;&gt;Dog&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;, &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;1241&quot; data-start=&quot;1236&quot;&gt;Cat&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;) pueden implementar &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;1275&quot; data-start=&quot;1262&quot;&gt;makeSound()&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; y, por tanto, ser instanciables.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="6283" y="317" width="325" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="hZEDpm0toGvUgialIUDV-127" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="hZEDpm0toGvUgialIUDV-47" target="hZEDpm0toGvUgialIUDV-126">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>

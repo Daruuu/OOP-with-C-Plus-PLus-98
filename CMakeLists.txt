@@ -100,3 +100,22 @@ add_executable(Cpp04_ex01
         cpp_module_04/ex01/Brain.hpp
 
 )
+
+add_executable(Cpp04_ex02
+        cpp_module_04/ex02/main.cpp
+#        cpp_module_04/ex02/Animal.cpp
+#        cpp_module_04/ex02/Animal.hpp
+        cpp_module_04/ex02/AAnimal.cpp
+        cpp_module_04/ex02/AAnimal.hpp
+        cpp_module_04/ex02/Dog.cpp
+        cpp_module_04/ex02/Dog.hpp
+        cpp_module_04/ex02/Cat.cpp
+        cpp_module_04/ex02/Cat.hpp
+        cpp_module_04/ex02/WrongCat.cpp
+        cpp_module_04/ex02/WrongCat.hpp
+        cpp_module_04/ex02/WrongAnimal.cpp
+        cpp_module_04/ex02/WrongAnimal.hpp
+        cpp_module_04/ex02/Brain.cpp
+        cpp_module_04/ex02/Brain.hpp
+
+)
