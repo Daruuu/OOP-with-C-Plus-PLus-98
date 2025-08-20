@@ -22,7 +22,6 @@ int main()
 	return 0;
 }
 */
-
 int main()
 {
     std::cout << "\n=== Test 1: Basic instances ===" << std::endl;
@@ -96,7 +95,7 @@ int main()
     }
 
     // ---------------------------------------------------------------
-    std::cout << "\n=== WrongAnimal tests (no virtual functions) ===" << std::endl;
+    std::cout << "\n======= WrongAnimal tests (no virtual functions) ========" << std::endl;
 
     std::cout << "\n--- Test 1: Basic instances ---" << std::endl;
     WrongAnimal wa;
@@ -122,6 +121,10 @@ int main()
     WrongCat wc3;
     wc3 = wc1;           // copy assignment
 
+	std::cout << "\n--- Test con WrongAnimal y WrongCat (incorrecto) ---" << std::endl;
+	WrongAnimal* wa1 = new WrongCat();
+	wa1->makeSound();  // ❌ No polimorfismo: imprime "WrongAnimal sound!"
+	delete wa1;
     // ---------------------------------------------------------------
     std::cout << "\n=== All tests finished ===" << std::endl;
     return 0;
