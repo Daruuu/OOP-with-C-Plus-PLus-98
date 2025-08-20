@@ -1,5 +1,3 @@
-#include <cstdlib>
-
 #include "Animal.hpp"
 #include "Brain.hpp"
 #include "Dog.hpp"
@@ -7,14 +5,96 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-// void check_leaks()
-// {
-// 	system("leaks Polypolymorphism");
-// }
-
 int main()
 {
-	Brain*	brainTest = new Brain();
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound(); //will output the cat sound!
+	j->makeSound();
+	meta->makeSound();
+
+	delete meta;
+	delete i;
+	delete j;
+	return 0;
+}
+
+/*
+int main()
+{
+	std::cout << "\n--- Test 1: Polimorfismo con Animal (Correcto) ---\n" <<
+		std::endl;
+	const Animal* dog = new Dog();
+	const Animal* cat = new Cat();
+
+	dog->makeSound(); // ✅ print "Dog sound"
+	cat->makeSound(); // ✅ print "Cat sound"
+
+	delete dog;
+	delete cat;
+
+	std::cout << "\n--- Test 2: Polimorfismo con WrongAnimal (Incorrecto) ---\n"
+		<< std::endl;
+	const WrongAnimal* wrongCat = new WrongCat();
+	wrongCat->makeSound();
+	//  print "WrongAnimal sound" en vez de "WrongCat sound"
+	delete wrongCat;
+
+	std::cout << "\n--- Test 3: Array de Animals ---\n" << std::endl;
+	const int N = 4;
+	Animal* animals[N] = {
+		new Dog(), new Dog(),
+		new Cat(), new Cat()
+	};
+
+	for (int i = 0; i < N; i++)
+		animals[i]->makeSound();
+
+	for (int i = 0; i < N; i++)
+		delete animals[i];
+
+	std::cout << "\n--- Test 4: Deep Copy en Dog ---\n" << std::endl;
+	Dog basicDog;
+	basicDog.makeSound();
+	basicDog.getType();
+
+	{
+		Dog tmpDog = basicDog; // (deep copy)
+		tmpDog.makeSound();
+	}
+
+	std::cout << "\n--- Test 5: Deep Copy en Cat ---\n" << std::endl;
+	Cat basicCat;
+	basicCat.makeSound();
+
+	{
+		Cat tmpCat;
+		tmpCat = basicCat; // deep copy
+		tmpCat.makeSound();
+	}
+
+	std::cout << GREEN << "\n--- Test 6: Uso de Brain ---\n" << RESET <<
+		std::endl;
+	Dog thinker;
+	thinker.makeSound();
+
+	thinker.getType();
+	thinker.makeSound();
+
+	std::cout << "\n✅ End all tests" << std::endl;
+
+	return 0;
+}
+*/
+
+/*
+int main()
+{
+	Brain* brainTest = new Brain();
+
 	brainTest->getIdea(10);
 
 	const Animal* j = new Dog();
@@ -22,16 +102,17 @@ int main()
 	delete j;
 	delete i;
 
-	const Animal *animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
+	Animal* animals[4] = {
+		new Dog(), new Dog(), new Cat(), new Cat()
+	};
+
 	for (int i = 0; i < 4; i++)
 		delete animals[i];
 
-	// atexit(check_leaks);
-
-
+	delete brainTest;
 	return 0;
 }
-
+*/
 
 /*
 int main()
@@ -252,4 +333,3 @@ int main()
     return 0;
 }
 */
-

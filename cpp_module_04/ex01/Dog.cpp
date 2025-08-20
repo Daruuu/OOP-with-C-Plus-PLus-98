@@ -6,14 +6,13 @@ Dog::Dog()
 {
 	type_ = "Dog";
 	this->brain_ = new Brain();	//	init brain pointer
-	std::cout << BLUE << "Dog created with Brain." << RESET << std::endl;
+	std::cout << "[Dog " << BLUE << "created with Brain.]" << RESET << std::endl;
 }
 
 Dog::Dog(const Dog& other) : Animal(other)
 {
 	this->brain_ = new Brain(*other.brain_);	//	deep copy
-
-	std::cout << CYAN <<  "Dog deep copy constructor called." << RESET << std::endl;
+	std::cout << CYAN <<  "[Dog deep copy] constructor called." << RESET << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other)
@@ -24,7 +23,7 @@ Dog& Dog::operator=(const Dog& other)
 		delete this->brain_;
 		this->brain_ = new Brain(*other.brain_);	// deep copy
 	}
-	std::cout << CYAN << "Dog deep copy assignment operator called" << RESET
+	std::cout << CYAN << "[Dog deep copy] assignment operator called" << RESET
 	<< std::endl;
 	return *this;
 }
@@ -38,6 +37,6 @@ Dog::~Dog()
 
 void Dog::makeSound() const
 {
-	std::cout << MAGENTA << "Dog sound: guaooo" << RESET
+	std::cout << MAGENTA << "Dog sound: Guaooo" << RESET
 	<< std::endl;
 }

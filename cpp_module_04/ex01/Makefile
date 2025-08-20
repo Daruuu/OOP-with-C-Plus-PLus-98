@@ -1,6 +1,6 @@
 CXX = c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -O2 -fsanitize=address -MMD
+CXXFLAGS = -Wall -Wextra -Wshadow -Werror -std=c++98 -O2 -g -fsanitize=address -MMD
 
 # name of executable
 NAME = Idontwanttosettheworldonfire
