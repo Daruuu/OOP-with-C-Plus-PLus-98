@@ -103,8 +103,6 @@ add_executable(Cpp04_ex01
 
 add_executable(Cpp04_ex02
         cpp_module_04/ex02/main.cpp
-#        cpp_module_04/ex02/Animal.cpp
-#        cpp_module_04/ex02/Animal.hpp
         cpp_module_04/ex02/AAnimal.cpp
         cpp_module_04/ex02/AAnimal.hpp
         cpp_module_04/ex02/Dog.cpp
@@ -118,4 +116,11 @@ add_executable(Cpp04_ex02
         cpp_module_04/ex02/Brain.cpp
         cpp_module_04/ex02/Brain.hpp
 
+)
+add_executable(Cpp04_ex03
+        cpp_module_04/ex03/main.cpp
+        cpp_module_04/ex03/AMateria.cpp
+        cpp_module_04/ex03/AMateria.hpp
+        cpp_module_04/ex03/Ice.cpp
+        cpp_module_04/ex03/Ice.hpp
 )
