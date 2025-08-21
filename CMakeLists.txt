@@ -125,4 +125,8 @@ add_executable(Cpp04_ex03
         cpp_module_04/ex03/Ice.hpp
         cpp_module_04/ex03/Cure.cpp
         cpp_module_04/ex03/Cure.hpp
+        cpp_module_04/ex03/ICharacter.cpp
+        cpp_module_04/ex03/ICharacter.hpp
+        cpp_module_04/ex03/Character.cpp
+        cpp_module_04/ex03/Character.hpp
 )
