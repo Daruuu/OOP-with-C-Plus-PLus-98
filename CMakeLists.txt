@@ -129,4 +129,8 @@ add_executable(Cpp04_ex03
         cpp_module_04/ex03/ICharacter.hpp
         cpp_module_04/ex03/Character.cpp
         cpp_module_04/ex03/Character.hpp
+        cpp_module_04/ex03/IMateriaSource.cpp
+        cpp_module_04/ex03/IMateriaSource.hpp
+        cpp_module_04/ex03/MateriaSource.cpp
+        cpp_module_04/ex03/MateriaSource.hpp
 )
