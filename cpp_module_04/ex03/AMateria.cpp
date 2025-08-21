@@ -8,7 +8,7 @@ AMateria::AMateria() : type_("AMateria Default")
 
 AMateria::AMateria(std::string const& type) : type_(type)
 {
-	std::cout << GREEN << "[AMateria] constructor with Type called." << RESET
+	std::cout << GREEN << "[AMateria] constructor with type called." << RESET
 		<< std::endl;
 }
 

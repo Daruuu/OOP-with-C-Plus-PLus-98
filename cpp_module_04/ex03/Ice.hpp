@@ -12,7 +12,7 @@ public:
 	~Ice();
 
 	AMateria* clone() const; //	override from AMateria
-	void use(ICharacter& target);
+	void use(ICharacter& target); //	override from AMateria
 };
 
 #endif //ICE_HPP

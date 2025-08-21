@@ -123,4 +123,6 @@ add_executable(Cpp04_ex03
         cpp_module_04/ex03/AMateria.hpp
         cpp_module_04/ex03/Ice.cpp
         cpp_module_04/ex03/Ice.hpp
+        cpp_module_04/ex03/Cure.cpp
+        cpp_module_04/ex03/Cure.hpp
 )
