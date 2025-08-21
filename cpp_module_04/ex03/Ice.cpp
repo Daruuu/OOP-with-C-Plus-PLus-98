@@ -1,5 +1,7 @@
 #include "Ice.hpp"
 
+#include "ICharacter.hpp"
+
 Ice::Ice() : AMateria()
 {
 	this->type_ = "ice";
@@ -41,9 +43,8 @@ AMateria* Ice::clone() const
 *<name> is the name of the Character passed as a parameter. Don’t print the angle
 brackets (< and >).
 */
-//	TODO: update getType to is from target Interface
 void Ice::use(ICharacter& target)
 {
 	AMateria::use(target);
-	std::cout << "* shoots an ice bolt at " << getType() << " *" << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

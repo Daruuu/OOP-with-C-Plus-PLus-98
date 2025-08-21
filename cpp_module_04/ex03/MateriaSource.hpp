@@ -2,13 +2,21 @@
 #define MATERIASOURCE_HPP
 
 #include "IMateriaSource.hpp"
+#include <string>
 
 class MateriaSource : public IMateriaSource
 {
-public:
-	void learnMateria(AMateria*);
-	// createMateria(std::string const &);
+private:
+	AMateria* inventory_[4]; //	max 4 materies
 
+public:
+	MateriaSource();
+	MateriaSource(const MateriaSource& other);
+	MateriaSource& operator=(const MateriaSource& other);
+	~MateriaSource();
+
+	void learnMateria(AMateria*);
+	AMateria* createMateria(std::string const&);
 };
 
 /*

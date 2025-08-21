@@ -6,7 +6,7 @@ CXXFLAGS = -Wall -Wextra -Wshadow -Werror -std=c++98 -O2 -g -fsanitize=address -
 NAME = Interface_and_recap
 
 # sources
-SRCS = main.cpp AMateria.cpp Ice.cpp
+SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 DEPENDS = $(OBJS:.o=.d)

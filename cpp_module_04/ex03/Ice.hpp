@@ -3,7 +3,7 @@
 
 #include "AMateria.hpp"
 
-class Ice : virtual public AMateria
+class Ice : public AMateria
 {
 public:
 	Ice();

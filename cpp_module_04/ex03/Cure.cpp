@@ -1,5 +1,7 @@
 #include "Cure.hpp"
 
+#include "ICharacter.hpp"
+
 Cure::Cure() : AMateria()
 {
 	this->type_ = "cure";
@@ -21,6 +23,7 @@ Cure& Cure::operator=(const Cure& other)
 		std::cout << CYAN << "[Cure deep copy] assignment operator called." << RESET
 		<< std::endl;
 	}
+	return *this;
 }
 
 Cure::~Cure()
@@ -36,9 +39,8 @@ AMateria* Cure::clone() const
 	return (new Cure());
 }
 
-//	TODO: update getType to is from target Interface
 void Cure::use(ICharacter& target)
 {
 	AMateria::use(target);
-	std::cout << "* heals "<< getType() << "’s wounds *" << std::endl;
+	std::cout << "* heals "<< target.getName() << "’s wounds *" << std::endl;
 }

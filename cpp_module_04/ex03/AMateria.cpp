@@ -35,8 +35,9 @@ AMateria::~AMateria()
 
 void AMateria::use(ICharacter& target)
 {
-	std::cout << "* uses " << this->type_ << " on " << target.getName() << " *"
-		<< std::endl;
+	// std::cout << "* uses " << this->type_ << " on " << target.getName() << " *"
+		// << std::endl;
+	(void) target;
 }
 
 std::string const& AMateria::getType() const
