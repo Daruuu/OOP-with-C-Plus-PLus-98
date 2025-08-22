@@ -13,15 +13,7 @@
 #include <string>
 #include <iostream>
 
-/**
-* ¿Qué es una forward declaration?
-* En C++ significa declarar la existencia de una clase sin incluir toda su definición.
-* Básicamente, le dices al compilador:
-* “Oye, existe una clase llamada ICharacter, ya te enseñaré luego cómo es,
-* pero por ahora solo necesito saber que existe”.
- */
-
-// Forward declaration para no romper dependencias circulares
+//	Forward declaration to avoid breaking circular dependencies
 class ICharacter;
 
 class AMateria
