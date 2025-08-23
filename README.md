@@ -1,63 +1,82 @@
+# C++98 Core Concepts
 
+This repository contains my progress through the **C++ modules from 42 School**, implemented in **C++98**.
+It showcases fundamental concepts of **Object-Oriented Programming (OOP)** and good coding practices in C++.
 
-La línea:
+## 🚀 Content
 
-```cpp
-using namespace std;
-```
+### C++ Project Setup: Dependencies and Build Tools
+Dependency management in C++ involves handling external libraries, packages, and dependencies required by a project.  
+It includes downloading, installing, and linking libraries to build and run C++ programs.
 
-Significa que **le estás diciendo al compilador que vas a usar nombres
-del espacio de nombres `std` sin tener que escribir `std::` cada vez**.
-
----
-
-### ¿Qué es `std`?
-
-En C++, todo lo que está definido en la **biblioteca estándar** (como `cout`, `cin`, `vector`, `string`, etc.) vive dentro del *namespace* `std`. Así, por defecto, para usarlos necesitas escribirlos con su calificador:
-
-```cpp
-std::cout << "Hola mundo" << std::endl;
-```
+[Setup Section](/dependencies_and_build_tools.md)
+[Compilers, Debugging, and Standards Section](/compile_debug.md)
 
 ---
 
-### ¿Qué hace `using namespace std;`?
+### [📦 cpp00 – First steps in C++](/cpp_module_00/subject/en.subject_cpp00.pdf)
 
-Con esa línea le estás diciendo al compilador:
+* Compilation with `Makefile`
+* Standard I/O (`iostream`)
+* Basic classes (`PhoneBook`, `Contact`)
+* Using `new` / `delete`
+* Introduction to dynamic memory
 
-> "Durante el resto de este archivo, cuando se use un nombre sin calificador, búscalo también en el namespace `std`".
+### 📦 [cpp01 – Classes and dynamic allocation](cpp_module_01/subject/en.subjectcpp_01.pdf)
 
-Entonces puedes escribir:
+* Pointers and references
+* **Stack vs Heap**
+* Constructors and destructors
+* Exercises with objects (`Zombie`, `Weapon`, `Human`)
 
-```cpp
-cout << "Hola mundo" << endl;
-```
+### 📦 [cpp02 – Operator overloading](/cpp_module_02/subject/en.subjectcpp_02.pdf)
 
-en lugar de:
+* **Operator overloading**
+* Copy, assignment and object lifetime
+* Fixed-point number implementation
+* Encapsulation best practices
 
-```cpp
-std::cout << "Hola mundo" << std::endl;
-```
+### 📦 [cpp03 – Inheritance](/cpp_module_03/subject/en.subject_cpp_03.pdf)
+
+* **Base and derived classes**
+* **Single and multiple inheritance**
+* `virtual` keyword and the diamond problem
+* Exercises with `ClapTrap`, `ScavTrap`, `FragTrap`, `DiamondTrap`
+
+### 📦 [cpp04 – Polymorphism and abstract classes](/cpp_module_04/subject/en.subject_cpp_04.pdf)
+
+* **Dynamic polymorphism**
+* `virtual` methods and `override`
+* Abstract classes and interfaces
+* Composition vs aggregation (`Animal`, `Brain`, `Cat`, `Dog`)
+* Magical materials (`AMateria`, `Cure`, `Ice`, `Character`, `MateriaSource`)
 
 ---
 
-### ¿Qué dice el *C++ Primer* sobre esto?
+## 📖 Key Concepts Learned
 
-En la sección **3.1 (Namespace using Declarations)**, el libro recomienda **usar `std::` explícitamente en archivos reales de código**, y **evitar `using namespace std;` en archivos de cabecera (`.h`) o en proyectos grandes**, porque:
-
-1. **Puede causar conflictos de nombres** si diferentes bibliotecas usan el mismo nombre (por ejemplo, `vector` en `std` y otra en otra lib).
-2. **Reduce la claridad del código** (no sabes si `sort` es de `std` o de otro lugar).
-
-Para programas pequeños o ejemplos (como los del libro), usar `using namespace std;` está bien, pero **en producción o proyectos serios se prefiere el uso explícito de `std::`**.
-
----
-
-### En resumen:
-
-| Con `using namespace std;` | Sin `using namespace std;` |
-| -------------------------- | -------------------------- |
-| `cout << "Hola";`          | `std::cout << "Hola";`     |
-| `vector<int> v;`           | `std::vector<int> v;`      |
+* Object-Oriented Programming (OOP)
+* Encapsulation, Abstraction, Inheritance, and Polymorphism
+* Dynamic memory management in C++98
+* Function and operator overloading
+* Abstract classes vs Interfaces
+* Good practices with `Makefile` and compilation flags
 
 ---
 
+## 🛠️ Technologies
+
+* **C++98** (required by 42 School)
+* **Makefile**
+* **g++ / clang++** with strict flags (`-Wall -Wextra -Werror`)
+
+---
+
+## 📌 Future Work
+
+* Continue with modules **cpp05 – cpp09**
+* Add UML diagrams for each module
+* Improve testing with `assert` and `doctest`
+
+
+---
