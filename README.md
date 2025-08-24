@@ -9,7 +9,8 @@ It showcases fundamental concepts of **Object-Oriented Programming (OOP)** and g
 Dependency management in C++ involves handling external libraries, packages, and dependencies required by a project.  
 It includes downloading, installing, and linking libraries to build and run C++ programs.
 
-[Setup Section](/dependencies_and_build_tools.md)
+[Setup Section(Makefile., CMake)](/dependencies_and_build_tools.md)
+
 [Compilers, Debugging, and Standards Section](/compile_debug.md)
 
 ---

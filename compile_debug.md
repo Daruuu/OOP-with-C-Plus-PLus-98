@@ -145,7 +145,7 @@ C++ is an evolving language with new features and improvements introduced in eac
 - **`std::stop_token`**: Token for stopping asynchronous operations.
 - **`std::chrono` Improvements**: Additional features for the chrono library.
 
-## languge Concepts
+## Language Concepts
 
 ### auto (Automatic Type Deduction)
 
