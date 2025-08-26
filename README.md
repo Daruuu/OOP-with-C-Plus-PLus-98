@@ -33,7 +33,8 @@ It includes downloading, installing, and linking libraries to build and run C++ 
 
 ---
 
-### [📦 Module00 – First steps in C++](/cpp_module_00/subject/en.subject_cpp00.pdf)
+### [📦 Module00 – First steps in C++](/cpp_module_00/README_module00.md)
+<!-- ### [📦 Module00 – First steps in C++](/cpp_module_00/subject/en.subject_cpp00.pdf) -->
 
 * Compilation with `Makefile`
 * Standard I/O (`iostream`)
@@ -41,28 +42,32 @@ It includes downloading, installing, and linking libraries to build and run C++ 
 * Using `new` / `delete`
 * Introduction to dynamic memory
 
-### 📦 [Module01 – Classes and dynamic allocation](cpp_module_01/subject/en.subjectcpp_01.pdf)
+<!-- ### 📦 [Module01 – Classes and dynamic allocation](cpp_module_01/subject/en.subjectcpp_01.pdf) -->
+### 📦 [Module01 – Classes and dynamic allocation](cpp_module_01/README_module01.md)
 
 * Pointers and references
 * **Stack vs Heap**
 * Constructors and destructors
 * Exercises with objects (`Zombie`, `Weapon`, `Human`)
 
-### 📦 [Module02 – Operator overloading](/cpp_module_02/subject/en.subjectcpp_02.pdf)
+<!-- ### 📦 [Module02 – Operator overloading](/cpp_module_02/subject/en.subjectcpp_02.pdf) -->
+### 📦 [Module02 – Operator overloading](/cpp_module_02/README_module02.md)
 
 * **Operator overloading**
 * Copy, assignment and object lifetime
 * Fixed-point number implementation
 * Encapsulation best practices
 
-### 📦 [Module03 – Inheritance](/cpp_module_03/subject/en.subject_cpp_03.pdf)
+<!-- ### 📦 [Module03 – Inheritance](/cpp_module_03/subject/en.subject_cpp_03.pdf) -->
+### 📦 [Module03 – Inheritance](/cpp_module_03/README_module03.md)
 
 * **Base and derived classes**
 * **Single and multiple inheritance**
 * `virtual` keyword and the diamond problem
 * Exercises with `ClapTrap`, `ScavTrap`, `FragTrap`, `DiamondTrap`
 
-### 📦 [Module04 – Polymorphism and abstract classes](/cpp_module_04/subject/en.subject_cpp_04.pdf)
+<!-- ### 📦 [Module04 – Polymorphism and abstract classes](/cpp_module_04/subject/en.subject_cpp_04.pdf) -->
+### 📦 [Module04 – Polymorphism and abstract classes](/cpp_module_04/README_module04.md)
 
 * **Dynamic polymorphism**
 * `virtual` methods and `override`
