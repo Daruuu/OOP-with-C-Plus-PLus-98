@@ -36,7 +36,9 @@ AMateria* Cure::clone() const
 {
 	std::cout << MAGENTA << "[Clone Cure] called for " << RESET << type_
 	<< std::endl;
-	return (new Cure());
+	Cure *result = new Cure();
+	return result;
+	// return (new Cure());
 }
 
 void Cure::use(ICharacter& target)
