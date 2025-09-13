@@ -1,15 +1,17 @@
 
 # 📘 Local Installation of CppUnit (without root access in Linux)
 
+First to download the file .tar in this link : https://sourceforge.net/projects/cppunit/ 
+<br>
 This guide explains how to install **CppUnit** locally in your home directory (e.g., `~/cppunit-local`) without requiring root privileges.
 
 ---
 
 ## 🔹 1. Download and Extract
 
-```bash
-tar -xvzf cppunit-1.12.1.tar.gz
-cd cppunit-1.12.1
+``` bash
+    tar -xvzf cppunit-1.12.1.tar.gz
+    cd cppunit-1.12.1
 ```
 
 ---
@@ -19,7 +21,7 @@ cd cppunit-1.12.1
 Choose a custom install path, for example `~/cppunit-local`:
 
 ```bash
-./configure --prefix=$HOME/cppunit-local --disable-shared
+  ./configure --prefix=$HOME/cppunit-local --disable-shared
 ```
 
 * `--prefix=$HOME/cppunit-local`: install everything under your home folder.
@@ -30,8 +32,8 @@ Choose a custom install path, for example `~/cppunit-local`:
 ## 🔹 3. Build and Install
 
 ```bash
-make
-make install
+  make
+  make install
 ```
 
 This will install **CppUnit** into `~/cppunit-local` instead of `/usr/local`.
@@ -52,7 +54,7 @@ This will install **CppUnit** into `~/cppunit-local` instead of `/usr/local`.
 
 When compiling your code, tell `g++` where to find headers and libraries:
 
-```bash
+``` bash
 g++ -I$HOME/cppunit-local/include -L$HOME/cppunit-local/lib \
     -o my_tests my_tests.cpp -lcppunit -ldl
 ```
