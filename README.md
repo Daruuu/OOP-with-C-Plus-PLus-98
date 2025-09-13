@@ -1,5 +1,36 @@
 # C++98 Core Concepts & Object-Oriented Programming (OOP)
 
+This repository contains my progress through the C++ modules from **42 School**, implemented in C++98.
+<br>It showcases fundamental concepts of **Object-Oriented Programming (OOP)**, memory management, and good coding practices following **Clean Code** principles.
+
+## 🚀 Content
+
+### C++ Project Setup: Dependencies and Build Tools
+
+Dependency management in C++ involves handling external libraries, packages, and dependencies required by a project.  
+It includes downloading, installing, and linking libraries to build and run C++ programs.
+
+[Setup Section(Makefile, CMake)](/dependencies_and_build_tools.md)
+
+[C++ Build, Debugging, and Language Standards](/compile_debug.md)
+
+[📦 Local Installation of CppUnit To run unit tests in projects with C++ 98:](/local_install_cppunit.md)
+
+[Started with CppUnit in C++98](/started-with-cppunit.md)
+
+## 📖 Key Concepts Learned
+
+* Object-Oriented Programming (OOP)
+* Encapsulation, Abstraction, Inheritance, and Polymorphism
+* Dynamic memory management in C++98
+* Function and operator overloading
+* Abstract classes vs Interfaces
+* Good practices with `Makefile` and compilation flags
+
+---
+
+## 🛠️ Technologies# C++98 Core Concepts & Object-Oriented Programming (OOP)
+
 This repository contains my progress through the C++ modules from 42 School, implemented in C++98.
 <br>It showcases fundamental concepts of **Object-Oriented Programming (OOP)**, memory management,
 <br>and good coding practices following **Clean Code** principles.
@@ -19,23 +50,7 @@ It includes downloading, installing, and linking libraries to build and run C++ 
 * Object-Oriented Programming (OOP)
 * Encapsulation, Abstraction, Inheritance, and Polymorphism
 * Dynamic memory management in C++98
-* Function and operator overloading
-* Abstract classes vs Interfaces
-* Good practices with `Makefile` and compilation flags
-
----
-
-## 🛠️ Technologies
-
-* **C++98** (required by 42 School)
-* **Makefile**
-* **g++ / clang++** with strict flags (`-Wall -Wextra -Werror`)
-
----
-
-### [📦 Module00 – First steps in C++](/cpp_module_00/README_module00.md)
-<!-- ### [📦 Module00 – First steps in C++](/cpp_module_00/subject/en.subject_cpp00.pdf) -->
-
+* Function and oper
 * Compilation with `Makefile`
 * Standard I/O (`iostream`)
 * Basic classes (`PhoneBook`, `Contact`)
