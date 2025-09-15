@@ -1,4 +1,3 @@
-#include <cppunit/ui/text/TestRunner.h>
 #include "Testing.hpp"
 
 int main() {

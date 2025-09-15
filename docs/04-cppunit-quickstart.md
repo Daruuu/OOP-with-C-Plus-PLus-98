@@ -44,7 +44,6 @@ re: fclean all
 ### 📄 `main.cpp` (Test Runner)
 
 ```cpp
-#include <cppunit/ui/text/TestRunner.h>
 #include "MyTest.hpp"
 
 int main() {
@@ -56,9 +55,10 @@ int main() {
 
 ---
 
-### 📄 `MyTest.hpp`
+### 📄 `Testing.hpp`
 
 ```cpp
+#include <cppunit/ui/text/TestRunner.h>
 #include <cppunit/extensions/HelperMacros.h>
 
 class MyTest : public CppUnit::TestCase {
@@ -73,11 +73,10 @@ public:
 
 ---
 
-### 📄 `MyTest.cpp`
+### 📄 `Testing.cpp`
 
 ```cpp
-#include "MyTest.hpp"
-#include <cassert>
+#include "Testing.hpp"
 
 void MyTest::testAddition() {
     int result = 2 + 2;
