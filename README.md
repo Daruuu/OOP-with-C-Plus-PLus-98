@@ -27,32 +27,32 @@ This repository contains my progress through the C++ modules from **42 School**,
 
 ## 📦 C++ Modules
 
-### 📦 [Module00 – Namespaces, classes, member functions](cpp_module_00/README_module00.md)
+### 📦 [Module00 – Namespaces, classes, member functions](cpp_module_00/README.md)
 * **Namespaces and basic classes**
 * **Member functions and methods**
 * **Standard I/O (`iostream`)**
 * **Basic classes (`PhoneBook`, `Contact`)**
 * **Using `new` / `delete`**
 
-### 📦 [Module01 – Classes and dynamic allocation](cpp_module_01/README_module01.md)
+### 📦 [Module01 – Classes and dynamic allocation](cpp_module_01/README.md)
 * **Pointers and references**
 * **Stack vs Heap**
 * **Constructors and destructors**
 * **Exercises with objects (`Zombie`, `Weapon`, `Human`)**
 
-### 📦 [Module02 – Operator overloading](cpp_module_02/README_module02.md)
+### 📦 [Module02 – Operator overloading](cpp_module_02/README.md)
 * **Operator overloading**
 * **Copy, assignment and object lifetime**
 * **Fixed-point number implementation**
 * **Encapsulation best practices**
 
-### 📦 [Module03 – Inheritance](cpp_module_03/README_module03.md)
+### 📦 [Module03 – Inheritance](cpp_module_03/README.md)
 * **Base and derived classes**
 * **Single and multiple inheritance**
 * **`virtual` keyword and diamond problem**
 * **Exercises with `ClapTrap`, `ScavTrap`, `FragTrap`, `DiamondTrap`**
 
-### 📦 [Module04 – Polymorphism and abstract classes](cpp_module_04/README_module04.md)
+### 📦 [Module04 – Polymorphism and abstract classes](cpp_module_04/README.md)
 * **Dynamic polymorphism**
 * **`virtual` methods and `override`**
 * **Abstract classes and interfaces**
