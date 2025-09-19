@@ -49,3 +49,4 @@ This directory contains UML diagrams for Module 04 exercises.
 - Factory pattern diagrams show object creation
 - Clone pattern diagrams show object duplication
 - Polymorphic container diagrams show object management
+

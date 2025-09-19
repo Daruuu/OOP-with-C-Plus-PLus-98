@@ -18,6 +18,10 @@ This module introduces polymorphism concepts in C++, including virtual functions
 
 Introduction to virtual functions and polymorphism with animal classes.
 
+<img src="../uml_diagrams/module_04/ex00_animal_hierarchy_part01.png" alt="Animal Hierarchy Part 1">
+
+<img src="../uml_diagrams/module_04/ex00_animal_hierarchy_part02.png" alt="Animal Hierarchy Part 2">
+
 **Key Concepts**:
 - Virtual functions
 - Virtual destructors
@@ -86,6 +90,14 @@ public:
 
 Extension of the animal hierarchy with brain functionality and deep copying.
 
+<img src="../uml_diagrams/module_04/ex01_animal_brain01.png" alt="Animal Brain Part 1">
+
+[//]: # (width="600" height="380">)
+
+<img src="../uml_diagrams/module_04/ex01_animal_brain02.png" alt="Animal Brain Part 2">
+
+[//]: # (width="600" height="380">)
+
 **Key Concepts**:
 - Composition (Animal has Brain)
 - Deep copying
@@ -148,6 +160,14 @@ public:
 
 Introduction to abstract classes with pure virtual functions.
 
+<img src="../uml_diagrams/module_04/ex02_abstract_animal01.png" alt="Abstract Animal Part 1" >
+
+[//]: # (width="600" height="380">)
+
+<img src="../uml_diagrams/module_04/ex02_abstract_animal02.png" alt="Abstract Animal Part 2" >
+
+[//]: # (width="600" height="380">)
+
 **Key Concepts**:
 - Abstract classes
 - Pure virtual functions
@@ -195,6 +215,14 @@ public:
 **Files**: `AMateria.hpp`, `AMateria.cpp`, `Ice.hpp`, `Ice.cpp`, `Cure.hpp`, `Cure.cpp`, `ICharacter.hpp`, `Character.hpp`, `Character.cpp`, `IMateriaSource.hpp`, `MateriaSource.hpp`, `MateriaSource.cpp`, `main.cpp`
 
 Complex polymorphic system with abstract classes, interfaces, and multiple inheritance.
+
+<img src="../uml_diagrams/module_04/ex03_materia_system01.png" alt="Materia System Part 1" >
+
+[//]: # (width="600" height="380">)
+
+<img src="../uml_diagrams/module_04/ex03_materia_system02.png" alt="Materia System Part 2">
+
+[//]: # (width="600" height="380">)
 
 **Key Concepts**:
 - Abstract base classes
@@ -430,7 +458,6 @@ delete ptr;  // Calls Derived destructor, then Base destructor
 
 ## 📚 Further Reading
 
-- [C++ Polymorphism](https://www.learncpp.com/cpp-tutorial/121-introduction-to-virtual-functions/)
 - [Virtual Functions](https://isocpp.org/wiki/faq/virtual-functions)
 - [Abstract Classes](https://en.cppreference.com/w/cpp/language/abstract_class)
 - [Virtual Destructors](https://isocpp.org/wiki/faq/virtual-functions#virtual-dtors)

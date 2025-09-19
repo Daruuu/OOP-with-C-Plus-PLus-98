@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.1.1 Chrome/132.0.6834.210 Electron/34.3.3 Safari/537.36" version="26.1.1">
   <diagram name="Page-1" id="efa7a0a1-bf9b-a30e-e6df-94a7791c09e9">
-    <mxGraphModel dx="1451" dy="1893" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="826" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1195" dy="1925" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="826" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1035,10 +1035,10 @@
         <mxCell id="fwsMMfWR81BA29WD7r7V-144" value="&lt;div style=&quot;&quot;&gt;&lt;p data-end=&quot;2324&quot; data-start=&quot;2308&quot;&gt;&lt;/p&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2418&quot; data-start=&quot;2408&quot;&gt;&lt;div style=&quot;text-align: center;&quot;&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2418&quot; data-start=&quot;2408&quot;&gt;WrongCat&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-family: Helvetica;&quot;&gt; implementa &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2443&quot; data-start=&quot;2430&quot;&gt;makeSound()&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-family: Helvetica;&quot;&gt;, pero si usas un puntero &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2483&quot; data-start=&quot;2469&quot;&gt;WrongAnimal*&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-family: Helvetica;&quot;&gt; a un &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2499&quot; data-start=&quot;2489&quot;&gt;WrongCat&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-family: Helvetica;&quot;&gt;, se llamará la versión de &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2539&quot; data-start=&quot;2526&quot;&gt;WrongAnimal&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-family: Helvetica;&quot;&gt;.&lt;/span&gt;&lt;/div&gt;&lt;/code&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
           <mxGeometry x="4660" y="1356.25" width="270" height="71.5" as="geometry" />
         </mxCell>
-        <mxCell id="QW59eKh0fUQJeOYzQNUR-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="fwsMMfWR81BA29WD7r7V-148" target="fwsMMfWR81BA29WD7r7V-105">
+        <mxCell id="QW59eKh0fUQJeOYzQNUR-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="fwsMMfWR81BA29WD7r7V-148" target="fwsMMfWR81BA29WD7r7V-105" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="QW59eKh0fUQJeOYzQNUR-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="fwsMMfWR81BA29WD7r7V-148" target="fwsMMfWR81BA29WD7r7V-113">
+        <mxCell id="QW59eKh0fUQJeOYzQNUR-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="fwsMMfWR81BA29WD7r7V-148" target="fwsMMfWR81BA29WD7r7V-113" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="fwsMMfWR81BA29WD7r7V-148" value="Brain.hpp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
@@ -1311,15 +1311,15 @@
           <mxGeometry y="158" width="280" height="26" as="geometry" />
         </mxCell>
         <mxCell id="hZEDpm0toGvUgialIUDV-89" value="&lt;div style=&quot;&quot;&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2340&quot; data-start=&quot;2327&quot;&gt;WrongAnimal&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; no declara &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2365&quot; data-start=&quot;2352&quot;&gt;makeSound()&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; como virtual → &lt;/span&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2402&quot; data-start=&quot;2381&quot;&gt;polimorfismo roto&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;.&lt;/span&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
-          <mxGeometry x="5820" y="1097.75" width="270" height="46.25" as="geometry" />
+          <mxGeometry x="5820" y="1051.87" width="270" height="46.25" as="geometry" />
         </mxCell>
         <mxCell id="hZEDpm0toGvUgialIUDV-90" value="&lt;div style=&quot;&quot;&gt;&lt;p data-end=&quot;2324&quot; data-start=&quot;2308&quot;&gt;&lt;/p&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2418&quot; data-start=&quot;2408&quot;&gt;&lt;div style=&quot;text-align: center;&quot;&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2418&quot; data-start=&quot;2408&quot;&gt;WrongCat&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-family: Helvetica;&quot;&gt; implementa &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2443&quot; data-start=&quot;2430&quot;&gt;makeSound()&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-family: Helvetica;&quot;&gt;, pero si usas un puntero &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2483&quot; data-start=&quot;2469&quot;&gt;WrongAnimal*&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-family: Helvetica;&quot;&gt; a un &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2499&quot; data-start=&quot;2489&quot;&gt;WrongCat&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-family: Helvetica;&quot;&gt;, se llamará la versión de &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;2539&quot; data-start=&quot;2526&quot;&gt;WrongAnimal&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-family: Helvetica;&quot;&gt;.&lt;/span&gt;&lt;/div&gt;&lt;/code&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
-          <mxGeometry x="5811" y="1253.5" width="270" height="71.5" as="geometry" />
+          <mxGeometry x="5820" y="1252.25" width="270" height="71.5" as="geometry" />
         </mxCell>
-        <mxCell id="QW59eKh0fUQJeOYzQNUR-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="hZEDpm0toGvUgialIUDV-93" target="hZEDpm0toGvUgialIUDV-50">
+        <mxCell id="QW59eKh0fUQJeOYzQNUR-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="hZEDpm0toGvUgialIUDV-93" target="hZEDpm0toGvUgialIUDV-50" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="QW59eKh0fUQJeOYzQNUR-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="hZEDpm0toGvUgialIUDV-93" target="hZEDpm0toGvUgialIUDV-58">
+        <mxCell id="QW59eKh0fUQJeOYzQNUR-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="hZEDpm0toGvUgialIUDV-93" target="hZEDpm0toGvUgialIUDV-58" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="hZEDpm0toGvUgialIUDV-93" value="Brain.hpp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;" parent="1" vertex="1">
@@ -1350,7 +1350,7 @@
           <mxGeometry y="184" width="280" height="26" as="geometry" />
         </mxCell>
         <mxCell id="hZEDpm0toGvUgialIUDV-102" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Sirve como ejemplo de &lt;/span&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;419&quot; data-start=&quot;404&quot;&gt;composición&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;: un objeto que vive dentro de otro.&lt;/span&gt;&lt;/div&gt;&lt;pre data-end=&quot;662&quot; data-start=&quot;460&quot; class=&quot;overflow-visible!&quot;&gt;&lt;div class=&quot;contain-inline-size rounded-2xl relative bg-token-sidebar-surface-primary&quot;&gt;&lt;div class=&quot;sticky top-9&quot;&gt;&lt;div class=&quot;absolute end-0 bottom-0 flex h-9 items-center pe-2&quot;&gt;&lt;div class=&quot;bg-token-bg-elevated-secondary text-token-text-secondary flex items-center gap-4 rounded-sm px-2 font-sans text-xs&quot;&gt;&lt;span data-state=&quot;closed&quot; class=&quot;&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div dir=&quot;ltr&quot; class=&quot;overflow-y-auto p-4&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/pre&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="6352.5" y="652.5" width="230" height="45" as="geometry" />
+          <mxGeometry x="6302.5" y="735" width="230" height="45" as="geometry" />
         </mxCell>
         <mxCell id="hZEDpm0toGvUgialIUDV-103" value="Update constructor &amp;amp; initilize Brain *." style="rounded=1;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
           <mxGeometry x="5690" y="446" width="160" height="40" as="geometry" />
@@ -1365,7 +1365,7 @@
           <mxGeometry x="6402.5" y="598" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="hZEDpm0toGvUgialIUDV-107" value="&lt;div style=&quot;&quot;&gt;&lt;strong data-end=&quot;630&quot; data-start=&quot;616&quot;&gt;NO virtual&lt;/strong&gt; → se produce &lt;em data-end=&quot;662&quot; data-start=&quot;644&quot;&gt;binding estático&lt;/em&gt; (resolución en tiempo de compilación).&lt;p&gt;&lt;/p&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
-          <mxGeometry x="5820" y="1169" width="240" height="50" as="geometry" />
+          <mxGeometry x="5820" y="1143.5" width="240" height="50" as="geometry" />
         </mxCell>
         <mxCell id="hZEDpm0toGvUgialIUDV-108" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="hZEDpm0toGvUgialIUDV-78" target="hZEDpm0toGvUgialIUDV-89" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -1374,7 +1374,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="hZEDpm0toGvUgialIUDV-110" value="Con &lt;code data-end=&quot;2020&quot; data-start=&quot;2007&quot;&gt;WrongAnimal&lt;/code&gt; → aunque el objeto real es &lt;code data-end=&quot;2058&quot; data-start=&quot;2048&quot;&gt;WrongCat&lt;/code&gt;, al no ser &lt;code data-end=&quot;2083&quot; data-start=&quot;2070&quot;&gt;makeSound()&lt;/code&gt; virtual, &lt;strong data-end=&quot;2129&quot; data-start=&quot;2093&quot;&gt;se llama siempre la versión base&lt;/strong&gt;." style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="5811" y="1337" width="269" height="60" as="geometry" />
+          <mxGeometry x="5820" y="1337" width="269" height="60" as="geometry" />
         </mxCell>
         <mxCell id="hZEDpm0toGvUgialIUDV-111" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="hZEDpm0toGvUgialIUDV-88" target="hZEDpm0toGvUgialIUDV-110" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -1491,7 +1491,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="DX_1FC9gHz3izWqbkq7w-27" value="Cure.hpp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="7419" y="521" width="260" height="208" as="geometry" />
+          <mxGeometry x="7419" y="522" width="260" height="208" as="geometry" />
         </mxCell>
         <mxCell id="DX_1FC9gHz3izWqbkq7w-28" value="-&amp;nbsp;" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="DX_1FC9gHz3izWqbkq7w-27" vertex="1">
           <mxGeometry y="26" width="260" height="26" as="geometry" />
@@ -1518,7 +1518,7 @@
           <mxGeometry y="184" width="260" height="24" as="geometry" />
         </mxCell>
         <mxCell id="DX_1FC9gHz3izWqbkq7w-39" value="ICharacter.hpp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
-          <mxGeometry x="6920" y="980" width="220" height="182" as="geometry" />
+          <mxGeometry x="6920" y="1018" width="220" height="182" as="geometry" />
         </mxCell>
         <mxCell id="DX_1FC9gHz3izWqbkq7w-40" value="&lt;div&gt;-&lt;/div&gt;" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="DX_1FC9gHz3izWqbkq7w-39" vertex="1">
           <mxGeometry y="26" width="220" height="26" as="geometry" />
@@ -1535,14 +1535,14 @@
         <mxCell id="DX_1FC9gHz3izWqbkq7w-45" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+&amp;nbsp;unequip(int)=0&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#333333;" parent="DX_1FC9gHz3izWqbkq7w-39" vertex="1">
           <mxGeometry y="130" width="220" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="DX_1FC9gHz3izWqbkq7w-49" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ use(int, ICharacter&amp;amp;)=0&amp;nbsp;&lt;/p&gt;" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#333333;" parent="DX_1FC9gHz3izWqbkq7w-39" vertex="1">
+        <mxCell id="DX_1FC9gHz3izWqbkq7w-49" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ use(int, ICharacter&amp;amp;)=0&amp;nbsp;&lt;/p&gt;" style="text;strokeColor=#b85450;fillColor=#f8cecc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="DX_1FC9gHz3izWqbkq7w-39" vertex="1">
           <mxGeometry y="156" width="220" height="26" as="geometry" />
         </mxCell>
         <mxCell id="DX_1FC9gHz3izWqbkq7w-47" value="&lt;h2&gt;&lt;b&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/b&gt;&lt;/h2&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="6951" y="935" width="140" height="30" as="geometry" />
+          <mxGeometry x="6960" y="980" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="DX_1FC9gHz3izWqbkq7w-50" value="IMateriaSource.hpp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
-          <mxGeometry x="7240" y="980" width="220" height="130" as="geometry" />
+          <mxGeometry x="7240" y="1018" width="220" height="130" as="geometry" />
         </mxCell>
         <mxCell id="DX_1FC9gHz3izWqbkq7w-51" value="&lt;div&gt;-&lt;/div&gt;" style="text;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="DX_1FC9gHz3izWqbkq7w-50" vertex="1">
           <mxGeometry y="26" width="220" height="26" as="geometry" />
@@ -1557,7 +1557,7 @@
           <mxGeometry y="104" width="220" height="26" as="geometry" />
         </mxCell>
         <mxCell id="DX_1FC9gHz3izWqbkq7w-58" value="&lt;h2&gt;&lt;b&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/b&gt;&lt;/h2&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="7275" y="935" width="140" height="30" as="geometry" />
+          <mxGeometry x="7280" y="980" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="l5oPPa1NuMwC1-Uz-Kbr-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="l5oPPa1NuMwC1-Uz-Kbr-1" target="DX_1FC9gHz3izWqbkq7w-39" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -1592,11 +1592,11 @@
         <mxCell id="l5oPPa1NuMwC1-Uz-Kbr-7" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+&amp;nbsp;unequip(int)&lt;/p&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#333333;" parent="l5oPPa1NuMwC1-Uz-Kbr-1" vertex="1">
           <mxGeometry y="234" width="220" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="l5oPPa1NuMwC1-Uz-Kbr-8" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ use(int, ICharacter&amp;amp;)&lt;/p&gt;" style="text;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=#333333;" parent="l5oPPa1NuMwC1-Uz-Kbr-1" vertex="1">
+        <mxCell id="l5oPPa1NuMwC1-Uz-Kbr-8" value="&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;+ use(int, ICharacter&amp;amp;)&lt;/p&gt;" style="text;strokeColor=#b85450;fillColor=#f8cecc;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="l5oPPa1NuMwC1-Uz-Kbr-1" vertex="1">
           <mxGeometry y="260" width="220" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="l5oPPa1NuMwC1-Uz-Kbr-14" value="override from ICharacter" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="6931" y="1560" width="160" height="40" as="geometry" />
+        <mxCell id="l5oPPa1NuMwC1-Uz-Kbr-14" value="override from ICharacter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="7100" y="1540" width="160" height="40" as="geometry" />
         </mxCell>
         <mxCell id="2Ey6WLTdAZszNSZo4VCv-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="l5oPPa1NuMwC1-Uz-Kbr-21" target="DX_1FC9gHz3izWqbkq7w-50" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -1629,7 +1629,7 @@
           <mxGeometry x="6920.5" y="790" width="629.5" height="44" as="geometry" />
         </mxCell>
         <mxCell id="2Ey6WLTdAZszNSZo4VCv-6" value="&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;928&quot; data-start=&quot;911&quot;&gt;Técnicamente:&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;944&quot; data-start=&quot;929&quot;&gt;MateriaSource&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; extiende de &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;973&quot; data-start=&quot;957&quot;&gt;IMateriaSource&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; (herencia pública).&lt;/span&gt;&lt;br&gt;&lt;strong style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;1018&quot; data-start=&quot;998&quot;&gt;Conceptualmente:&lt;/strong&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;1034&quot; data-start=&quot;1019&quot;&gt;MateriaSource&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt; implementa la interfaz &lt;/span&gt;&lt;code style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot; data-end=&quot;1074&quot; data-start=&quot;1058&quot;&gt;IMateriaSource&lt;/code&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;.&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
-          <mxGeometry x="7402" y="1144" width="456" height="63.75" as="geometry" />
+          <mxGeometry x="7360" y="1165" width="456" height="52" as="geometry" />
         </mxCell>
         <mxCell id="2Ey6WLTdAZszNSZo4VCv-7" value="override from IMateriaSource" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="7550" y="1394" width="160" height="40" as="geometry" />
@@ -1641,7 +1641,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="2Ey6WLTdAZszNSZo4VCv-11" value="Al implementar la &lt;b&gt;Interface&lt;/b&gt;, estamos sobreescribiendo (&lt;b&gt;override&lt;/b&gt;) los metodos virtuales puros.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="7314" y="1484" width="296" height="60" as="geometry" />
+          <mxGeometry x="7290" y="1476" width="296" height="60" as="geometry" />
         </mxCell>
         <mxCell id="2Ey6WLTdAZszNSZo4VCv-12" value="&lt;code data-end=&quot;577&quot; data-start=&quot;572&quot;&gt;Al tener &lt;b&gt;=0&lt;/b&gt;&lt;/code&gt; en la interfaz → significa &lt;strong data-end=&quot;629&quot; data-start=&quot;605&quot;&gt;función virtual pura&lt;/strong&gt; → obliga a las clases hijas a dar una &lt;strong data-end=&quot;686&quot; data-start=&quot;668&quot;&gt;implementación&lt;/strong&gt;." style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="6920" y="840" width="630" height="44" as="geometry" />

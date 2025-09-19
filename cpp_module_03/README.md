@@ -18,6 +18,8 @@ This module introduces inheritance concepts in C++, including single inheritance
 
 Introduction to a base class that will be inherited by other classes in subsequent exercises.
 
+<img src="../uml_diagrams/module_03/ex00_claptrap.png" alt="ClapTrap UML Diagram" >
+
 **Key Concepts**:
 - Base class design
 - Member variables and functions
@@ -145,6 +147,8 @@ public:
 **Files**: `ClapTrap.hpp`, `ClapTrap.cpp`, `ScavTrap.hpp`, `ScavTrap.cpp`, `FragTrap.hpp`, `FragTrap.cpp`, `DiamondTrap.hpp`, `DiamondTrap.cpp`, `main.cpp`
 
 Multiple inheritance and virtual inheritance to solve the diamond problem.
+
+<img src="../uml_diagrams/module_03/ex03_diamondtrap.png" alt="DiamondTrap UML Diagram">
 
 **Key Concepts**:
 - Multiple inheritance syntax

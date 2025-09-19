@@ -2,7 +2,7 @@
 
 This module introduces fundamental C++ concepts including basic syntax, classes, and object-oriented programming principles.
 
-## 🎯 Learning Objectives
+## Learning Objectives
 
 - Understand C++ basic syntax and structure
 - Learn about classes and objects
@@ -11,7 +11,7 @@ This module introduces fundamental C++ concepts including basic syntax, classes,
 - Understand static members and methods
 - Learn about file I/O and string manipulation
 
-## 📁 Exercises Overview
+## Exercises Overview
 
 ### Exercise 00: Megaphone
 **Files**: `megaphone.cpp`
@@ -34,6 +34,9 @@ A simple program that converts command-line arguments to uppercase and displays 
 **Files**: `Contact.hpp`, `Contact.cpp`, `PhoneBook.hpp`, `PhoneBook.cpp`, `main.cpp`
 
 A phone book application that stores and manages contact information.
+
+
+<img src="../uml_diagrams/module_00/ex01_phonebook.png" alt="PhoneBook UML Diagram" width="600" height="380">
 
 **Key Concepts**:
 - Class definition and implementation
@@ -78,7 +81,7 @@ A banking system simulation demonstrating static members and methods.
 - Logging and debugging
 
 **Class Structure**:
-```cpp
+``` cpp
 class Account {
 private:
     static int _nbAccounts;
@@ -133,7 +136,8 @@ public:
 
 ### Compilation
 Each exercise has its own Makefile:
-```bash
+``` bash
+
 cd cpp_module_00/ex00
 make
 ./megaphone "hello world"
@@ -169,10 +173,8 @@ make
 
 ## 📚 Further Reading
 
-- [C++98 Standard Reference](https://en.cppreference.com/w/cpp/98)
+- [C++ Standard Reference](https://en.cppreference.com/w/cpp.html)
 - [Object-Oriented Programming in C++](https://www.learncpp.com/)
 - [C++ Class Design](https://isocpp.org/wiki/faq/classes-and-objects)
 
 ---
-
-*This module provides the foundation for understanding C++ object-oriented programming concepts that will be expanded upon in subsequent modules.*

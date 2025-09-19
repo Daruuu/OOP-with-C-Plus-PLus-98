@@ -18,6 +18,8 @@ This module focuses on memory management in C++, including dynamic allocation, r
 
 Introduction to dynamic memory allocation and object lifecycle management.
 
+<img src="../uml_diagrams/module_01/ex00_zombie.png" alt="Zombie UML Diagram" width="600" height="340">
+
 **Key Concepts**:
 - Dynamic memory allocation with `new`
 - Memory deallocation with `delete`
@@ -52,6 +54,8 @@ void randomChump(std::string name);   // Stack allocation
 **Files**: `Zombie.hpp`, `Zombie.cpp`, `zombieHorde.cpp`, `main.cpp`
 
 Advanced memory management with arrays of dynamically allocated objects.
+
+<img src="../uml_diagrams/module_01/ex01_zombie_horde.png" alt="Zombie Horde UML Diagram" width="800" height="380">
 
 **Key Concepts**:
 - Dynamic array allocation with `new[]`
@@ -91,6 +95,8 @@ A comprehensive exercise focusing on memory management concepts and best practic
 **Files**: `HumanA.hpp`, `HumanA.cpp`, `HumanB.hpp`, `HumanB.cpp`, `Weapon.hpp`, `Weapon.cpp`, `main.cpp`
 
 Demonstrates the differences between references and pointers in C++.
+
+<img src="../uml_diagrams/module_01/ex03_references.png" alt="References UML Diagram" width="660" height="500">
 
 **Key Concepts**:
 - References vs pointers
@@ -144,6 +150,8 @@ public:
 
 File I/O operations and string manipulation with proper memory management.
 
+<img src="../uml_diagrams/module_01/ex04_file_operations.png" alt="File Operations UML Diagram" width="600" height="340">
+
 **Key Concepts**:
 - File input/output operations
 - String replacement algorithms
@@ -174,6 +182,8 @@ public:
 **Files**: `Harl.hpp`, `Harl.cpp`, `main.cpp`
 
 Advanced string processing and conditional logic with proper memory management.
+
+<img src="../uml_diagrams/module_01/ex05_harl_2_0.png" alt="Harl Filter UML Diagram" width="700" height="310">
 
 **Key Concepts**:
 - String comparison and processing

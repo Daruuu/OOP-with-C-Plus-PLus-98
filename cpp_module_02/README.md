@@ -18,6 +18,8 @@ This module introduces operator overloading, copy constructors, assignment opera
 
 Introduction to fixed-point arithmetic and basic class structure.
 
+<img src="../uml_diagrams/module_02/ex00_fixed_basic.png" alt="Fixed Basic UML Diagram">
+
 **Key Concepts**:
 - Fixed-point number representation
 - Binary point arithmetic
@@ -53,6 +55,8 @@ public:
 **Files**: `Fixed.hpp`, `Fixed.cpp`, `main.cpp`
 
 Implementation of arithmetic operators for fixed-point numbers.
+
+<img src="../uml_diagrams/module_02/ex01_fixed_arithmetic.png" alt="Fixed Arithmetic UML Diagram">
 
 **Key Concepts**:
 - Operator overloading
