@@ -21,11 +21,9 @@ public:
 	const std::string& getName() const;
 	int getGrade() const;
 
-	//	functions to member
 	void incrementGrade();
 	void decrementGrade();
 	// 	grade 1 is the highest and 150 the lowest,
-	// incrementing a grade 3 should result in a grade 2 for the bureaucrat
 
 	class GradeTooLowException : public std::exception
 	{
