@@ -17,6 +17,12 @@ SRCS = main.cpp Bureaucrat.cpp
 OBJS = $(SRCS:.cpp=.o)
 DEPENDS = $(OBJS:.o=.d)
 
+# tests
+TEST_NAME = test_runner
+TEST_SRC = tests/BureaucratTest.cpp tests/TestRunner.cpp Bureaucrat.cpp
+TEST_OBJ = $(TEST_SRC:.cpp=.o)
+TEST_FLAGS = -lcppunit -ldl
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -24,6 +30,10 @@ $(NAME): $(OBJS)
 
 %.o: %.cpp	Makefile
 	$(CXX) $(CPP_FLAGS) -c $< -o $@
+
+test: $(TEST_OBJ)
+	$(CXX) $(CXXFLAGS) $(TEST_OBJ) -o $(TEST_NAME) $(TEST_FLAGS)
+	./$(TEST_NAME)
 
 clean:
 	rm -rf $(OBJS) $(DEPENDS)
