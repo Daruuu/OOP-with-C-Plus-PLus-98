@@ -1,31 +1,84 @@
 #include "Bureaucrat.hpp"
 
-#include <tgmath.h>
-
-class Bureaucrat
+Bureaucrat::Bureaucrat() : name_("empty"), grade_(24)
 {
-private:
-	const std::string name_;
-	int	grade_;
+	std::cout << BLUE << "Bureaucrat default constructor called." << RESET
+		<< std::endl;
+}
 
-public:
-	Bureaucrat();
-	Bureaucrat(const std::string name, int grade);
-	Bureaucrat(const Bureaucrat& other);
-	Bureaucrat& operator=(const Bureaucrat& other);
-	~Bureaucrat();
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : name_(name)
+{
+	if (grade < 1)
+		throw GradeTooHighException();
+	if (grade > 150)
+		throw GradeTooLowException();
+	this->grade_ = grade;
+}
 
-	const std::string&	getName() const;
-	int	getGrade()const ;
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : name_(other.name_),
+												grade_(other.grade_)
+{
+	std::cout << CYAN << "Bureaucrat copy constructor called." << RESET
+		<< std::endl;
+}
 
-	//	functions to member
-	void	incrementGrade();
-	void	decrementGrade();
-
-	class GradeToHightException : public std::exception
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
+{
+	if (this != &other)
 	{
-	public:
-		virtual const char* what() const throw();
-	};
+		this->grade_ = other.grade_;
+	}
+	std::cout << CYAN << "Bureaucrat copy assignment operator called" << RESET
+		<< std::endl;
+	return (*this);
+}
 
-};
+Bureaucrat::~Bureaucrat()
+{
+	std::cout << RED << "Bureaucrat destructor called for " << RESET << name_
+		<< std::endl;
+}
+
+//	=============== GETTERS ===============
+const std::string& Bureaucrat::getName() const
+{
+	return (this->name_);
+}
+
+int Bureaucrat::getGrade() const
+{
+	return (this->grade_);
+}
+
+//	=============== METHODS ===============
+
+void Bureaucrat::incrementGrade()
+{
+	if (grade_ <= 1)
+		throw GradeTooHighException();
+	grade_--;
+}
+
+void Bureaucrat::decrementGrade()
+{
+	if (grade_ >= 150)
+		throw GradeTooLowException();
+	grade_++;
+}
+
+//	=============== METHODS ===============
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Grade is too low. :(");
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("Grade is too high. :|");
+}
+
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj)
+{
+	out << obj.getName() << ", bureaucrat grade: " << obj.getGrade();
+	return out;
+}
