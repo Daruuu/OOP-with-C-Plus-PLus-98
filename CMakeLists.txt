@@ -6,23 +6,16 @@ set(CMAKE_CXX_STANDARD 98)
 add_executable(Starting_with_Cpp main.cpp
 )
 
-set(CMAKE_CXX_STANDARD 98)
-
 add_executable(Ex02_phonebook
         cpp_module_00/ex02/tests.cpp
         cpp_module_00/ex02/Account.cpp
         cpp_module_00/ex02/Account.hpp
 )
 
-
-set(CMAKE_CXX_STANDARD 98)
-
 add_executable(Ex00
         cpp_module_01/ex00/Zombie.cpp
         cpp_module_01/ex00/Zombie.hpp
 )
-
-set(CMAKE_CXX_STANDARD 98)
 
 add_executable(Cpp_01_ex01
         cpp_module_01/ex01/main.cpp
@@ -98,7 +91,6 @@ add_executable(Cpp04_ex01
         cpp_module_04/ex01/WrongAnimal.hpp
         cpp_module_04/ex01/Brain.cpp
         cpp_module_04/ex01/Brain.hpp
-
 )
 
 add_executable(Cpp04_ex02
@@ -115,8 +107,8 @@ add_executable(Cpp04_ex02
         cpp_module_04/ex02/WrongAnimal.hpp
         cpp_module_04/ex02/Brain.cpp
         cpp_module_04/ex02/Brain.hpp
-
 )
+
 add_executable(Cpp04_ex03
         cpp_module_04/ex03/main.cpp
         cpp_module_04/ex03/AMateria.cpp
@@ -131,4 +123,9 @@ add_executable(Cpp04_ex03
         cpp_module_04/ex03/IMateriaSource.hpp
         cpp_module_04/ex03/MateriaSource.cpp
         cpp_module_04/ex03/MateriaSource.hpp
+)
+
+add_executable(Cpp05_ex00
+        cpp_module_05/ex00/main.cpp
+        cpp_module_05/ex00/Bureaucrat.cpp
 )
