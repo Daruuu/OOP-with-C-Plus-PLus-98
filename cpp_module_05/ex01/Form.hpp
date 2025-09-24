@@ -1,5 +1,6 @@
 #ifndef FORM_HPP
 #define FORM_HPP
+
 #include <string>
 
 #include "Bureaucrat.hpp"
@@ -14,7 +15,7 @@ private:
 
 public:
 	Form();
-	Form(const std::string& name, const int kgradeToSign, int kgradeToExecute);
+	Form(const std::string& name, const int gradeToSign, int gradeToExecute);
 	Form(const Form& other);
 	Form& operator=(const Form& other);
 	~Form();
@@ -22,13 +23,11 @@ public:
 	//	GETTERS
 	const std::string& getName() const;
 	bool getIsSigned() const;
-	const int getGradeToSigned() const;
-	const int getGradeToExecute() const;
+	int getGradeToSigned() const;
+	int getGradeToExecute() const;
 
 	//	METHODS
-	void incrementGradeForm();
-	void decrementGradeForm();
-	void beSigned(Bureaucrat& bureaucrat);
+	void beSigned(const Bureaucrat& bureaucrat);
 
 	//	EXCEPTIONS
 	class GradeTooHighException : public std::exception

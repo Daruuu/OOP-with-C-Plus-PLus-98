@@ -35,7 +35,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << RED << "Bureaucrat destructor called for " << RESET << kname_
+	std::cout << RED << "[Bureaucrat] destructor called for " << RESET << kname_
 		<< std::endl;
 }
 
@@ -79,6 +79,8 @@ const char* Bureaucrat::GradeTooHighException::what() const throw()
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj)
 {
-	out << obj.getName() << ", bureaucrat grade: " << obj.getGrade();
+	out << CYAN << "Bureaucrat: " << obj.getName()
+		<< "\ngrade: " << obj.getGrade()
+		<< RESET << std::endl;
 	return out;
 }
