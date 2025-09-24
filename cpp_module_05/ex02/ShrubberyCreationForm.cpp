@@ -1,7 +1,4 @@
 #include "ShrubberyCreationForm.hpp"
-#include <fstream>
-
-#include "../ex01/Bureaucrat.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Default", 145, 137),
 												ktarget_("default_shruberry")
@@ -31,7 +28,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat& executor)
+void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
 	if (!getIsSigned())
 	{
@@ -47,7 +44,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor)
 
 	if (outFile.is_open())
 	{
-		outFile << "       &&& &&  & &&\n";
+		outFile << GREEN << "       &&& &&  & &&\n";
 		outFile << "   && &\\/&\\|& ()|/ @, &&\n";
 		outFile << "   &\\/(/&/&||/& /_/)_&/_&\n";
 		outFile << " &() &\\/&|()|/&\\/ '%\" & ()\n";

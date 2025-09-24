@@ -13,15 +13,16 @@ int main()
 			Bureaucrat midGrade("MidGrade", 50);
 			Bureaucrat lowGrade("LowGrade", 150);
 
-			ShrubberyCreationForm shrub("garden");
+			// ShrubberyCreationForm shrub("garden");
+			ShrubberyCreationForm shrub("shrubbery");
 
 			std::cout << shrub << std::endl;
 
-			std::cout << "--- Testing with low grade bureaucrat: ---" << std::endl;
+			std::cout << GREEN << "--- Case with low grade bureaucrat: ---" << RESET << std::endl;
 			lowGrade.signForm(shrub);
 			lowGrade.executeForm(shrub);
 
-			std::cout << "--- Testing with mid grade bureaucrat: ---" << std::endl;
+			std::cout << GREEN << "--- Case with mid grade bureaucrat: ---" << RESET << std::endl;
 			midGrade.signForm(shrub);
 			midGrade.executeForm(shrub);
 		}

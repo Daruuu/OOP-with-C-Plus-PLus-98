@@ -39,7 +39,8 @@ clean:
 	rm -rf $(OBJS) $(DEPENDS)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) *_shrubbery
+
 
 re: fclean all
 

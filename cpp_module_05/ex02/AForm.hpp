@@ -30,8 +30,8 @@ public:
 	//	METHODS
 	void beSigned(const Bureaucrat& b1);
 
-	//	PURE FUNCTION
-	virtual void execute(const Bureaucrat &executor) = 0;
+    //	PURE FUNCTION
+    virtual void execute(const Bureaucrat &executor) const = 0;
 
 	//	EXCEPTIONS
 	class GradeTooHighException : public std::exception
