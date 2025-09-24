@@ -10,9 +10,9 @@ CPP_FLAGS = -Wall -Wextra -Werror -std=c++98 -O2 -MMD -fsanitize=address \
 	-DCYAN="\"\\033[36m\"" \
 	-DWHITE="\"\\033[37m\""
 
-NAME = No,_you_need_form_28B,_not_28C...
+NAME = no_you_need_form_28B,_not_28C...
 
-SRCS = main.cpp Form.cpp Bureaucrat.cpp
+SRCS = main.cpp AForm.cpp Bureaucrat.cpp ShrubberyCreationForm.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 DEPENDS = $(OBJS:.o=.d)

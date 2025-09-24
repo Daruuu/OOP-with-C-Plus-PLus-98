@@ -1,5 +1,7 @@
 #include "Bureaucrat.hpp"
 
+#include "AForm.hpp"
+
 Bureaucrat::Bureaucrat() : kname_("empty"), grade_(24)
 {
 	std::cout << BLUE << "Bureaucrat default constructor called." << RESET
@@ -66,7 +68,39 @@ void Bureaucrat::decrementGrade()
 	grade_++;
 }
 
-//	=============== METHODS ===============
+//	=============== FORMS METHODS ===============
+
+void Bureaucrat::signForm(AForm& form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << kname_ << " signed " << form.getName() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << kname_ << " could not sign " << form.getName() <<
+			" because: " << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(const AForm& form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << kname_ << " executed " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << kname_ << " could not execute" << form.getName() <<
+			" because: " << e.what() << std::endl;
+	}
+}
+
+
+//	=============== EXCEPTIONS ===============
+
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low. :(");

@@ -2,8 +2,9 @@
 #define FORM_HPP
 
 #include <string>
-
-class Bureaucrat;
+#include <ostream>
+#include <iostream>
+#include "Bureaucrat.hpp"
 
 class AForm
 {
@@ -27,10 +28,10 @@ public:
 	int getGradeToExecute() const;
 
 	//	METHODS
-	void beSigned(const Bureaucrat& bureaucrat);
+	void beSigned(const Bureaucrat& b1);
 
 	//	PURE FUNCTION
-	virtual void execute(Bureaucrat const &executor) = 0;
+	virtual void execute(const Bureaucrat &executor) = 0;
 
 	//	EXCEPTIONS
 	class GradeTooHighException : public std::exception

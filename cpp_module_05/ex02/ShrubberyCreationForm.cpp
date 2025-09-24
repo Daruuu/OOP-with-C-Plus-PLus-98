@@ -1,4 +1,5 @@
 #include "ShrubberyCreationForm.hpp"
+#include <fstream>
 
 #include "../ex01/Bureaucrat.hpp"
 
@@ -22,7 +23,6 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	if (this != &other)
 	{
 		AForm::operator=(other);
-		ktarget_ = other.ktarget_;
 	}
 	return *this;
 }
@@ -40,5 +40,31 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor)
 	if (executor.getGrade() > getGradeToExecute())
 	{
 		throw GradeTooLowException();
+	}
+	std::string filename = ktarget_ + "_shrubbery";
+
+	std::ofstream outFile(filename.c_str());
+
+	if (outFile.is_open())
+	{
+		outFile << "       &&& &&  & &&\n";
+		outFile << "   && &\\/&\\|& ()|/ @, &&\n";
+		outFile << "   &\\/(/&/&||/& /_/)_&/_&\n";
+		outFile << " &() &\\/&|()|/&\\/ '%\" & ()\n";
+		outFile << " &_\\_&&_\\ |& |&&/&__%_/_& &&\n";
+		outFile << "&&   && & &| &| /& & % ()& /&&\n";
+		outFile << " ()&_---()&\\&\\|&&-&&--%---()~\n";
+		outFile << "     &&     \\|||\n";
+		outFile << "             |||\n";
+		outFile << "             |||\n";
+		outFile << "             |||\n";
+		outFile << "       , -=-~  .-^- _\n";
+		outFile.close();
+
+		std::cout << "Shrubbery has been planted in " << ktarget_ << "_shrubbery" << std::endl;
+	}
+	else
+	{
+		std::cerr << "Error: cant create file!" << std::endl;
 	}
 }

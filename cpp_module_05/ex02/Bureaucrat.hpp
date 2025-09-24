@@ -5,6 +5,8 @@
 #include <ostream>
 #include <iostream>
 
+class AForm;
+
 class Bureaucrat
 {
 private:
@@ -21,9 +23,13 @@ public:
 	const std::string& getName() const;
 	int getGrade() const;
 
+	// 	grade 1 is the highest and 150 the lowest,
 	void incrementGrade();
 	void decrementGrade();
-	// 	grade 1 is the highest and 150 the lowest,
+
+	// Form methods
+	void signForm(AForm& form);
+	void executeForm(const AForm& form);
 
 	class GradeTooLowException : public std::exception
 	{
