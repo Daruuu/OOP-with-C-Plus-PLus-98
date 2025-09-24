@@ -38,18 +38,28 @@ Notes:
 - `grade_` must always be between 1 and 150.
 - Incrementing a grade at 1 or decrementing at 150 must throw.
 
-## Flowchart (Main Scenarios)
+[//]: # (## Flowchart &#40;Main Scenarios&#41;)
 
-```mermaid
-flowchart TD
-  A[Create Bureaucrat(name, grade)] --> B{grade in [1..150]?}
-  B -- no --> E[throw GradeTooHigh/Low]
-  B -- yes --> C[Use object]
-  C --> D{increment or decrement}
-  D -- increment at 1 --> E
-  D -- decrement at 150 --> E
-  D -- otherwise --> C
-```
+[//]: # ()
+[//]: # (```mermaid)
+
+[//]: # (flowchart TD)
+
+[//]: # (  A[Create Bureaucrat&#40;name, grade&#41;] --> B{grade in [1..150]?})
+
+[//]: # (  B -- no --> E[throw GradeTooHigh/Low])
+
+[//]: # (  B -- yes --> C[Use object])
+
+[//]: # (  C --> D{increment or decrement})
+
+[//]: # (  D -- increment at 1 --> E)
+
+[//]: # (  D -- decrement at 150 --> E)
+
+[//]: # (  D -- otherwise --> C)
+
+[//]: # (```)
 
 ## Usage
 

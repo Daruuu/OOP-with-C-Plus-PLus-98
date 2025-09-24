@@ -44,17 +44,26 @@ Exceptions:
 - `Bureaucrat::GradeTooHighException`, `Bureaucrat::GradeTooLowException`
 - `Form::GradeTooHighException`, `Form::GradeTooLowException`
 
-## Flowchart (Signing a Form)
+[//]: # (## Flowchart &#40;Signing a Form&#41;)
 
-```mermaid
-flowchart TD
-  A[Create Form(name, sGrade, eGrade)] --> B{Grades in 1..150?}
-  B -- no --> X[throw High/Low]
-  B -- yes --> C[Create Bureaucrat(name, grade)]
-  C --> D{bureaucrat.grade <= form.kgradeToSigned?}
-  D -- yes --> E[form.is_signed_ = true]
-  D -- no --> X[throw GradeTooLowException]
-```
+[//]: # ()
+[//]: # (```mermaid)
+
+[//]: # (flowchart TD)
+
+[//]: # (  A[Create Form&#40;name, sGrade, eGrade&#41;] --> B{Grades in 1..150?})
+
+[//]: # (  B -- no --> X[throw High/Low])
+
+[//]: # (  B -- yes --> C[Create Bureaucrat&#40;name, grade&#41;])
+
+[//]: # (  C --> D{bureaucrat.grade <= form.kgradeToSigned?})
+
+[//]: # (  D -- yes --> E[form.is_signed_ = true])
+
+[//]: # (  D -- no --> X[throw GradeTooLowException])
+
+[//]: # (```)
 
 ## Usage
 
