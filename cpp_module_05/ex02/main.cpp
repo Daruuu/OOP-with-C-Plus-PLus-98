@@ -1,4 +1,4 @@
-#include "AForm.hpp"
+#include "Form.hpp"
 #include "../../cpp_module_02/ex03/Fixed.hpp"
 
 int main()
@@ -21,7 +21,7 @@ int main()
 
 		std::cout << GREEN << "\n--- Test 2: Valid form ---" << RESET << std::endl;
 		try {
-			AForm formValid("Tax AForm", 50, 60);
+			Form formValid("Tax Form", 50, 60);
 			std::cout << formValid << RESET << std::endl;
 		}
 		catch (const std::exception& e) {
@@ -33,7 +33,7 @@ int main()
 	{
 		std::cout << GREEN << "\n--- Test 3: Invalid form (gradeToSign too high: 0) ---" << RESET << std::endl;
 		try {
-			AForm f("Invalid AForm High", 0, 50);
+			Form f("Invalid Form High", 0, 50);
 		}
 		catch (const std::exception& e) {
 			std::cout << MAGENTA << "Exception caught: " << e.what() << RESET << std::endl;
@@ -41,7 +41,7 @@ int main()
 
 		std::cout << GREEN << "\n--- Test 3: Invalid form (gradeToExecute too low: 200) ---" << RESET << std::endl;
 		try {
-			AForm f("Invalid AForm Low", 50, 200);
+			Form f("Invalid Form Low", 50, 200);
 		}
 		catch (const std::exception& e) {
 			std::cout << MAGENTA << "Exception caught: " << e.what() << RESET << std::endl;
@@ -50,11 +50,11 @@ int main()
 
 
 	{
-		std::cout << GREEN << "\n--- Test 4: Bureaucrat with enough grade signs AForm ---" << RESET << std::endl;
+		std::cout << GREEN << "\n--- Test 4: Bureaucrat with enough grade signs Form ---" << RESET << std::endl;
 		try {
 			Bureaucrat b("Signer", 40);
 
-			AForm formEnoughGrade("Contract", 50, 60);
+			Form formEnoughGrade("Contract", 50, 60);
 
 			std::cout << formEnoughGrade << RESET << std::endl;
 
@@ -72,7 +72,7 @@ int main()
 		std::cout << GREEN << "\n--- Test 5: Bureaucrat with low grade ---" << RESET << std::endl;
 		try {
 			Bureaucrat b("Intern", 120);
-			AForm f("TopSecret", 50, 60);
+			Form f("TopSecret", 50, 60);
 
 			f.beSigned(b);
 		}

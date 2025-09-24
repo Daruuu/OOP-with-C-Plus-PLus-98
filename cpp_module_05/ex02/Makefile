@@ -10,9 +10,9 @@ CPP_FLAGS = -Wall -Wextra -Werror -std=c++98 -O2 -MMD -fsanitize=address \
 	-DCYAN="\"\\033[36m\"" \
 	-DWHITE="\"\\033[37m\""
 
-NAME = Form_up_maggots
+NAME = No,_you_need_form_28B,_not_28C...
 
-SRCS = main.cpp Bureaucrat.cpp Form.cpp
+SRCS = main.cpp Form.cpp Bureaucrat.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 DEPENDS = $(OBJS:.o=.d)

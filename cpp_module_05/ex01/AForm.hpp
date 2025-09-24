@@ -5,7 +5,7 @@
 
 #include "Bureaucrat.hpp"
 
-class Form
+class AForm
 {
 private:
 	const std::string kname_;
@@ -14,11 +14,11 @@ private:
 	const int kgradeToExecute_;
 
 public:
-	Form();
-	Form(const std::string& name, const int gradeToSign, int gradeToExecute);
-	Form(const Form& other);
-	Form& operator=(const Form& other);
-	~Form();
+	AForm();
+	AForm(const std::string& name, const int gradeToSign, int gradeToExecute);
+	AForm(const AForm& other);
+	AForm& operator=(const AForm& other);
+	~AForm();
 
 	//	GETTERS
 	const std::string& getName() const;
@@ -43,6 +43,6 @@ public:
 	};
 };
 
-std::ostream& operator<<(std::ostream& out, const Form& obj);
+std::ostream& operator<<(std::ostream& out, const AForm& obj);
 
 #endif
