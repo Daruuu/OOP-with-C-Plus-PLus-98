@@ -5,10 +5,8 @@
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
 
-
 int main()
 {
-	/*
 	{
 		std::cout << GREEN << "--- Test 1: ShrubberyCreationForm ---" << RESET << std::endl;
 		try
@@ -35,9 +33,6 @@ int main()
 			std::cout << MAGENTA << "Exception caught: " << e.what() << RESET << std::endl;
 		}
 	}
-	*/
-
-	/*
 	{
 		std::cout << GREEN << "--- Test 2: RobotomyRequestForm ---" << RESET << std::endl;
 		try
@@ -70,6 +65,37 @@ int main()
 			std::cout << MAGENTA << "Exception caught: " << e.what() << RESET << std::endl;
 		}
 	}
-	*/
+	{
+		std::cout << GREEN << "\n--- Test: PresidentialPardonForm ---" << RESET << std::endl;
+		try
+		{
+			Bureaucrat top("TopDog", 1);
+			Bureaucrat signer("Signer", 25);
+			Bureaucrat low("LowGuy", 150);
+
+			PresidentialPardonForm pardon("Abcd");
+
+			std::cout << pardon << std::endl;
+
+			std::cout << GREEN << "\n--- Case 1: Execute without signing ---" << RESET << std::endl;
+			top.executeForm(pardon);
+
+			std::cout << GREEN << "\n--- Case 2: Sign with low grade ---" << RESET << std::endl;
+			low.signForm(pardon);
+
+			std::cout << GREEN << "\n--- Case 3: Signed but executed by low grade ---" << RESET << std::endl;
+			signer.signForm(pardon);
+			low.executeForm(pardon);
+
+			std::cout << GREEN << "\n--- Case 4: Signed and executed by top grade ---" << RESET << std::endl;
+			top.signForm(pardon);
+			top.executeForm(pardon);
+		}
+		catch (std::exception& e)
+		{
+			std::cout << MAGENTA << "Exception caught: " << e.what() << RESET << std::endl;
+		}
+	}
+
 	return 0;
 }
