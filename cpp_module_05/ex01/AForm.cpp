@@ -1,7 +1,5 @@
 #include "AForm.hpp"
 
-#include "../../cpp_module_02/ex03/Fixed.hpp"
-
 AForm::AForm() : kname_("default"), is_signed_(false), kgradeToSigned_(0),
 				kgradeToExecute_(0)
 {
@@ -23,12 +21,11 @@ AForm::AForm(const AForm& other) : kname_(other.kname_),
 								kgradeToSigned_(other.kgradeToSigned_),
 								kgradeToExecute_(other.kgradeToExecute_)
 {
-	std::cout << CYAN << "AForm copy constructor called." << RESET << std::endl;
+	// std::cout << CYAN << "AForm copy constructor called." << RESET << std::endl;
 }
 
 AForm& AForm::operator=(const AForm& other)
 {
-	//	check only no constant atributs
 	if (this != &other)
 	{
 		this->is_signed_ = other.is_signed_;
@@ -66,11 +63,12 @@ int AForm::getGradeToExecute() const
 
 //	=============== METHODS ===============
 
+// Composition: is a strong "has-a" relationship where one class contains another class as a fundamental part.
 void AForm::beSigned(const Bureaucrat& b1)
 {
 	if (b1.getGrade() > kgradeToSigned_)
 		throw GradeTooLowException();
-	is_signed_ = true;
+	this->is_signed_ = true;
 }
 
 const char* AForm::GradeTooHighException::what() const throw()
@@ -87,7 +85,7 @@ const char* AForm::GradeTooLowException::what() const throw()
 
 std::ostream& operator<<(std::ostream& out, const AForm& obj)
 {
-	out << YELLOW "AForm: " << obj.getName()
+	out << YELLOW << "AForm: " << obj.getName()
 		<< "\nis Signed: " << (obj.getIsSigned() ? "signed" : "not signed")
 		<< "\nGrade to sign: " << obj.getGradeToSigned()
 		<< "\nGrade to execute: " << obj.getGradeToExecute()

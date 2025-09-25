@@ -28,8 +28,8 @@ public:
 	void decrementGrade();
 
 	// Form methods
-	void signForm(AForm& form);
-	void executeForm(const AForm& form);
+	void signForm(AForm& form) const;
+	void executeForm(const AForm& form) const;
 
 	class GradeTooLowException : public std::exception
 	{

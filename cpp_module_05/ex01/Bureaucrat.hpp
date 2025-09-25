@@ -8,8 +8,8 @@
 class Bureaucrat
 {
 private:
-	const std::string kname_;
-	int grade_;	//	1 to 150
+	const std::string	kname_;
+	int					grade_;	//	1 to 150
 
 public:
 	Bureaucrat();
@@ -21,9 +21,9 @@ public:
 	const std::string& getName() const;
 	int getGrade() const;
 
+	// 	grade 1 is the highest and 150 the lowest,
 	void incrementGrade();
 	void decrementGrade();
-	// 	grade 1 is the highest and 150 the lowest,
 
 	class GradeTooLowException : public std::exception
 	{

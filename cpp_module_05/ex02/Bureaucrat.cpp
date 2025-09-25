@@ -70,7 +70,7 @@ void Bureaucrat::decrementGrade()
 
 //	=============== FORMS METHODS ===============
 
-void Bureaucrat::signForm(AForm& form)
+void Bureaucrat::signForm(AForm& form) const
 {
 	try
 	{
@@ -84,7 +84,7 @@ void Bureaucrat::signForm(AForm& form)
 	}
 }
 
-void Bureaucrat::executeForm(const AForm& form)
+void Bureaucrat::executeForm(const AForm& form) const
 {
 	try
 	{
@@ -97,7 +97,6 @@ void Bureaucrat::executeForm(const AForm& form)
 			" because: " << e.what() << std::endl;
 	}
 }
-
 
 //	=============== EXCEPTIONS ===============
 

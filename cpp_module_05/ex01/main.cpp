@@ -1,35 +1,7 @@
 #include "AForm.hpp"
-#include "../../cpp_module_02/ex03/Fixed.hpp"
 
 int main()
 {
-	/*
-	{
-		std::cout << GREEN << "--- Test 1: Valid Burocrata ---" << RESET << std::endl;
-		try
-		{
-			Bureaucrat b1("BuroLow", 100);
-			std::cout << b1 << std::endl;
-			b1.incrementGrade();
-			b1.incrementGrade();
-			std::cout << b1 << std::endl;
-		}
-		catch (const std::exception& e)
-		{
-			std::cout << MAGENTA << "Exception caught: " << e.what() << RESET << std::endl;
-		}
-
-		std::cout << GREEN << "\n--- Test 2: Valid form ---" << RESET << std::endl;
-		try {
-			AForm formValid("Tax AForm", 50, 60);
-			std::cout << formValid << RESET << std::endl;
-		}
-		catch (const std::exception& e) {
-			std::cout << MAGENTA << "Exception caught: " << e.what() << RESET << std::endl;
-		}
-	}
-	*/
-
 	{
 		std::cout << GREEN << "\n--- Test 3: Invalid form (gradeToSign too high: 0) ---" << RESET << std::endl;
 		try {
@@ -47,7 +19,6 @@ int main()
 			std::cout << MAGENTA << "Exception caught: " << e.what() << RESET << std::endl;
 		}
 	}
-
 
 	{
 		std::cout << GREEN << "\n--- Test 4: Bureaucrat with enough grade signs AForm ---" << RESET << std::endl;
@@ -80,9 +51,31 @@ int main()
 			std::cout << MAGENTA << "Exception caught: " << e.what() << RESET << std::endl;
 		}
 	}
+	/*
+	{
+		std::cout << GREEN << "--- Test 1: Valid Burocrata ---" << RESET << std::endl;
+		try
+		{
+			Bureaucrat b1("BuroLow", 100);
+			std::cout << b1 << std::endl;
+			b1.incrementGrade();
+			b1.incrementGrade();
+			std::cout << b1 << std::endl;
+		}
+		catch (const std::exception& e)
+		{
+			std::cout << MAGENTA << "Exception caught: " << e.what() << RESET << std::endl;
+		}
 
-
-
-
+		std::cout << GREEN << "\n--- Test 2: Valid form ---" << RESET << std::endl;
+		try {
+			AForm formValid("Tax AForm", 50, 60);
+			std::cout << formValid << RESET << std::endl;
+		}
+		catch (const std::exception& e) {
+			std::cout << MAGENTA << "Exception caught: " << e.what() << RESET << std::endl;
+		}
+	}
+	*/
 	return 0;
 }

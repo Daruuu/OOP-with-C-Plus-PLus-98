@@ -6,6 +6,7 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
+// Required grades: sign 72, exec 45
 class RobotomyRequestForm : public AForm
 {
 private:
@@ -18,8 +19,8 @@ public:
 	RobotomyRequestForm& operator=(const RobotomyRequestForm &other);
 	~RobotomyRequestForm();
 
+	//	override
 	void execute(const Bureaucrat& executor) const;
-
 };
 
 #endif

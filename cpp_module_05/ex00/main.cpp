@@ -1,5 +1,4 @@
 #include "Bureaucrat.hpp"
-#include "../../cpp_module_02/ex03/Fixed.hpp"
 
 int main()
 {

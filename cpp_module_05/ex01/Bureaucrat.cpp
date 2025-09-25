@@ -18,8 +18,8 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : kname_(name)
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : kname_(other.kname_),
 												grade_(other.grade_)
 {
-	std::cout << CYAN << "Bureaucrat copy constructor called." << RESET
-		<< std::endl;
+	// std::cout << CYAN << "Bureaucrat copy constructor called." << RESET
+	// 	<< std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
@@ -28,8 +28,8 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 	{
 		this->grade_ = other.grade_;
 	}
-	std::cout << CYAN << "Bureaucrat copy assignment operator called" << RESET
-		<< std::endl;
+	// std::cout << CYAN << "Bureaucrat copy assignment operator called" << RESET
+	// 	<< std::endl;
 	return (*this);
 }
 
@@ -66,7 +66,8 @@ void Bureaucrat::decrementGrade()
 	grade_++;
 }
 
-//	=============== METHODS ===============
+//	=============== EXCEPTIONS ===============
+
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low. :(");

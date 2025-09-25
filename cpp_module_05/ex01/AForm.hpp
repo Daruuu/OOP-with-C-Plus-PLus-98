@@ -2,7 +2,6 @@
 #define FORM_HPP
 
 #include <string>
-
 #include "Bureaucrat.hpp"
 
 class AForm
