@@ -1,10 +1,11 @@
 # C++ Module 05 - ex02: AForm hierarchy and execution
 
-This exercise extends the forms system by introducing an abstract base class `AForm` with a pure virtual `execute()` and concrete derived forms. Here, `ShrubberyCreationForm` writes an ASCII tree to a file when executed.
+This exercise extends the forms system by introducing an abstract base class `AForm` with a pure virtual `execute()` and concrete derived forms. <br>
+Here, `ShrubberyCreationForm` writes an **ASCII tree** to a file when executed.
 
 ## Learning Objectives
 
-- Model an abstract hierarchy with a pure virtual operation
+- Create an abstract hierarchy with a pure virtual operation
 - Enforce invariants using exceptions and guard methods
 - Collaborate between `Bureaucrat` and `AForm` for signing/executing
 - Respect distinct grades for signing vs executing
@@ -57,9 +58,9 @@ Notes:
 
 ```mermaid
 flowchart TD
-  A[Bureaucrat calls executeForm(form)] --> B{call form.execute(this)}
-  B --> C[Derived::execute(executor)]
-  C --> D[form.checkExecutor(executor)]
+  A["Bureaucrat calls executeForm(form)"] --> B{"call form.execute(this)"}
+  B --> C["Derived::execute(executor)"]
+  C --> D["form.checkExecutor(executor)"]
   D -->|throws if not signed| X[FormNotSignedException]
   D -->|throws if grade too low| Y[GradeTooLowException]
   D -->|ok| E[ShrubberyCreationForm: open <target>_shrubbery]

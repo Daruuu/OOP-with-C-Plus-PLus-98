@@ -7,7 +7,7 @@ a `Bureaucrat` if the bureaucrat's grade is high enough. Both `Form` and
 ## Learning Objectives
 
 - Design collaborating classes with clear responsibilities
-- Implement domain rules: sign and execute grade thresholds
+- Implement domain rules: __sign__ and __execute__ grade thresholds
 - Use exceptions to protect class invariants
 - Overload insertion operators for readable state printing
 
@@ -18,7 +18,7 @@ classDiagram
 class Bureaucrat {
   - const std::string kname_
   - int grade_
-  + getName() const string&
+  + getName() const string& 
   + getGrade() const int
   + incrementGrade() void
   + decrementGrade() void
@@ -44,26 +44,25 @@ Exceptions:
 - `Bureaucrat::GradeTooHighException`, `Bureaucrat::GradeTooLowException`
 - `Form::GradeTooHighException`, `Form::GradeTooLowException`
 
-[//]: # (## Flowchart &#40;Signing a Form&#41;)
+## Flowchart (Signing a Form)
 
-[//]: # ()
-[//]: # (```mermaid)
+```mermaid
 
-[//]: # (flowchart TD)
+flowchart TD
 
-[//]: # (  A[Create Form&#40;name, sGrade, eGrade&#41;] --> B{Grades in 1..150?})
+  A["Create Form(name, sGrade, eGrade)"] --> B{Grades in 1..150?}
 
-[//]: # (  B -- no --> X[throw High/Low])
+  B -- no --> X[throw High/Low]
 
-[//]: # (  B -- yes --> C[Create Bureaucrat&#40;name, grade&#41;])
+  B -- yes --> C["Create Bureaucrat(name, grade)"]
 
-[//]: # (  C --> D{bureaucrat.grade <= form.kgradeToSigned?})
+  C --> D{bureaucrat.grade <= form.kgradeToSigned?}
 
-[//]: # (  D -- yes --> E[form.is_signed_ = true])
+  D -- yes --> E[form.is_signed_ = true]
 
-[//]: # (  D -- no --> X[throw GradeTooLowException])
+  D -- no --> X[throw GradeTooLowException]
 
-[//]: # (```)
+```
 
 ## Usage
 
@@ -81,18 +80,8 @@ Scenarios covered in `main.cpp`:
 - Successful signing with sufficient grade
 - Signing failure with insufficient grade
 
-## Example Output
-
-```
---- Test 4: Bureaucrat with enough grade signs Form ---
-After signing:
-Form Contract, signed: true, signGrade: 50, executeGrade: 60
-```
-
 ## Implementation Tips
 
 - Validate both `kgradeToSigned_` and `kgradeToExecute_` in constructors.
 - `beSigned` must not change state if the check fails; throw instead.
 - Keep `kname_` and grade thresholds constant after construction.
-
-

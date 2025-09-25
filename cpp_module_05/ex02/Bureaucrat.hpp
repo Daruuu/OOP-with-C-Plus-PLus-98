@@ -10,8 +10,8 @@ class AForm;
 class Bureaucrat
 {
 private:
-	const std::string kname_;
-	int grade_;	//	1 to 150
+	const std::string	kname_;
+	int					grade_;	//	1 to 150
 
 public:
 	Bureaucrat();
