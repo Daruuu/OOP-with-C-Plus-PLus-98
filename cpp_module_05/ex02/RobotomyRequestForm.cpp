@@ -25,7 +25,6 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-
 }
 
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const

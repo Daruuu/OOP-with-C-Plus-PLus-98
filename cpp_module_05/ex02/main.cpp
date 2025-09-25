@@ -2,6 +2,7 @@
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <iostream>
 
 
@@ -35,6 +36,8 @@ int main()
 		}
 	}
 	*/
+
+	/*
 	{
 		std::cout << GREEN << "--- Test 2: RobotomyRequestForm ---" << RESET << std::endl;
 		try
@@ -67,5 +70,6 @@ int main()
 			std::cout << MAGENTA << "Exception caught: " << e.what() << RESET << std::endl;
 		}
 	}
+	*/
 	return 0;
 }

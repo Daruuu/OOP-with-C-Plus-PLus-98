@@ -29,6 +29,7 @@ public:
 
 	//	METHODS
 	void beSigned(const Bureaucrat& b1);
+	void checkExecutor(const Bureaucrat &executor) const;
 
     //	PURE FUNCTION
     virtual void execute(const Bureaucrat &executor) const = 0;
