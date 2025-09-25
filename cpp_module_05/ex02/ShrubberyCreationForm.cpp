@@ -30,14 +30,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
-	if (!getIsSigned())
-	{
-		throw FormNotSignedException();
-	}
-	if (executor.getGrade() > getGradeToExecute())
-	{
-		throw GradeTooLowException();
-	}
+    checkExecutor(executor);
 	std::string filename = ktarget_ + "_shrubbery";
 
 	std::ofstream outFile(filename.c_str());

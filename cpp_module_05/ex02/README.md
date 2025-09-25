@@ -88,14 +88,7 @@ The provided `main.cpp` demonstrates:
 - `Bureaucrat::GradeTooHighException`, `Bureaucrat::GradeTooLowException`
 - `AForm::GradeTooHighException`, `AForm::GradeTooLowException`
 - `AForm::FormNotSignedException`
-
-## Implementation Tips
-
-- Validate grade bounds in all constructors (throw high/low accordingly).
-- Keep names/thresholds `const`; only `is_signed_` is mutable.
-- Call `checkExecutor()` first thing inside each derived `execute()`.
-- Prefer printing informative messages in `signForm`/`executeForm` try/catch blocks.
-
+- 
 ---
 
 ## RobotomyRequestForm (concept)
@@ -116,7 +109,7 @@ Flowchart:
 
 ```mermaid
 flowchart TD
-  A[execute(executor)] --> B[checkExecutor(executor)]
+  A["execute(executor)"] --> B["checkExecutor(executor)"]
   B -->|ok| C{random 50%}
   C -->|success| D["<target> has been robotomized successfully"]
   C -->|failure| E["robotomy failed"]
@@ -146,8 +139,8 @@ Flowchart:
 
 ```mermaid
 flowchart TD
-  A[execute(executor)] --> B[checkExecutor(executor)]
-  B -->|ok| C[print "<target> has been pardoned by Zaphod Beeblebrox"]
+  A["execute(executor)"] --> B["checkExecutor(executor)"]
+  B -->|ok| C["print: <target> has been pardoned by Zaphod Beeblebrox"]
 ```
 
 Notes:
@@ -185,5 +178,3 @@ class PresidentialPardonForm {
   - const std::string ktarget_
 }
 ```
-
-
