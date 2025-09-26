@@ -1,101 +1,152 @@
+#include <iostream>
+
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-#include <iostream>
+#include "Intern.hpp"
 
 int main()
 {
+    std::cout << GREEN << "\n=== ex03: Intern & Forms Test ===\n" << RESET << std::endl;
+
+    Intern intern;
+
+    Bureaucrat boss("Boss", 1);
+    Bureaucrat employee("Employee", 140);
+
+	std::cout << BLUE << "\n[1] Create ShrubberyCreationForm\n" << RESET;
+    try {
+        AForm* shrub = intern.makeForm("shrubbery creation", "Home");
+        boss.signForm(*shrub);
+        boss.executeForm(*shrub);
+        delete shrub;
+    }
+    catch (std::exception& e) {
+        std::cerr << RED << "Exception: " << e.what() << RESET << std::endl;
+    }
+
+	std::cout << BLUE << "\n[2] Create RobotomyRequestForm\n" << RESET;
+    try {
+        AForm* robo = intern.makeForm("robotomy request", "Bender");
+        boss.signForm(*robo);
+        boss.executeForm(*robo);
+        delete robo;
+    }
+    catch (std::exception& e) {
+        std::cerr << RED << "Exception: " << e.what() << RESET << std::endl;
+    }
+
+	std::cout << BLUE << "\n[3] Create PresidentialPardonForm with low bureaucrat\n" << RESET;
+    try {
+        AForm* pardon = intern.makeForm("presidential pardon", "Arthur Dent");
+        employee.signForm(*pardon);
+        employee.executeForm(*pardon);
+        delete pardon;
+    }
+    catch (std::exception& e) {
+        std::cerr << RED << "Exception: " << e.what() << RESET << std::endl;
+    }
+
+	std::cout << BLUE << "\n[4] Try invalid form type\n" << RESET;
+    try {
+        AForm* wrong = intern.makeForm("coffee request", "Office");
+        boss.signForm(*wrong);
+        boss.executeForm(*wrong);
+        delete wrong;
+    }
+    catch (Intern::NoExistsFormException& e) {
+        std::cerr << MAGENTA << "Intern exception: " << e.what() << RESET << std::endl;
+    }
+    catch (std::exception& e) {
+        std::cerr << RED << "Other exception: " << e.what() << RESET << std::endl;
+    }
+
+    std::cout << GREEN << "\n=== End of Tests ===\n" << RESET << std::endl;
+    return 0;
+}
+
+/*
+int main()
+{
+	try
 	{
-		std::cout << GREEN << "--- Test 1: ShrubberyCreationForm ---" << RESET << std::endl;
-		try
+		std::cout << "=== CPP05 EX03: Intern & Forms ===" << std::endl;
+
+		Intern intern;
+
+		Bureaucrat boss("Boss", 1);
+		Bureaucrat mid("Mid", 50);
+		Bureaucrat newEmployee("Newbie", 140);
+
+		std::string formNames[4] = {
+			"shrubbery creation",
+			"unknown form", //error case
+			"robotomy request",
+			"presidential pardon",
+		};
+
+		for (int i = 0; i < 4; i++)
 		{
-			Bureaucrat highGrade("HighGrade", 1);
-			Bureaucrat midGrade("MidGrade", 50);
-			Bureaucrat lowGrade("LowGrade", 150);
+			std::cout << GREEN << "\n===== Requesting form: " << formNames[i] <<
+				" =====\n" << RESET <<
+				std::endl;
 
-			// ShrubberyCreationForm shrub("garden");
-			ShrubberyCreationForm shrub("shrubbery");
+			AForm* form = intern.makeForm(formNames[i], "TargetX");
+			if (!form)
+			{
+				continue;
+			}
 
-			std::cout << shrub << std::endl;
+			std::cout << *form << std::endl;
 
-			std::cout << GREEN << "--- Case with low grade bureaucrat: ---" << RESET << std::endl;
-			lowGrade.signForm(shrub);
-			lowGrade.executeForm(shrub);
+			newEmployee.signForm(*form);
+			newEmployee.executeForm(*form);
 
-			std::cout << GREEN << "--- Case with mid grade bureaucrat: ---" << RESET << std::endl;
-			midGrade.signForm(shrub);
-			midGrade.executeForm(shrub);
-		}
-		catch (std::exception &e)
-		{
-			std::cout << MAGENTA << "Exception caught: " << e.what() << RESET << std::endl;
+			mid.signForm(*form);
+			mid.executeForm(*form);
+
+			boss.signForm(*form);
+			boss.executeForm(*form);
+
+			delete form; // Free memory (avoid leaks)
 		}
 	}
+	catch (std::exception& e)
 	{
-		std::cout << GREEN << "--- Test 2: RobotomyRequestForm ---" << RESET << std::endl;
-		try
-		{
-			Bureaucrat highGrade("buro01", 1);
-			Bureaucrat midGrade("burocrat 02", 50);
-			Bureaucrat lowGrade("burocrata 03", 150);
-
-			RobotomyRequestForm robo("TargetRobot");
-
-			std::cout << robo << std::endl;
-
-			std::cout << GREEN << "\n--- Case 1: Execute without signing ---" << RESET << std::endl;
-			highGrade.executeForm(robo);
-
-			std::cout << GREEN << "\n--- Case 2: Signed but low grade bureaucrat ---" << RESET << std::endl;
-			lowGrade.signForm(robo);
-			lowGrade.executeForm(robo);
-
-			std::cout << GREEN << "\n--- Case 3: Signed and executed by high grade ---" << RESET << std::endl;
-			highGrade.signForm(robo);
-			highGrade.executeForm(robo);
-
-			std::cout << GREEN << "\n--- Case 4: Signed and executed by BUROCRAT 02 ---" << RESET << std::endl;
-			midGrade.signForm(robo);
-			midGrade.executeForm(robo);
-		}
-		catch (std::exception &e)
-		{
-			std::cout << MAGENTA << "Exception caught: " << e.what() << RESET << std::endl;
-		}
+		std::cerr << "Fatal error: " << e.what() << std::endl;
 	}
-	{
-		std::cout << GREEN << "\n--- Test: PresidentialPardonForm ---" << RESET << std::endl;
-		try
-		{
-			Bureaucrat top("TopDog", 1);
-			Bureaucrat signer("Signer", 25);
-			Bureaucrat low("LowGuy", 150);
-
-			PresidentialPardonForm pardon("Abcd");
-
-			std::cout << pardon << std::endl;
-
-			std::cout << GREEN << "\n--- Case 1: Execute without signing ---" << RESET << std::endl;
-			top.executeForm(pardon);
-
-			std::cout << GREEN << "\n--- Case 2: Sign with low grade ---" << RESET << std::endl;
-			low.signForm(pardon);
-
-			std::cout << GREEN << "\n--- Case 3: Signed but executed by low grade ---" << RESET << std::endl;
-			signer.signForm(pardon);
-			low.executeForm(pardon);
-
-			std::cout << GREEN << "\n--- Case 4: Signed and executed by top grade ---" << RESET << std::endl;
-			top.signForm(pardon);
-			top.executeForm(pardon);
-		}
-		catch (std::exception& e)
-		{
-			std::cout << MAGENTA << "Exception caught: " << e.what() << RESET << std::endl;
-		}
-	}
-
 	return 0;
 }
+*/
+
+/*
+int main()
+{
+	std::cout << GREEN << "--- Test 1: Create valid form ---" << RESET <<
+		std::endl;
+
+	Intern intern01;
+
+	AForm* form = intern01.makeForm("robotomy request", "Bender");
+	if (form)
+	{
+		Bureaucrat boss("Boss", 1);
+
+		// Boss sign and execute
+		boss.signForm(*form);
+		boss.executeForm(*form);
+
+		delete form;
+	}
+
+	// === Caso 2: Crear un formulario inválido ===
+	AForm* invalidCase = intern01.makeForm("unknown form", "TargetX");
+	if (invalidCase)
+	{
+		delete invalidCase;
+	}
+	return 0;
+}
+*/

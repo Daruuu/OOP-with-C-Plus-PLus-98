@@ -111,3 +111,4 @@ AForm <|-- PresidentialPardonForm
 Resumen:
 - En `ex01` y `ex02` predomina la **agregación/asociación** entre `Bureaucrat` y (A)Form.
 - No hay **composición** entre las entidades principales; las derivadas componen solo datos internos.
+
