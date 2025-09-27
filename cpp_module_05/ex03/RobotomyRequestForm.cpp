@@ -1,10 +1,9 @@
 #include "RobotomyRequestForm.hpp"
-#include <cstdlib>
-
-#include "../../cpp_module_02/ex03/Fixed.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("default", 72, 45), target_("default_target")
 {
+	std::cout << BLUE << "[RobotomyRequestForm] default constructor called." << RESET
+		<< std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("robot request form", 72, 45), target_(target)
@@ -27,6 +26,8 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
+	std::cout << RED << "{RobotomyRequestForm} default destructor called." << RESET
+		<< std::endl;
 }
 
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const
@@ -42,10 +43,12 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const
 	}
 	std::cout << YELLOW << "* Drilling noises: Drrrrrrr... *" << RESET << std::endl;
 
-	srand(static_cast<unsigned int>(time(0)));
+	std::srand((time(NULL )));
 
-	if (std::rand() % 2)
-		std::cout << target_ << " has been robot" << std::endl;
+	int	randomNum = std::rand();
+
+	if (randomNum % 2 == 0)
+		std::cout << BLUE << target_ << " has been robot" << RESET << std::endl;
 	else
 		std::cout << target_ << " robotomization failed." << std::endl;
 }

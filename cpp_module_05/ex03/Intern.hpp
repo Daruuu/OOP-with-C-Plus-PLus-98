@@ -1,12 +1,13 @@
 #ifndef INTERN_HPP
 #define INTERN_HPP
 
-#include <string>
-
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+
+#include <string>
+
 #define SHRUBBERRY		"shrubbery creation"
 #define ROBOTO			"robotomy request"
 #define PRESIDENTIAL	"presidential pardon"
@@ -32,7 +33,6 @@ public:
 	public:
 		const char* what() const throw();
 	};
-
 };
 
 #endif

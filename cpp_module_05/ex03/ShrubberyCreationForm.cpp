@@ -3,6 +3,8 @@
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Default", 145, 137),
 												ktarget_("default_shruberry")
 {
+	std::cout << BLUE << "{ShrubberyCreationForm} default constructor called." << RESET
+		<< std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) :
@@ -26,6 +28,8 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
+	std::cout << RED << "{ShrubberyCreationForm} default destructor called." << RESET
+		<< std::endl;
 }
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const

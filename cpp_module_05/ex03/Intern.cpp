@@ -1,7 +1,5 @@
 #include "Intern.hpp"
 
-#include "../../cpp_module_02/ex03/Fixed.hpp"
-
 Intern::Intern()
 {
 	std::cout << BLUE << "{INTERN} default constructor called." << RESET

@@ -1,7 +1,5 @@
 #include "Bureaucrat.hpp"
 
-#include "AForm.hpp"
-
 Bureaucrat::Bureaucrat() : kname_("empty"), grade_(24)
 {
 	std::cout << BLUE << "Bureaucrat default constructor called." << RESET
