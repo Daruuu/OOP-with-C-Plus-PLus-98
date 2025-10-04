@@ -129,3 +129,20 @@ add_executable(Cpp05_ex00
         cpp_module_05/ex00/main.cpp
         cpp_module_05/ex00/Bureaucrat.cpp
 )
+
+add_executable(Cpp06_ex00
+        cpp_module_06/ex00/main.cpp
+        cpp_module_06/ex00/ScalarConverter.cpp
+        cpp_module_06/ex00/ScalarConverter.hpp
+)
+
+target_compile_definitions(Cpp06_ex00 PRIVATE
+        RESET="\\033[0m"
+        RED="\\033[31m"
+        GREEN="\\033[32m"
+        YELLOW="\\033[33m"
+        BLUE="\\033[34m"
+        MAGENTA="\\033[35m"
+        CYAN="\\033[36m"
+        WHITE="\\033[37m"
+)
