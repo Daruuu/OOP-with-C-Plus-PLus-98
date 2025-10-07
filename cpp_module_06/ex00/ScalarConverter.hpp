@@ -20,17 +20,15 @@ private:
 	static bool isDouble(const std::string &literal);
 	static bool isFloat(const std::string &literal);
 
-	/*
-	static bool convertToChar(const std::string &literal);
-	static bool convertToInteger(const std::string &literal);
-	static bool convertToDouble(const std::string &literal);
-	static bool convertToFloat(const std::string &literal);
+	static void convertToChar(const std::string& literal);
+	static void convertToInteger(const std::string& literal);
+	static void convertToDouble(const std::string& literal);
+	static void convertToFloat(const std::string& literal);
 
-	void printChar(char valueCharacter);
-	void printInteger(int valueInteger);
-	void printDouble(double valueDouble);
-	void printFloat(float valueFloat);
-	*/
+	static void printChar(char valueCharacter);
+	static void printInteger(int valueInteger);
+	static void printDouble(double valueDouble);
+	static void printFloat(float valueFloat);
 
 public:
 	~ScalarConverter();

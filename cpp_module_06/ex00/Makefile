@@ -1,7 +1,7 @@
 CXX = c++
 
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98 -O2 -MMD -fsanitize=address \
-	-DRESET="\"\\033[0m\"" \
+	-DRESETT="\"\\033[0m\"" \
 	-DRED="\"\\033[31m\"" \
 	-DGREEN="\"\\033[32m\"" \
 	-DYELLOW="\"\\033[33m\"" \
