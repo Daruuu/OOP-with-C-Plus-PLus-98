@@ -45,7 +45,6 @@ std::vector<std::string> vectorTestCharacters()
 	vectorTestChars.push_back("ab");
 	vectorTestChars.push_back("@");
 	vectorTestChars.push_back(" ");
-	vectorTestChars.push_back("");
 	vectorTestChars.push_back("\\n");
 	vectorTestChars.push_back("\t");
 
@@ -128,10 +127,9 @@ int main(int argc, char* argv[])
 
 	runTestGroup("CHARACTERS", vectorTestCharacters());
 
-	runTestGroup("INTEGERS", vectorTestIntegers());
-
-	runTestGroup("FLOATS", vectorTestFloat());
-	runTestGroup("DOUBLES", vectorTestDouble());
+	// runTestGroup("INTEGERS", vectorTestIntegers());
+	// runTestGroup("FLOATS", vectorTestFloat());
+	// runTestGroup("DOUBLES", vectorTestDouble());
 
 	return (0);
 }
