@@ -21,7 +21,7 @@ void runTestGroup(const std::string& groupName, const std::vector<std::string>& 
 	for (std::vector<std::string>::size_type i = 0; i < testCases.size(); ++i)
 	{
 		std::cout << CYAN << "[" << groupName << " " << i << "] "
-		  << RESETT << "Input: [" << testCases[i] << "] → ";
+		  << RESETT << "Input: [" << testCases[i] << "]:\n";
 		ScalarConverter::convert(testCases[i]);
 	}
 	std::cout << std::endl;
@@ -32,15 +32,14 @@ std::vector<std::string> vectorTestCharacters()
 {
 	std::vector<std::string> vectorTestChars;
 
-	vectorTestChars.push_back("a");
 	vectorTestChars.push_back("F");
 	vectorTestChars.push_back("D");
-	vectorTestChars.push_back("A");
 	vectorTestChars.push_back("A");
 	vectorTestChars.push_back("N");
 	vectorTestChars.push_back("Z");
 
 	// Casos que deben fallar
+	vectorTestChars.push_back("0");
 	vectorTestChars.push_back("2");
 	vectorTestChars.push_back("ab");
 	vectorTestChars.push_back("@");
@@ -59,17 +58,26 @@ std::vector<std::string> vectorTestIntegers()
 	vectorTestIntegers.push_back("1");
 	vectorTestIntegers.push_back("2");
 	vectorTestIntegers.push_back("100");
+	vectorTestIntegers.push_back("-100");
+	vectorTestIntegers.push_back("--100");
 	vectorTestIntegers.push_back("200");
 	vectorTestIntegers.push_back("500");
+	vectorTestIntegers.push_back("+500");
+	vectorTestIntegers.push_back("++500");
 	vectorTestIntegers.push_back("700");
-	vectorTestIntegers.push_back("900");
+	vectorTestIntegers.push_back("+-9999");
+	vectorTestIntegers.push_back("++9999");
+	vectorTestIntegers.push_back("--9999");
+
 	vectorTestIntegers.push_back("2147483647");
 	vectorTestIntegers.push_back("2147483648");
+	vectorTestIntegers.push_back("-2147483646");
 	vectorTestIntegers.push_back("-2147483647");
 	vectorTestIntegers.push_back("-2147483648");
 	vectorTestIntegers.push_back("-2147483649");
 	vectorTestIntegers.push_back("21474836481");
 	vectorTestIntegers.push_back("F");
+	vectorTestIntegers.push_back("nan");
 
 	return vectorTestIntegers;
 }
@@ -117,17 +125,15 @@ int main(int argc, char* argv[])
 	(void)argv;
 	(void)argc;
 
-	/*
 	if (argc != 2)
 	{
-		std::cerr << RED << "Error: invalid num of args. :(" << RESET << std::endl;
+		std::cerr << RED << "Error: invalid num of args. :(" << RESETT << std::endl;
 		return (1);
 	}
-	*/
+	ScalarConverter::convert(argv[1]);
+	// runTestGroup("CHARACTERS", vectorTestCharacters());
 
-	runTestGroup("CHARACTERS", vectorTestCharacters());
-
-	// runTestGroup("INTEGERS", vectorTestIntegers());
+	//runTestGroup("INTEGERS", vectorTestIntegers());
 	// runTestGroup("FLOATS", vectorTestFloat());
 	// runTestGroup("DOUBLES", vectorTestDouble());
 

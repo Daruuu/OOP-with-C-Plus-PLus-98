@@ -1,15 +1,8 @@
 #include "ScalarConverter.hpp"
 
-#include <cmath>
-#include <errno.h>
-#include <iostream>
-#include <limits>
-
 //	======= CONSTRUCTORS =======
 
-ScalarConverter::ScalarConverter()
-{
-}
+ScalarConverter::ScalarConverter(){}
 
 ScalarConverter::ScalarConverter(const ScalarConverter& other)
 {
@@ -23,13 +16,24 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
 }
 
 ScalarConverter::~ScalarConverter()
+{}
+
+static void printImpossibleAll()
 {
+	std::cout << "char: impossible\n";
+	std::cout << "int: impossible\n";
+	std::cout << "float: impossible\n";
+	std::cout << "double: impossible\n";
 }
 
 //	======= METHODS TO CHECK IF TYPE IS CORRECT =======
 
 bool ScalarConverter::isChar(const std::string& literal)
 {
+	/*
+	return (literal.length() == 1 && std::isprint(literal[0]) \
+		&& !std::isdigit(literal[0]));
+	*/
 	return (literal.length() == 1 && std::isprint(literal[0])
 		&& std::isalpha(literal[0]) && !std::isdigit(literal[0]));
 }
@@ -46,6 +50,13 @@ bool ScalarConverter::isInteger(const std::string& literal)
 {
 	if (literal.empty())
 		return false;
+	if (literal[0] == '+' || literal[0] == '-')
+	{
+		if (literal.size() == 1)
+			return false;
+	}
+	if (isspace(literal[0]) || isspace(literal[literal.size()-1]))
+		return false;
 
 	char* endPtr;
 	errno = 0;
@@ -55,7 +66,7 @@ bool ScalarConverter::isInteger(const std::string& literal)
 	if (*endPtr != '\0')
 		return false;
 
-	if (errno == ERANGE || value >= std::numeric_limits<int>::max() || value <
+	if (errno == ERANGE || value > std::numeric_limits<int>::max() || value <
 		std::numeric_limits<int>::min())
 		return false;
 
@@ -117,11 +128,14 @@ bool ScalarConverter::isFloat(const std::string& literal)
 	char* endPtr;
 	errno = 0;
 	std::strtod(numberWithoutF.c_str(), &endPtr);
- if (*endPtr != '\0') return false; //	overflow or underflow if (errno == ERANGE)
+	//	check overflow or underflow
+	if (*endPtr != '\0' || errno == ERANGE)
 		return false;
 
 	return (true);
 }
+
+// ======================= METHODS TO CONVERT =====================
 
 void ScalarConverter::convertToChar(const std::string& literal)
 {
@@ -138,14 +152,12 @@ void ScalarConverter::convertToInteger(const std::string& literal)
 	long numberConvert = std::strtol(literal.c_str(), NULL, 10);
 
 	if (numberConvert > std::numeric_limits<int>::max()
-		|| numberConvert > std::numeric_limits<int>::min())
+		|| numberConvert < std::numeric_limits<int>::min())
 	{
-		std::cout << "char: impossible\n";
-		std::cout << "int: impossible\n";
-		std::cout << "float: impossible\n";
-		std::cout << "double: impossible\n";
+		printImpossibleAll();
 		return;
 	}
+
 	int i = static_cast<int>(numberConvert);
 
 	printChar(static_cast<char>(i));
@@ -167,15 +179,13 @@ void ScalarConverter::convertToDouble(const std::string& literal)
 		d = -std::numeric_limits<double>::infinity();
 	else
 	{
+		errno = 0;
 		char* endPtr;
 		d = std::strtod(literal.c_str(), &endPtr);
 
 		if (*endPtr != '\0' || errno == ERANGE)
 		{
-			std::cout << "char: impossible\n"
-				"int: impossible\n"
-				"float: impossible\n"
-				"double: impossible\n";
+			printImpossibleAll();
 			return;
 		}
 	}
@@ -185,8 +195,7 @@ void ScalarConverter::convertToDouble(const std::string& literal)
 	else
 		printChar(static_cast<char>(d));
 
-	if (std::isnan(d) || std::isinf(d)
-		|| d > std::numeric_limits<int>::max()
+	if (std::isnan(d) || std::isinf(d) || d > std::numeric_limits<int>::max()
 		|| d < std::numeric_limits<int>::min())
 		std::cout << "int: impossible\n";
 	else
@@ -214,15 +223,13 @@ void ScalarConverter::convertToFloat(const std::string& literal)
 		if (num[num.size() - 1] == 'f')
 			num = num.substr(0, num.size() - 1);
 
+		errno = 0;
 		char* endPtr;
 		f = std::strtof(num.c_str(), &endPtr);
 
 		if (*endPtr != '\0' || errno == ERANGE)
 		{
-			std::cout << "char: impossible\n"
-				"int: impossible\n"
-				"float: impossible\n"
-				"double: impossible\n";
+			printImpossibleAll();
 			return;
 		}
 	}
@@ -323,3 +330,4 @@ void ScalarConverter::convert(const std::string& literal)
 	else
 		std::cout << RED << "Error: invalid input\n" << RESETT << std::endl;
 }
+
