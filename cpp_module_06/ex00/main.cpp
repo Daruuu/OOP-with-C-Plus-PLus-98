@@ -12,20 +12,20 @@
 #define CYAN    "\033[36m"
 #define WHITE   "\033[37m"
 
-void runTestGroup(const std::string& groupName, const std::vector<std::string>& testCases)
+void runTestGroup(const std::string& groupName,
+				const std::vector<std::string>& testCases)
 {
 	std::cout << GREEN
-			<< "======== TESTING " << groupName << " CASES ========\n"
-			<< RESETT << std::endl;
+		<< "======== TESTING " << groupName << " CASES ========\n" << RESETT <<
+		std::endl;
 
 	for (std::vector<std::string>::size_type i = 0; i < testCases.size(); ++i)
 	{
 		std::cout << CYAN << "[" << groupName << " " << i << "] "
-		  << RESETT << "Input: [" << testCases[i] << "]:\n";
+			<< RESETT << "Input: [" << testCases[i] << "]:\n";
 		ScalarConverter::convert(testCases[i]);
 	}
 	std::cout << std::endl;
-
 }
 
 std::vector<std::string> vectorTestCharacters()
@@ -78,6 +78,9 @@ std::vector<std::string> vectorTestIntegers()
 	vectorTestIntegers.push_back("21474836481");
 	vectorTestIntegers.push_back("F");
 	vectorTestIntegers.push_back("nan");
+	vectorTestIntegers.push_back("+inf");
+	vectorTestIntegers.push_back("-inf");
+	vectorTestIntegers.push_back("--inf");
 
 	return vectorTestIntegers;
 }
@@ -124,18 +127,20 @@ int main(int argc, char* argv[])
 {
 	(void)argv;
 	(void)argc;
-
-	if (argc != 2)
+	/*
 	{
-		std::cerr << RED << "Error: invalid num of args. :(" << RESETT << std::endl;
-		return (1);
+		if (argc != 2)
+		{
+			std::cerr << RED << "Error: invalid num of args. :(" << RESETT << std::endl;
+			return (1);
+		}
+		ScalarConverter::convert(argv[1]);
 	}
-	ScalarConverter::convert(argv[1]);
-	// runTestGroup("CHARACTERS", vectorTestCharacters());
-
-	//runTestGroup("INTEGERS", vectorTestIntegers());
-	// runTestGroup("FLOATS", vectorTestFloat());
-	// runTestGroup("DOUBLES", vectorTestDouble());
+	*/
+	runTestGroup("CHARACTERS", vectorTestCharacters());
+	runTestGroup("INTEGERS", vectorTestIntegers());
+	runTestGroup("FLOATS", vectorTestFloat());
+	runTestGroup("DOUBLES", vectorTestDouble());
 
 	return (0);
 }
