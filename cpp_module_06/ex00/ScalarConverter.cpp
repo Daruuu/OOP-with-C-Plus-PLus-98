@@ -213,13 +213,6 @@ void ScalarConverter::convertToDouble(const std::string& literal)
 
 	printCharFromNumber(d);
 
-	/*
-	if (std::isnan(d) || std::isinf(d))
-		std::cout << "char: impossible\n";
-	else
-		printChar(static_cast<char>(d));
-		*/
-
 	if (std::isnan(d) || std::isinf(d) \
 		|| d > std::numeric_limits<int>::max()
 		|| d < std::numeric_limits<int>::min())
@@ -244,7 +237,6 @@ void ScalarConverter::convertToFloat(const std::string& literal)
 		f = -std::numeric_limits<float>::infinity();
 	else
 	{
-		// rm 'f' if exist
 		std::string num = literal;
 		if (num[num.size() - 1] == 'f')
 			num = num.substr(0, num.size() - 1);
@@ -260,22 +252,14 @@ void ScalarConverter::convertToFloat(const std::string& literal)
 		}
 	}
 
-	//	add new validation
 	printCharFromNumber(f);
 
 	if (std::isnan(f) || std::isinf(f)
 		|| f > std::numeric_limits<int>::max()
 		|| f < std::numeric_limits<int>::min())
 	{
-		// std::cout << "char: impossible\n";
 		std::cout << "int: impossible\n";
 	}
-	/*
-	else if (std::isprint(static_cast<char>(f)))
-	{
-		std::cout << "char: " << static_cast<char>(f) << "'\n'";
-	}
-	*/
 	else
 		printInteger(static_cast<int>(f));
 
@@ -299,51 +283,34 @@ void ScalarConverter::printInteger(int valueInteger)
 
 void ScalarConverter::printDouble(double valueDouble)
 {
-	/*
-	std::cout << "double: " << valueDouble;
-	if (valueDouble == static_cast<int>(valueDouble))
-		std::cout << ".0";
-	std::cout << std::endl;
-*/
 	std::cout << "double: " << std::fixed << std::setprecision(1) << valueDouble
 		<< std::endl;
 }
 
 void ScalarConverter::printFloat(float valueFloat)
 {
-	/*
-	std::cout << "float: " << valueFloat;
-	if (valueFloat == static_cast<int>(valueFloat))
-		std::cout << ".0";
-	std::cout << "f" << std::endl;
-	*/
 	std::cout << "float: " << std::fixed << std::setprecision(1) << valueFloat
 		<< "f" << std::endl;
 }
 
 //	======= MAIN METHOD OF CLASS ======
 
-
 void ScalarConverter::convert(const std::string& literal)
 {
 	if (isChar(literal) == true)
 	{
 		convertToChar(literal);
-		// std::cout << YELLOW << "is char\n" << RESETT << std::endl;
 	}
 	else if (isInteger(literal) == true)
 	{
 		convertToInteger(literal);
-		// std::cout << BLUE << "is integer number\n" << RESETT << std::endl;
 	}
 	else if (isDouble(literal) == true)
 	{
 		convertToDouble(literal);
-		// std::cout << MAGENTA << "is double number\n" << RESETT << std::endl;
 	}
 	else if (isFloat(literal) == true)
 	{
-		// std::cout << CYAN << "is float number\n" << RESETT << std::endl;
 		convertToFloat(literal);
 	}
 	else
