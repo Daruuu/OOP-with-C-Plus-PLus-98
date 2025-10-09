@@ -136,6 +136,13 @@ add_executable(Cpp06_ex00
         cpp_module_06/ex00/ScalarConverter.hpp
 )
 
+add_executable(Cpp06_ex01
+        cpp_module_06/ex01/main.cpp
+        cpp_module_06/ex01/Serializer.cpp
+        cpp_module_06/ex01/Serializer.cpp
+        cpp_module_06/ex01/Data.hpp
+)
+
 target_compile_definitions(Cpp06_ex00 PRIVATE
         RESET="\\033[0m"
         RED="\\033[31m"
