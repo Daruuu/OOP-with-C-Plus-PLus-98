@@ -131,6 +131,65 @@ Data* deserialize(uintptr_t raw);
 
 El programa debe demostrar que el puntero deserializado apunta al mismo objeto que el original.
 
+### Diagrama UML del problema
+
+Diagrama en formato Mermaid que representa la relación entre las clases **Serializer** y __Data__ del ejercicio Serialization (ex01).
+
+``` mermaid
+classDiagram
+    class Data {
+        +std::string name
+        +int value
+    }
+
+    class Serializer {
+        -Serializer()
+        -Serializer(const Serializer &other)
+        -Serializer& operator=(const Serializer &other)
+        -~Serializer()
+        +static uintptr_t serialize(Data* ptr)
+        +static Data* deserialize(uintptr_t raw)
+    }
+
+    Serializer --> Data : "serialize / deserialize"
+
+```
+--- 
+
+### Diagrama de flujo:
+
+Flujo de codigo que muestra las funciones estáticas y cómo operan fuera de las instancias.
+
+``` mermaid
+flowchart LR
+    subgraph Clase_Serializer["Clase estática: Serializer"]
+        S1["serialize(Data*)(static method)"]
+        S2["deserialize(uintptr_t)(static method)"]
+    end
+
+    subgraph Memoria["Memoria del programa"]
+        D["Objeto Data(name='case01', value=100)Dirección: 0x600000e1c010"]
+        N["Número entero (uintptr_t)Ej: 105553116000528"]
+    end
+
+    D -- "Llama a Serializer::serialize()" --> S1
+    S1 -- "reinterpret_cast(pointer → número)" --> N
+    N -- "Serializer::deserialize()" --> S2
+    S2 -- "reinterpret_cast(número → pointer)" --> D
+
+    style S1 fill:#B8E986,stroke:#333,stroke-width:1px
+    style S2 fill:#B8E986,stroke:#333,stroke-width:1px
+    style D fill:#F5D76E,stroke:#333,stroke-width:1px
+    style N fill:#A0D8F1,stroke:#333,stroke-width:1px
+```
+
+Interpretación del flujo:
+
+1. `Data` esta en memoria y tiene una __dirección de memoria__ (por ej, `0x600000e1c010`).
+2. `serialize()` toma esa dirección y la convierte en un número entero (`uintptr_t`).
+3. Ese número puede almacenarse, enviarse o manipularse como dato numérico.
+4. `deserialize()` toma ese número y reconstruye el puntero original.
+5. El puntero resultante apunta al mismo objeto original.
 ---
 
 ### 🧱 Estructura del proyecto

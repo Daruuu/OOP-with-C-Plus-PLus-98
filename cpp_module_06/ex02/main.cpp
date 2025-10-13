@@ -13,7 +13,12 @@ void randomCases(int maxTestCases)
 	for (int i = 1; i <= maxTestCases; ++i)
 	{
 		Base* obj = generate();
+		Base& ref = *obj;
 		std::cout << BLUE << "=== Test " << i << " ===" << RESETT << std::endl;
+
+		std::cout << "Address of pointer (obj):"<< &obj << std::endl;
+		std::cout << "Address stored in pointer (pointer to object):"<< obj << std::endl;
+		std::cout << "Address of referenced object (ref):"<< &ref << std::endl;
 
 		std::cout << "Pointer version: ";
 		identify(obj);
@@ -87,7 +92,7 @@ int main()
 {
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
 	randomCases(4);
-	manualTestWithThreeBaseObjects();
-	edgeCase();
+	// manualTestWithThreeBaseObjects();
+	// edgeCase();
 	return 0;
 }

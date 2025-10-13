@@ -93,8 +93,8 @@ void testStackObjects()
 int main()
 {
 	testCaseBase();
-	testCaseMultipleObjects();
-	testCaseNullPointer();
-	testStackObjects();
+	// testCaseMultipleObjects();
+	// testCaseNullPointer();
+	// testStackObjects();
 	return (0);
 }

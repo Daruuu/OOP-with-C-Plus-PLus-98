@@ -2,9 +2,9 @@
 
 ---
 
-## 🧠 PARTE TEÓRICA
+## PARTE TEÓRICA
 
-### 🎯 Objetivo general
+### Objetivo general
 El objetivo de este ejercicio es **aprender a identificar el tipo real de un objeto polimórfico en tiempo de ejecución** sin usar `typeid` ni `std::typeinfo`.  
 Para ello se utiliza el operador `dynamic_cast`, que forma parte del sistema de **RTTI (Run-Time Type Information)** de C++.
 
