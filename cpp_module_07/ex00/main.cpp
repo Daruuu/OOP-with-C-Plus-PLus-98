@@ -1,3 +1,5 @@
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 #include  "whatever.hpp"
 
@@ -39,27 +41,71 @@ void testMinFunction()
 	std::cout << "CASE FLOAT: max(a, b): " << ::min(caseFloatA, caseFloatB) << RESETT << std::endl;
 }
 
+static void testSwapForInt(int a, int b, const std::string& typeName)
+{
+	int originalA = a;
+	int originalB = b;
+
+	std::cout << BLUE << "CASE " << typeName << " BEFORE (a=" << a << ", b=" << b << ")" << std::endl;
+	::swap(a, b);
+	std::cout << "CASE " << typeName << " AFTER (a=" << a << ", b=" << b << ")" << RESETT << std::endl;
+
+	if (a == originalB && b == originalA)
+		std::cout << "swap OK" << std::endl;
+	else
+		std::cout << "swap KO" << std::endl;
+}
+
+static void testSwapForDouble(double a, double b, const std::string& typeName)
+{
+	double originalA = a;
+	double originalB = b;
+
+	std::cout << BLUE << "CASE " << typeName << " BEFORE (a=" << a << ", b=" << b << ")" << std::endl;
+	::swap(a, b);
+	std::cout << "CASE " << typeName << " AFTER (a=" << a << ", b=" << b << ")" << RESETT << std::endl;
+
+	if (a == originalB && b == originalA)
+		std::cout << "swap OK" << std::endl;
+	else
+		std::cout << "swap KO" << std::endl;
+}
+
+static void testSwapForFloat(float a, float b, const std::string& typeName)
+{
+	float originalA = a;
+	float originalB = b;
+
+	std::cout << BLUE << "CASE " << typeName << " BEFORE (a=" << a << ", b=" << b << ")" << std::endl;
+	::swap(a, b);
+	std::cout << "CASE " << typeName << " AFTER (a=" << a << ", b=" << b << ")" << RESETT << std::endl;
+
+	if (a == originalB && b == originalA)
+		std::cout << "swap OK" << std::endl;
+	else
+		std::cout << "swap KO" << std::endl;
+}
+
 void testSwapFunction()
 {
-	std::cout << GREEN << "\n********** TEST OF MIN FUNCTION TEMPLATE ********** \n" << RESETT << std::endl;
-	int caseIntegerA = 200;
-	int caseIntegerB = 300;
+	std::cout << GREEN << "\n********** TEST OF SWAP FUNCTION TEMPLATE ********** \n" << RESETT << std::endl;
+	int intA = rand() % 1001;
+	int intB = rand() % 1001;
 
-	double caseDoubleA = 220.25;
-	double caseDoubleB = 265.800;
+	double doubleA = static_cast<double>(rand());
+	double doubleB = static_cast<double>(rand());
 
-	float caseFloatA = 234324234.0f;
-	float caseFloatB = 23.234f;
+	float floatA = static_cast<float>(rand()) / 1000.0f;;
+	float floatB = static_cast<float>(rand()) / 1000.0f;;
 
-	std::cout << BLUE << "CASE INTEGER: max(a, b): " << ::min(caseIntegerA, caseIntegerB) << std::endl;
-
-	std::cout << "CASE DOUBLE: max(a, b): " << ::min(caseDoubleA, caseDoubleB) << std::endl;
-
-	std::cout << "CASE FLOAT: max(a, b): " << ::min(caseFloatA, caseFloatB) << RESETT << std::endl;
+	testSwapForInt(intA, intB, "INTEGER");
+	testSwapForDouble(doubleA, doubleB, "DOUBLE");
+	testSwapForFloat(floatA, floatB, "FLOAT");
 }
 
 int main( void )
 {
+	std::srand(static_cast<unsigned int>(std::time(NULL)));
 	testMinFunction();
 	testMaxFunction();
 	testSwapFunction();

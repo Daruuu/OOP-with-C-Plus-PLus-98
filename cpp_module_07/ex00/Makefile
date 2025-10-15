@@ -28,10 +28,10 @@ $(NAME): $(OBJS)
 clean:
 	rm -rf $(OBJS) $(DEPENDS)
 
-fclean:
+fclean: clean
 	rm -rf $(NAME)
 
-re: fclean clean
+re: fclean all
 
 -include $(DEPENDS)
 .PHONY: all clean fclean re
