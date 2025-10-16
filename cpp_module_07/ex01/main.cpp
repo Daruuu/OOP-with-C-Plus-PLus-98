@@ -17,15 +17,7 @@ void printElement(const T& v) {
 	std::cout << v << "\n";
 }
 
-/*
-template <>
-void printElementString<const char*>(const char* const& v)
-{
-	std::cout << v << " ";
-}
-*/
-
-void caseArrayWithNonConstIntegers_test()
+void Iter_IncrementsEachIntegerElement()
 {
 	std::cout << GREEN << "############ Case ARRAY with Integers ############"
 		<< RESETT << std::endl;
@@ -62,20 +54,17 @@ void caseArrayWithNonConstIntegers_test()
 	arrayIntegers = NULL;
 }
 
-void caseArrayWithDouble_test()
+void Iter_IncrementsEachDoubleElement()
 {
 	std::cout << GREEN << "\n ############ Case ARRAY with Double ############"
 		<< RESETT << std::endl;
 
 	const int lengthArray = (std::rand() % 5) + 3;
-	// int* arrayIntegers = NULL;
 	double* arrayDouble = NULL;
 
 	try
 	{
-		// arrayIntegers = new int[lengthArray];
 		arrayDouble = new double[lengthArray];
-
 		std::cout << BLUE << "LENGHT OF DOUBLE ARRAY is: " << lengthArray << RESETT
 			<< std::endl;
 	}
@@ -103,7 +92,7 @@ void caseArrayWithDouble_test()
 	arrayDouble = NULL;
 }
 
-void caseArrayWithFLoat_test()
+void Iter_IncrementsEachFloatElement()
 {
 	std::cout << GREEN << "\n############ Case ARRAY with Floats ############" << RESETT << std::endl;
 
@@ -133,7 +122,7 @@ void caseArrayWithFLoat_test()
 	delete[] arrayFloat;
 }
 
-void caseArrayWithOverloadConst()
+void Iter_HandlesConstCharArrayWithoutModification()
 {
 	std::cout << GREEN << "\n############ Case CONST ARRAY with Chars ############" << RESETT << std::endl;
 
@@ -146,13 +135,11 @@ void caseArrayWithOverloadConst()
 	std::cout << RESETT << std::endl;
 }
 
-void caseArrayWithOverloadConstString()
+void Iter_HandlesConstStringArrayProperly()
 {
 	std::cout << GREEN << "\n############ Case CONST ARRAY with Chars ############" << RESETT << std::endl;
 
 	const std::string constArray[] = {"Hello", "world", "in", "c++ 98"};
-
-	// const size_t lengthChar = std::strlen(constArray);
 
 	std::cout << RED << "Printing const array of string:\n";
 	::iter(constArray, constArray->length() - 1, printElement<std::string>);  // Usa const overload
@@ -163,11 +150,11 @@ void caseArrayWithOverloadConstString()
 int main()
 {
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
-	caseArrayWithNonConstIntegers_test();
-	caseArrayWithDouble_test();
-	caseArrayWithFLoat_test();
-	caseArrayWithOverloadConst();
-	caseArrayWithOverloadConstString();
+	Iter_IncrementsEachIntegerElement();
+	Iter_IncrementsEachDoubleElement();
+	Iter_IncrementsEachFloatElement();
+	Iter_HandlesConstCharArrayWithoutModification();
+	Iter_HandlesConstStringArrayProperly();
 
 	return (0);
 }
