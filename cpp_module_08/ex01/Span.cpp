@@ -1,7 +1,6 @@
 #include "Span.hpp"
 
 #include <algorithm>
-#include <limits.h>
 #include <stdexcept>
 
 Span::Span()
