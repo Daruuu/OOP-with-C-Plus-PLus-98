@@ -10,9 +10,9 @@ CPP_FLAGS = -Wall -Wextra -Werror -std=c++98 -O2 -MMD -fsanitize=address \
 	-DCYAN="\"\\033[36m\"" \
 	-DWHITE="\"\\033[37m\""
 
-NAME = span
+NAME = mutated_abomination
 
-SRCS = main.cpp Span.cpp
+SRCS = main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 DEPENDS = $(OBJS:.o=.d)
