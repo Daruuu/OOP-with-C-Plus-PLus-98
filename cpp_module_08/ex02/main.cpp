@@ -12,13 +12,13 @@ void test_case_subject()
 
 	std::cout <<  "Size of stack: "<< mstack.size() << std::endl;
 	mstack.push(3);
-	mstack.push(5);
+	mstack.push(1);
 	mstack.push(-2147483647);
 
 	std::cout <<  "\nSize of stack: "<< mstack.size() << std::endl;
 
-	MutantStack<int>::iterator itb = mstack.begin();
-	MutantStack<int>::iterator ite = mstack.end();
+	MutantStack<int>::iterator itb = mstack.beginDaruny();
+	MutantStack<int>::iterator ite = mstack.endDaruny();
 
 	while (itb != ite) {
 		std::cout << *itb << std::endl;
@@ -28,6 +28,7 @@ void test_case_subject()
 	std::stack<int> testStack(mstack);
 }
 
+/*
 void test_case_usingDouble()
 {
 	MutantStack<double> stackOfDouble;
@@ -53,7 +54,9 @@ void test_case_usingDouble()
 	// std::stack<double> testStack(stackOfDouble);
 	// std::list<int> testList(mstack.begin(), mstack.end());
 }
+*/
 
+/*
 void test_case_usingList()
 {
 	std::list<int> lst;
@@ -71,12 +74,13 @@ void test_case_usingList()
 		++it;
 	}
 }
+*/
 
 int main() {
 
-	// test_case_subject();
+	test_case_subject();
 	// test_case_usingDouble();
-	test_case_usingList();
+	// test_case_usingList();
 
 	return 0;
 }

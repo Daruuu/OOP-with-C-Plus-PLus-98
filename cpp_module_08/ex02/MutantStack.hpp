@@ -5,6 +5,7 @@
 #include <list>
 #include <stdexcept>
 
+/*
 template <typename T>
 class MutantStack {
 private:
@@ -43,6 +44,7 @@ public:
 	const_iterator begin() const { return container_.begin(); }
 	const_iterator end() const { return container_.end(); }
 };
+*/
 
 
 /*
@@ -66,6 +68,7 @@ public:
 */
 
 /*
+ * this case works
 template <typename T>
 class MutantStack : public std::stack<T>
 {
@@ -78,8 +81,27 @@ public:
 	// const_iterator begin() const { return this->c.begin(); }
 	// const_iterator end() const { return this->c.end(); }
 };
-
 */
+
+template <typename T>
+class MutantStack : public std::stack<T>
+{
+public:
+	typedef typename std::deque<T>::iterator iterator;
+	// typedef typename std::deque<T>::const_iterator const_iterator;
+
+	iterator beginDaruny()
+	{
+		return this->c.begin();
+	}
+	iterator endDaruny()
+	{
+		return this->c.end();
+	}
+	// const_iterator begin() const { return this->c.begin(); }
+	// const_iterator end() const { return this->c.end(); }
+};
+
 /*
 template <typename T>
 class MutantStack : public std::stack<T>

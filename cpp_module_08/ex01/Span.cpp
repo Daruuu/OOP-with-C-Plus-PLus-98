@@ -40,9 +40,11 @@ unsigned int Span::shortestSpan() const
 {
 	if (numbers_.size() <= 1)
 		throw std::length_error("not enough numbers.");
+	//	  4 10 3 1
 
 	std::vector<int> sorted = numbers_;
 	std::sort(sorted.begin(), sorted.end());
+	//	  1  3 4 10
 
 	int minSpan = sorted[1] - sorted[0];
 
@@ -70,7 +72,26 @@ unsigned int Span::longestSpan() const
 unsigned int Span::longestSpan() const
 {
 	if (numbers_.size() <= 1)
-		throw std::length_error("Not enough errors.");
+		throw std::length_error("Not enough length.");
+
+	//	complexity is O(n) , iterate through container 1 time.
+	// int *maxValue = std::max_element(numbers_.begin(), numbers_.end());
+	// int *minValue = std::min_element(numbers_.begin(), numbers_.end());
+
+	std::vector<int>::const_iterator maxIt = std::max_element(numbers_.begin(), numbers_.end());
+	std::vector<int>::const_iterator minIt = std::min_element(numbers_.begin(), numbers_.end());
+
+	int diff = *maxIt - *minIt;
+	if (diff < 0)
+		throw std::overflow_error("negative difference");
+	return static_cast<unsigned int>(diff);
+}
+
+/*
+unsigned int Span::longestSpan() const
+{
+	if (numbers_.size() <= 1)
+		throw std::length_error("Not enough length.");
 
 	//	complexity is O(n) , iterate through container 1 time.
 	// int *maxValue = std::max_element(numbers_.begin(), numbers_.end());
@@ -83,3 +104,4 @@ unsigned int Span::longestSpan() const
 		throw std::overflow_error("negative difference");
 	return static_cast<unsigned int>(diff);
 }
+*/

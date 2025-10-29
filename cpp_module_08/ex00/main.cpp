@@ -33,6 +33,7 @@ void test_case_sequenceContainer_vector()
 		// std::vector<int>::iterator it = easyfind(sequenceVector, 10);
 		std::vector<int>::iterator it = easyfind(sequenceVector, 30);
 
+		// std::cout << "Value of vector found: [" << *it << "]" << std::endl;
 		std::cout << "Value of vector found: [" << *it << "]" << std::endl;
 	}
 	catch (std::exception& e)
