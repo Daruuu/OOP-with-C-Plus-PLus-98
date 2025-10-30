@@ -10,6 +10,11 @@ void test_case_TwoMaxValuesInVector()
 		Span sp(2);
 		sp.addNumber(-2147483647);
 		sp.addNumber(2147483647);
+		for (unsigned int i = 0; i < sp.size(); i++)
+		{
+			std::cout << sp[i] << " ";
+		}
+		
 		std::cout << "Shortest Span : "<< sp.shortestSpan()  << std::endl;
 		std::cout << "Longest Span : "<< sp.longestSpan()  << std::endl;
 	}
@@ -141,7 +146,7 @@ int main()
 	// test_case_withXNumbers();
 	// test_case_emptyContainer();
 	// test_case_maxCapacity();
-	// test_case_largeContainerVector();
+	test_case_largeContainerVector();
 
 	return (0);
 }
