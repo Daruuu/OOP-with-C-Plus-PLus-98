@@ -90,11 +90,11 @@ public:
 	typedef typename std::deque<T>::iterator iterator;
 	// typedef typename std::deque<T>::const_iterator const_iterator;
 
-	iterator beginDaruny()
+	iterator begin()
 	{
 		return this->c.begin();
 	}
-	iterator endDaruny()
+	iterator end()
 	{
 		return this->c.end();
 	}

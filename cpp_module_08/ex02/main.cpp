@@ -4,83 +4,103 @@
 
 void test_case_subject()
 {
+	std::cout << GREEN << "***** TEST CASE: SUBJECT *****" << RESETT <<
+		std::endl;
 	MutantStack<int> mstack;
 
 	mstack.push(5);
 	mstack.push(10);
 	std::cout << "\nNumber at top of stack: " << mstack.top() << std::endl;
 
-	std::cout <<  "Size of stack: "<< mstack.size() << std::endl;
+	std::cout << "Size of stack: " << mstack.size() << std::endl;
 	mstack.push(3);
 	mstack.push(1);
 	mstack.push(-2147483647);
+	std::cout << "\nSize of stack: " << mstack.size() << std::endl;
 
-	std::cout <<  "\nSize of stack: "<< mstack.size() << std::endl;
+	mstack.pop();
 
-	MutantStack<int>::iterator itb = mstack.beginDaruny();
-	MutantStack<int>::iterator ite = mstack.endDaruny();
+	std::cout << "\nSize of stack after use pop(): " << mstack.size() <<
+		std::endl;
 
-	while (itb != ite) {
-		std::cout << *itb << std::endl;
+	MutantStack<int>::iterator itb = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+
+	int i = 0;
+	while (itb != ite)
+	{
+		std::cout << "Stack[" << i << "]=" << *itb << std::endl;
+		++i;
 		++itb;
 	}
 
 	std::stack<int> testStack(mstack);
 }
 
-/*
 void test_case_usingDouble()
 {
+	std::cout << GREEN << "\n***** TEST CASE: MUTANSTACK with Double: *****" <<
+		RESETT << std::endl;
 	MutantStack<double> stackOfDouble;
 
 	stackOfDouble.push(10.80);
 	stackOfDouble.push(1.0);
-	std::cout << "\nNumber at top of stack: " << stackOfDouble.top() << std::endl;
+	std::cout << "\nNumber at top of stack: " << stackOfDouble.top() <<
+		std::endl;
 
-	std::cout <<  "Size of stack: "<< stackOfDouble.size() << std::endl;
+	std::cout << "Size of stack: " << stackOfDouble.size() << std::endl;
 	stackOfDouble.push(3.42);
 	stackOfDouble.push(42);
 	stackOfDouble.push(-2147483647);
 
-	std::cout <<  "\nnew size of stack: "<< stackOfDouble.size() << std::endl;
+	std::cout << "\nnew size of stack: " << stackOfDouble.size() << std::endl;
 
 	MutantStack<double>::iterator itb = stackOfDouble.begin();
 	MutantStack<double>::iterator ite = stackOfDouble.end();
 
-	while (itb != ite) {
+	while (itb != ite)
+	{
 		std::cout << *itb << std::endl;
 		++itb;
 	}
 	// std::stack<double> testStack(stackOfDouble);
 	// std::list<int> testList(mstack.begin(), mstack.end());
 }
-*/
 
-/*
 void test_case_usingList()
 {
+	std::cout << GREEN << "\n***** TEST CASE: LINKED LIST: *****" << RESETT <<
+		std::endl;
 	std::list<int> lst;
+
 	lst.push_back(5);
 	lst.push_back(17);
+	std::cout << "Size of list: " << lst.size() << std::endl;
+
 	lst.pop_back();
-	lst.push_back(3);
-	lst.push_back(5);
+	std::cout << "remove using pop_back(): " << std::endl;
+
+	lst.push_back(42);
 	lst.push_back(737);
 	lst.push_back(0);
-	std::list<int>::iterator it = lst.begin();
-	std::list<int>::iterator ite = lst.end();
-	while (it != ite) {
-		std::cout << *it << std::endl;
-		++it;
+
+	std::cout << "Create 2 iterators: " << std::endl;
+	std::list<int>::iterator it_b = lst.begin();
+	std::list<int>::iterator it_e = lst.end();
+	int i = 0;
+	while (it_b != it_e)
+	{
+		std::cout << "List[" << i << "] =" << *it_b << std::endl;
+		++it_b;
+		i++;
 	}
 }
-*/
 
-int main() {
-
+int main()
+{
 	test_case_subject();
-	// test_case_usingDouble();
-	// test_case_usingList();
+	test_case_usingDouble();
+	test_case_usingList();
 
 	return 0;
 }
