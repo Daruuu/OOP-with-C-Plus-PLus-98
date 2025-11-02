@@ -142,10 +142,21 @@ void test_case_returnOfTwoObjects()
 	std::cout << "max_stepanov: " << r2.name << std::endl;
 
 }
+template <typename  T1, typename T2, typename RT>
+RT max(T1 a, T2 b)
+{
+	return b < a ? RT(a) : RT(b);
+}
 
 int main( void )
 {
-	test_case_returnOfTwoObjects();
+	// ::max<int, double, double> (4, 7,2);
+	// ::max<double, int, double>(4, 7,2);
+
+	std::cout << "case <int, double, double> := [" << ::max<int, double, double> (4, 7.2) << "]" << std::endl;
+	std::cout << "case <double, int, double> := [" << ::max<double, int, double>(4, 7.2)<< "]" << std::endl;
+
+	// test_case_returnOfTwoObjects();
 	/*
 	const char* a = "hello";
 	const char* b = a;  // mismo puntero
@@ -156,7 +167,6 @@ int main( void )
 	std::cout << "my original  return = [" << originalMax << "]" << std::endl;
 	std::cout << "my customize return = [" << customizeMax << "]" << std::endl;
 	*/
-
 
 	// std::srand(static_cast<unsigned int>(std::time(NULL)));
 	// testMinFunction();
