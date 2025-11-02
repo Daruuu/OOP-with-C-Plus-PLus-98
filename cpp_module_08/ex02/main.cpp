@@ -73,24 +73,28 @@ void test_case_usingList()
 		std::endl;
 	std::list<int> lst;
 
+	std::cout << "Add 2 numbers to list: 5, 17\n"<< std::endl;
+
 	lst.push_back(5);
 	lst.push_back(17);
 	std::cout << "Size of list: " << lst.size() << std::endl;
+	std::cout << "\nLast element of the list: [" << lst.back() << "]" << std::endl;
 
 	lst.pop_back();
-	std::cout << "remove using pop_back(): " << std::endl;
+	std::cout << RED << "remove using pop_back(): " << RESETT << std::endl;
 
 	lst.push_back(42);
 	lst.push_back(737);
 	lst.push_back(0);
 
-	std::cout << "Create 2 iterators: " << std::endl;
+	std::cout << "Create 2 iterators\n" << std::endl;
 	std::list<int>::iterator it_b = lst.begin();
 	std::list<int>::iterator it_e = lst.end();
+
 	int i = 0;
 	while (it_b != it_e)
 	{
-		std::cout << "List[" << i << "] =" << *it_b << std::endl;
+		std::cout << "List[" << i << "] = " << *it_b << std::endl;
 		++it_b;
 		i++;
 	}
@@ -98,8 +102,8 @@ void test_case_usingList()
 
 int main()
 {
-	test_case_subject();
-	test_case_usingDouble();
+	// test_case_subject();
+	// test_case_usingDouble();
 	test_case_usingList();
 
 	return 0;
