@@ -103,12 +103,65 @@ void testSwapFunction()
 	testSwapForFloat(floatA, floatB, "FLOAT");
 }
 
+struct Item
+{
+	int value;
+	const char* name;
+
+	// comparamamos por 'value'
+	bool operator<(const Item& other) const
+	{
+		return (value < other.value);
+	}
+};
+
+
+//	INVALID IMPLEMENTATION
+template <typename T>
+T max_normal(const T &a, const T &b)
+{
+	return (a < b) ? b : a;
+}
+
+//	VALID IMPLEMENTATION
+template <typename T>
+T max_stepanov(T a, T b)
+{
+	return b < a ? a : b;
+}
+
+void test_case_returnOfTwoObjects()
+{
+	Item a = {10, "A"};
+	Item b = {10, "B"};  // mismo valor, distinto objeto
+
+	Item r1 = max_normal(a, b);
+	Item r2 = max_stepanov(a, b);
+
+	std::cout << "max_normal:  " << r1.name << std::endl;
+	std::cout << "max_stepanov: " << r2.name << std::endl;
+
+}
+
 int main( void )
 {
-	std::srand(static_cast<unsigned int>(std::time(NULL)));
-	testMinFunction();
-	testMaxFunction();
-	testSwapFunction();
+	test_case_returnOfTwoObjects();
+	/*
+	const char* a = "hello";
+	const char* b = a;  // mismo puntero
+
+	const char* originalMax = std::max(a, b);  // C++98
+	const char* customizeMax = ::max(a, b);  // C++98
+
+	std::cout << "my original  return = [" << originalMax << "]" << std::endl;
+	std::cout << "my customize return = [" << customizeMax << "]" << std::endl;
+	*/
+
+
+	// std::srand(static_cast<unsigned int>(std::time(NULL)));
+	// testMinFunction();
+	// testMaxFunction();
+	// testSwapFunction();
 
 	return (0);
 }
