@@ -8,59 +8,68 @@ void test_case_subject()
 		std::endl;
 	MutantStack<int> mstack;
 
+	std::cout << "\nAdd 2 numbers: [5, 10]\n" << std::endl;
+
 	mstack.push(5);
 	mstack.push(10);
+
 	std::cout << "\nNumber at top of stack: " << mstack.top() << std::endl;
 
-	std::cout << "Size of stack: " << mstack.size() << std::endl;
+	std::cout << "\nSize of stack: " << mstack.size() << std::endl;
 	mstack.push(3);
 	mstack.push(1);
 	mstack.push(-2147483647);
+	mstack.push(2147483647);
 	std::cout << "\nSize of stack: " << mstack.size() << std::endl;
 
-	mstack.pop();
+	//mstack.pop();
 
-	std::cout << "\nSize of stack after use pop(): " << mstack.size() <<
-		std::endl;
+	//std::cout << "\nSize of stack after use pop(): " << mstack.size() << std::endl;
 
 	MutantStack<int>::iterator itb = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
 
-	int i = 0;
+	int i = 1;
 	while (itb != ite)
 	{
 		std::cout << "Stack[" << i << "]=" << *itb << std::endl;
 		++i;
 		++itb;
 	}
-
-	std::stack<int> testStack(mstack);
 }
 
 void test_case_usingDouble()
 {
 	std::cout << GREEN << "\n***** TEST CASE: MUTANSTACK with Double: *****" <<
 		RESETT << std::endl;
+
 	MutantStack<double> stackOfDouble;
+
+	std::cout << "\nPushing elements: 10.8, 1.0" << std::endl;
 
 	stackOfDouble.push(10.80);
 	stackOfDouble.push(1.0);
-	std::cout << "\nNumber at top of stack: " << stackOfDouble.top() <<
+
+	std::cout << "Top element: [" << stackOfDouble.top() << "]" <<
 		std::endl;
 
 	std::cout << "Size of stack: " << stackOfDouble.size() << std::endl;
+
+	std::cout << "\nPushing more: 3.42, 42, -2147483647.0" << std::endl;
+
 	stackOfDouble.push(3.42);
 	stackOfDouble.push(42);
 	stackOfDouble.push(-2147483647);
 
-	std::cout << "\nnew size of stack: " << stackOfDouble.size() << std::endl;
+	std::cout << "\nnew size: " << stackOfDouble.size() << std::endl;
 
 	MutantStack<double>::iterator itb = stackOfDouble.begin();
 	MutantStack<double>::iterator ite = stackOfDouble.end();
 
+	int index = 1;
 	while (itb != ite)
 	{
-		std::cout << *itb << std::endl;
+		std::cout << "  [" << index++ << "] = " << *itb << std::endl;
 		++itb;
 	}
 	// std::stack<double> testStack(stackOfDouble);
@@ -80,12 +89,13 @@ void test_case_usingList()
 	std::cout << "Size of list: " << lst.size() << std::endl;
 	std::cout << "\nLast element of the list: [" << lst.back() << "]" << std::endl;
 
-	lst.pop_back();
-	std::cout << RED << "remove using pop_back(): " << RESETT << std::endl;
 
 	lst.push_back(42);
 	lst.push_back(737);
-	lst.push_back(0);
+	lst.push_back(37);
+	lst.push_back(7);
+	lst.push_back(7);
+	lst.push_back(-0);
 
 	std::cout << "Create 2 iterators\n" << std::endl;
 	std::list<int>::iterator it_b = lst.begin();
@@ -98,12 +108,17 @@ void test_case_usingList()
 		++it_b;
 		i++;
 	}
+	std::cout << RED << "remove 2 times using pop_back(): " << RESETT << std::endl;
+	lst.pop_back();
+	lst.pop_back();
+	std::cout << "Top after 2 removes in list: " << lst.front() << std::endl;
+	std::cout << "Size after popping: " << lst.size() << std::endl;
 }
 
 int main()
 {
-	// test_case_subject();
-	// test_case_usingDouble();
+	test_case_subject();
+	test_case_usingDouble();
 	test_case_usingList();
 
 	return 0;

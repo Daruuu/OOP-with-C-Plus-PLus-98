@@ -2,6 +2,8 @@
 #include "HumanB.hpp"
 #include "Weapon.hpp"
 
+#include <cstddef>
+
 int main()
 {
 	{
@@ -15,8 +17,12 @@ int main()
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanB jim("Jim");
-		jim.setWeapon(club);
+		// jim.setWeapon(club);
 		jim.attack();
+		// jim.setWeapon(nullptr);
+		// Weapon test();
+		// test->setType = "abc";
+		// jim.setWeapon();
 		club.setType("some other type of club");
 		jim.attack();
 	}

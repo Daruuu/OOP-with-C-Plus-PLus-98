@@ -10,13 +10,9 @@ public:
 	typedef typename std::deque<T>::iterator iterator;
 	typedef typename std::deque<T>::const_iterator const_iterator;
 
-	MutantStack()
-	{
-	}
+	MutantStack(){}
 
-	MutantStack(const MutantStack& other) : std::stack<T>(other)
-	{
-	}
+	MutantStack(const MutantStack& other) : std::stack<T>(other){}
 
 	MutantStack& operator=(const MutantStack& other)
 	{
@@ -25,9 +21,7 @@ public:
 		return *this;
 	}
 
-	~MutantStack()
-	{
-	}
+	~MutantStack() {}
 
 	iterator begin()
 	{
