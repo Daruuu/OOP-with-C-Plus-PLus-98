@@ -84,3 +84,17 @@ unsigned int Span::longestSpan() const
 		throw std::overflow_error("negative difference");
 	return static_cast<unsigned int>(diff);
 }
+
+unsigned int Span::size() const
+{
+	return numbers_.size(); 
+}
+
+int Span::getValue(unsigned int i) const
+{
+    if (i >= numbers_.size())
+        throw std::out_of_range("Index out of range");
+    return numbers_[i];
+}
+
+

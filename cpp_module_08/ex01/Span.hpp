@@ -18,6 +18,8 @@ public:
 	void addNumber(unsigned int N);
 	unsigned int shortestSpan() const;
 	unsigned int longestSpan() const;
+	unsigned int size() const;
+	int	getValue(unsigned int i) const;
 };
 
 #endif

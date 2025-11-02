@@ -10,10 +10,12 @@ void test_case_TwoMaxValuesInVector()
 		Span sp(2);
 		sp.addNumber(-2147483647);
 		sp.addNumber(2147483647);
+		//for (unsigned int i = 0; i < sp.size() - 1; i++)
 		for (unsigned int i = 0; i < sp.size(); i++)
 		{
-			std::cout << sp[i] << " ";
+			std::cout << sp.getValue(i) << " ";
 		}
+		std::cout << std::endl;
 		
 		std::cout << "Shortest Span : "<< sp.shortestSpan()  << std::endl;
 		std::cout << "Longest Span : "<< sp.longestSpan()  << std::endl;
