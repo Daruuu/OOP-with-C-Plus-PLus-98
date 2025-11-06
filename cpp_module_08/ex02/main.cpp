@@ -1,6 +1,7 @@
 #include "MutantStack.hpp"
 #include <iostream>
 #include <list>
+#include <set>
 
 void test_case_subject()
 {
@@ -44,6 +45,7 @@ void test_case_usingDouble()
 		RESETT << std::endl;
 
 	MutantStack<double> stackOfDouble;
+	int index;
 
 	std::cout << "\nPushing elements: 10.8, 1.0" << std::endl;
 
@@ -54,7 +56,6 @@ void test_case_usingDouble()
 		std::endl;
 
 	std::cout << "Size of stack: " << stackOfDouble.size() << std::endl;
-
 	std::cout << "\nPushing more: 3.42, 42, -2147483647.0" << std::endl;
 
 	stackOfDouble.push(3.42);
@@ -63,17 +64,25 @@ void test_case_usingDouble()
 
 	std::cout << "\nnew size: " << stackOfDouble.size() << std::endl;
 
+	std::cout << "\nUsing an alias of iterator, call 'pos':\n";
+
+	MutantStack<double>::iterator pos;
+	index = 1;
+	for (pos = stackOfDouble.begin(); pos != stackOfDouble.end(); ++pos) {
+		// *pos = toupper(*pos);
+		std::cout << "  [" << index++ << "] = " << *pos << std::endl;
+	}
+	// type of the collection
+
+	std::cout << "\nUsing 2 alias of iterator, begin and end:\n";
 	MutantStack<double>::iterator itb = stackOfDouble.begin();
 	MutantStack<double>::iterator ite = stackOfDouble.end();
-
-	int index = 1;
+	index = 0;
 	while (itb != ite)
 	{
 		std::cout << "  [" << index++ << "] = " << *itb << std::endl;
 		++itb;
 	}
-	// std::stack<double> testStack(stackOfDouble);
-	// std::list<int> testList(mstack.begin(), mstack.end());
 }
 
 void test_case_usingList()
