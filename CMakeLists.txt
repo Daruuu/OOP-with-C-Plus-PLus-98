@@ -143,13 +143,7 @@ add_executable(Cpp06_ex01
         cpp_module_06/ex01/Data.hpp
 )
 
-target_compile_definitions(Cpp06_ex00 PRIVATE
-        RESET="\\033[0m"
-        RED="\\033[31m"
-        GREEN="\\033[32m"
-        YELLOW="\\033[33m"
-        BLUE="\\033[34m"
-        MAGENTA="\\033[35m"
-        CYAN="\\033[36m"
-        WHITE="\\033[37m"
+add_executable(cpp08_ex02
+        cpp_module_08/ex02/main.cpp
+        cpp_module_08/ex02/MutantStack.hpp
 )
