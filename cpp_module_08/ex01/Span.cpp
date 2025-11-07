@@ -50,7 +50,7 @@ unsigned int Span::shortestSpan() const
 	{
 		minSpan = std::min(minSpan, sorted[i + 1] - sorted[i]);
 	}
-	return (minSpan);
+	return static_cast<unsigned int>(minSpan);
 }
 
 /*
