@@ -115,7 +115,6 @@ struct Item
 	}
 };
 
-
 //	INVALID IMPLEMENTATION
 template <typename T>
 T max_normal(const T &a, const T &b)
@@ -154,7 +153,7 @@ int main( void )
 	// ::max<double, int, double>(4, 7,2);
 
 	std::cout << "case <int, double, double> := [" << ::max<int, double, double> (4, 7.2) << "]" << std::endl;
-	std::cout << "case <double, int, double> := [" << ::max<double, int, double>(4, 7.2)<< "]" << std::endl;
+	std::cout << "case <double, int, double> := [" << ::max<double, double, int>(4.0, 7.2)<< "]" << std::endl;
 
 	// test_case_returnOfTwoObjects();
 	/*

@@ -9,6 +9,7 @@ void swap(T &a, T &b)
 	b = temp;
 }
 
+// template <class T>
 template <typename T>
 const T &min(const T &a, const T &b)
 {
