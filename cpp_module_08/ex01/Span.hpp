@@ -16,6 +16,8 @@ public:
 	~Span();
 
 	void addNumber(unsigned int N);
+	template<typename InputIterator>
+	void addRangeOfNumbers(InputIterator begin, InputIterator end);
 	unsigned int shortestSpan() const;
 	unsigned int longestSpan() const;
 	unsigned int size() const;

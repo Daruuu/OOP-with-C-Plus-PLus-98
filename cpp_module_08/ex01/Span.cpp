@@ -36,6 +36,17 @@ void Span::addNumber(unsigned int N)
 	numbers_.push_back(N);
 }
 
+template <typename InputIterator>
+void Span::addRangeOfNumbers(InputIterator begin, InputIterator end)
+{
+	for (InputIterator it = begin; it != end; ++it)
+	{
+		if (numbers_.size() >= maxSize_)
+			throw std::out_of_range("Span overflow: too many elements. :(");
+		numbers_.push_back(*it);
+	}
+}
+
 unsigned int Span::shortestSpan() const
 {
 	if (numbers_.size() <= 1)
@@ -44,28 +55,17 @@ unsigned int Span::shortestSpan() const
 	std::vector<int> sorted = numbers_;
 	std::sort(sorted.begin(), sorted.end());
 
+	// long minSpan = static_cast<long>(sorted[1]) - static_cast<long>(sorted[0]);
 	int minSpan = sorted[1] - sorted[0];
 
 	for (size_t i = 1; i < sorted.size() - 1; ++i)
 	{
-		minSpan = std::min(minSpan, sorted[i + 1] - sorted[i]);
+		long diff = static_cast<long>(sorted[i + 1]) - static_cast<long>(sorted[i]);
+		if (diff < minSpan)
+			minSpan = diff;
 	}
 	return static_cast<unsigned int>(minSpan);
 }
-
-/*
-unsigned int Span::longestSpan() const
-{
-	if (numbers_.size() <= 1)
-		throw std::length_error("Not enough errors.");
-
-	//	complexity is O(n) , iterate through container 1 time.
-	std::vector<int>::const_iterator maxValue = std::max_element(numbers_.begin(), numbers_.end());
-	std::vector<int>::const_iterator minValue = std::min_element(numbers_.begin(), numbers_.end());
-
-	return static_cast<unsigned int>(*maxValue - *minValue);
-}
-*/
 
 unsigned int Span::longestSpan() const
 {
@@ -78,7 +78,7 @@ unsigned int Span::longestSpan() const
 	std::vector<int>::const_iterator maxIt = std::max_element(numbers_.begin(), numbers_.end());
 	std::vector<int>::const_iterator minIt = std::min_element(numbers_.begin(), numbers_.end());
 
-	int diff = *maxIt - *minIt;
+	long diff = static_cast<long>(*maxIt) - static_cast<long>(*minIt);
 
 	if (diff < 0)
 		throw std::overflow_error("negative difference");

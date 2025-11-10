@@ -17,8 +17,13 @@ void test_case_TwoMaxValuesInVector()
 		}
 		std::cout << std::endl;
 		
-		std::cout << "Shortest Span : "<< sp.shortestSpan()  << std::endl;
-		std::cout << "Longest Span : "<< sp.longestSpan()  << std::endl;
+		// std::cout << "Shortest Span : "<< sp.shortestSpan()  << std::endl;
+		// std::cout << "Longest Span : "<< sp.longestSpan()  << std::endl;
+		unsigned int shortest = sp.shortestSpan();
+		unsigned int longest = sp.longestSpan();
+
+		std::cout << "Shortest Span : " << shortest << std::endl;
+		std::cout << "Longest Span  : " << longest << std::endl;
 	}
 	catch (std::length_error &e)
 	{
