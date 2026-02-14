@@ -23,11 +23,11 @@ TEST_SRC = tests/BureaucratTest.cpp tests/TestRunner.cpp Bureaucrat.cpp
 TEST_OBJ = $(TEST_SRC:.cpp=.o)
 TEST_FLAGS = -lcppunit -ldl
 
-all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CPP_FLAGS) -o $(NAME) $(OBJS)
 
+all: $(NAME)
 %.o: %.cpp	Makefile
 	$(CXX) $(CPP_FLAGS) -c $< -o $@
 
