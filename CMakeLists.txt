@@ -147,3 +147,5 @@ add_executable(cpp08_ex02
         cpp_module_08/ex02/main.cpp
         cpp_module_08/ex02/MutantStack.hpp
 )
+
+add_subdirectory(cpp_module_09)
