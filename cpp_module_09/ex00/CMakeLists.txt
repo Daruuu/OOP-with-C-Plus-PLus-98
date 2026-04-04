@@ -2,9 +2,7 @@
 file(GLOB SRCS "*.cpp")
 
 if(SRCS)
-    add_executable(cpp09_ex00 ${SRCS}
-            BitcoinExchange.cpp
-            BitcoinExchange.hpp)
+    add_executable(cpp09_ex00 ${SRCS})
 
     target_compile_options(cpp09_ex00 PRIVATE -Wall -Wextra -Werror -O2 -fsanitize=address)
     target_link_options(cpp09_ex00 PRIVATE -fsanitize=address)

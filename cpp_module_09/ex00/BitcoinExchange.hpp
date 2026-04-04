@@ -9,12 +9,14 @@ namespace btc
 	const std::string extensionTxt = ".txt";
 	const std::string extensionCsv = ".csv";
 	const std::string dataBaseFile = "data.csv";
+	const std::string errorPositiveNumber = "Error: not a positive number.";
+	const std::string errorBadInput = "Error: bad input => ";
+	const std::string errorTooLargeNumber = "Error: too large a number.";
 
 	inline bool validateFileExtension(const std::string& path)
 	{
-		return (path.size() < 5 || path.substr(path.size() - 4) !=
-			btc::extensionCsv
-			|| path.substr(path.size() - 4) != btc::extensionTxt);
+		return (path.size() < 5 || (path.substr(path.size() - 4) != btc::extensionCsv
+		&& path.substr(path.size() - 4) != btc::extensionTxt));
 	}
 
 	inline bool validateFilePermissions(const std::string& fileName)
