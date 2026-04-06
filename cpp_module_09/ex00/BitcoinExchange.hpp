@@ -24,6 +24,7 @@ namespace btc
 
 class BitcoinExchange
 {
+	friend class UnitTest;
 public:
 	BitcoinExchange();
 	BitcoinExchange(const BitcoinExchange& other);

@@ -34,4 +34,9 @@ fclean: clean
 re: fclean all
 
 -include $(DEPENDS)
-.PHONY: all clean fclean re
+test:
+	@$(CXX) $(CPP_FLAGS) -I. tests/unit_tests.cpp BitcoinExchange.cpp -o unit_test_run
+	@./unit_test_run
+	@rm -f unit_test_run
+
+.PHONY: all clean fclean re test
