@@ -33,16 +33,31 @@ void BitcoinExchange::processInputFile(const std::string& filename)
 	std::ifstream inputFile(filename.c_str());
 	if (!inputFile.is_open())
 	{
-		std::cerr << "Error: Cannot open input file: " << filename;
+		std::cerr << btc::errorCannotOpenFile << filename;
 		return;
 	}
 
 	std::string line;
-	//	omitimos el header "date | value"
-	std::getline(inputFile, line);
+	// Extraemos la primera línea y validamos que sea exactamente el formato esperado
+	if (!std::getline(inputFile, line))
+	{
+		std::cout << "Error: Empty file." << std::endl;
+		inputFile.close();
+		return;
+	}
+	if (line != "date | value")
+	{
+		std::cout << "Error: Invalid file format. Expected 'date | value' explicitly as first line." << std::endl;
+		inputFile.close();
+		return;
+	}
 
 	while (std::getline(inputFile, line))
 	{
+		if (line.empty())
+		{
+			continue;
+		}
 		size_t pipePosition = line.find(btc::pipeChar);
 		if (pipePosition == std::string::npos)
 		{
@@ -56,6 +71,14 @@ void BitcoinExchange::processInputFile(const std::string& filename)
 			continue;
 		}
 		std::string valueStr = line.substr(pipePosition + 3);
+
+		// Validamos que el string sea numerico y no tenga caracters invalidos
+		if (!isValidValue(valueStr))
+		{
+			std::cout << btc::errorBadInput << line << std::endl;
+			continue;
+		}
+
 		float valueFloat = std::strtof(valueStr.c_str(), NULL);
 		if (valueFloat < 0)
 		{
@@ -64,7 +87,8 @@ void BitcoinExchange::processInputFile(const std::string& filename)
 		}
 		if (valueFloat > 1000)
 		{
-			std::cout << btc::errorTooLargeNumber << line << std::endl;
+			// std::cout << btc::errorTooLargeNumber << line << std::endl;
+			std::cout << btc::errorTooLargeNumber << std::endl;
 			continue;
 		}
 		// search in the map the date

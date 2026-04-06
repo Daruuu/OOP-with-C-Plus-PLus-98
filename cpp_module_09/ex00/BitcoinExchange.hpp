@@ -8,7 +8,11 @@ namespace btc
 {
 	const std::string extensionTxt = ".txt";
 	const std::string extensionCsv = ".csv";
-	const std::string dataBaseFile = "data.csv";
+
+	// const std::string dataBaseFile = "data.csv";
+	const std::string dataBaseFile = "/home/daruuu/CLionProjects/OOP-with-C-Plus-PLus-98/cpp_module_09/ex00/data.csv";
+
+	const std::string errorCannotOpenFile= "Error: Cannot open input file: ";
 	const std::string errorPositiveNumber = "Error: not a positive number. ";
 	const std::string errorBadInput = "Error: bad input => ";
 	const std::string errorTooLargeNumber = "Error: too large a number. ";
