@@ -39,7 +39,6 @@ int main(int ac, char** av)
 		std::cerr << btc::errorValidations << std::endl;
 		return 1;
 	}
-
 	try
 	{
 		BitcoinExchange btc;

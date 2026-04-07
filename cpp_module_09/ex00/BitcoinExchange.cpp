@@ -120,8 +120,10 @@ void BitcoinExchange::loadDatabase()
 
 	if (!file.is_open())
 	{
-		std::cerr << "Error: Cannot open database file: " << btc::dataBaseFile
-			<< std::endl;
+		throw std::runtime_error(btc::errorCannotOpenDatabase + btc::dataBaseFile);
+		// std::cerr << btc::errorCannotOpenDatabase << btc::dataBaseFile
+			// << std::endl;
+		return;
 	}
 	std::string line;
 
