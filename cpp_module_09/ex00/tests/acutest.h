@@ -26,7 +26,7 @@ static int acutest_run_(int argc, char** argv);
 int main(int argc, char** argv) { return acutest_run_(argc, argv); }
 #endif
 
-#define TEST_LIST const struct acutest_test_ acutest_test_list_[] =
+#define TEST_LIST const struct acutest_test_ acutest_test_list_[]
 #define TEST_CHECK(cond) acutest_check_((cond), #cond, __FILE__, __LINE__)
 #define TEST_ASSERT(cond) do { if (!acutest_check_((cond), #cond, __FILE__, __LINE__)) return; } while(0)
 #define TEST_CASE(name) { #name, name }
