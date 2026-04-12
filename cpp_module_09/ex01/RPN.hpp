@@ -1,9 +1,15 @@
 #ifndef STARTING_WITH_CPP_RPN_HPP
 #define STARTING_WITH_CPP_RPN_HPP
 
-#include <iostream>
 #include <string>
-#include <stack>
+
+namespace utils
+{
+	const std::string errorInvalidOperands = "Error: Insufficient operands.";
+	const std::string errorDivisionByZero= "Error: Division by zero.";
+	const std::string errorInvalidCharacters= "Error: Invalid Characters.";
+	const std::string errorInvalidExpression="Error: Incomplete expression";
+}
 
 class RPN
 {
@@ -14,12 +20,8 @@ public:
 	~RPN();
 
 	static int calculate(const std::string& expression);
-	static bool validateInput(const std::string& expression);
 
 private:
-	// Actuará como una pila (stack) usando push_back y pop_back
-	std::stack<int> stack_;
-
 	static bool isOperator(char c);
 	static int performOperation(int a, int b, char operation);
 };

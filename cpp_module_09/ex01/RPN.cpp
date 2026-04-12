@@ -3,7 +3,9 @@
 #include <stack>
 #include <stdexcept>
 
-RPN::RPN() {}
+RPN::RPN()
+{
+}
 
 RPN::RPN(const RPN& other) { *this = other; }
 
@@ -11,12 +13,13 @@ RPN& RPN::operator=(const RPN& other)
 {
 	if (this != &other)
 	{
-		this->stack_ = other.stack_;
 	}
 	return *this;
 }
 
-RPN::~RPN() {}
+RPN::~RPN()
+{
+}
 
 bool RPN::isOperator(char c)
 {
@@ -34,84 +37,52 @@ int RPN::performOperation(int a, int b, char operation)
 	if (operation == '/')
 	{
 		if (b == 0)
-			throw std::runtime_error("Error: Division by zero");
+			throw std::runtime_error(utils::errorDivisionByZero);
 		return (a / b);
 	}
-	return 0;
+	throw std::runtime_error("Error");
 }
 
+//	"7 5 *"
+//	"7 5 2 * -"
 int RPN::calculate(const std::string& expression)
 {
-	std::stack<int> stack;
-
+	std::stack<int> localStack;
 	for (size_t i = 0; i < expression.length(); i++)
 	{
-		char c = expression[i];
+		char currentChar = expression[i];
 
-		// ignore spaces
-		if (std::isspace(c))
+		if (std::isspace(currentChar))
 			continue;
 
-		// Si es un dígito
-		if (std::isdigit(c))
+		if (std::isdigit(currentChar))
 		{
-			stack.push(c - '0');
+			localStack.push(currentChar - '0');
 		}
-		// Si es un operador
-		else if (isOperator(c))
+		else if (isOperator(currentChar))
 		{
-			if (stack.size() < 2)
-				throw std::runtime_error("Error: Insufficient operands");
+			if (localStack.size() < 2)
+			{
+				throw std::runtime_error(utils::errorInvalidOperands);
+			}
+			// b es el de arriba, a es el de abajo
+			int b = localStack.top();
+			localStack.pop();
 
-			int b = stack.top();
-			stack.pop();
-			int a = stack.top();
-			stack.pop();
+			int a = localStack.top();
+			localStack.pop();
 
-			int result = performOperation(a, b, c);
-			stack.push(result);
+			localStack.push(performOperation(a, b, currentChar));
 		}
 		else
 		{
-			throw std::runtime_error("Error: Invalid character in expression");
+			throw std::runtime_error(utils::errorInvalidCharacters);
 		}
 	}
 
-	if (stack.size() != 1)
-		throw std::runtime_error(
-			"Error: The expression is incomplete or has too many operands");
-
-	return stack.top();
-}
-
-bool RPN::validateInput(const std::string& expression)
-{
-	if (expression.empty())
-		return false;
-
-	std::stack<int> numberStack;
-	std::stack<int> operatorStack;
-
-	for (size_t i = 0; i < expression.length(); i++)
+	if (localStack.size() != 1)
 	{
-		char c = expression[i];
-
-		if (std::isspace(c))
-		{
-			continue;
-		}
-		if (std::isdigit(c))
-		{
-			numberStack.push(c - '0');
-		}
-		else if (isOperator(c))
-		{
-			operatorStack.push(c);
-		}
+		throw std::runtime_error(utils::errorInvalidExpression);
 	}
-	if (numberStack.size() - 1 != operatorStack.size())
-		return false;
-
-	return true;
+	return localStack.top();
 }
-
