@@ -139,7 +139,6 @@ add_executable(Cpp06_ex00
 add_executable(Cpp06_ex01
         cpp_module_06/ex01/main.cpp
         cpp_module_06/ex01/Serializer.cpp
-        cpp_module_06/ex01/Serializer.cpp
         cpp_module_06/ex01/Data.hpp
 )
 
