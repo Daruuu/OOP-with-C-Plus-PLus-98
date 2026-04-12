@@ -40,7 +40,7 @@ int RPN::performOperation(int a, int b, char operation)
 			throw std::runtime_error(utils::errorDivisionByZero);
 		return (a / b);
 	}
-	throw std::runtime_error("Error");
+	throw std::runtime_error("ErrorR");
 }
 
 //	"7 5 *"
