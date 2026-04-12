@@ -19,7 +19,8 @@ public:
 	RPN& operator=(const RPN& other);
 	~RPN();
 
-	static int calculate(const std::string& expression);
+	// static int calculate(const std::string& expression);
+	static int calculate(const std::string& expression, bool visualize);
 
 private:
 	static bool isOperator(char c);
