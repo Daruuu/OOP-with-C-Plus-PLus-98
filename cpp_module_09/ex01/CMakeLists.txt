@@ -2,7 +2,8 @@
 file(GLOB SRCS "*.cpp")
 
 if(SRCS)
-    add_executable(cpp09_ex01 ${SRCS})
+    add_executable(cpp09_ex01 ${SRCS}
+            ../ex01-ImGui/main.cpp)
 
     target_compile_options(cpp09_ex01 PRIVATE -Wall -Wextra -Werror -O2 -fsanitize=address)
     target_link_options(cpp09_ex01 PRIVATE -fsanitize=address)
