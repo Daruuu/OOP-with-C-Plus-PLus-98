@@ -52,32 +52,61 @@ int RPN::performOperation(int a, int b, char operation)
 			throw std::runtime_error(utils::errorDivisionByZero);
 		return (a / b);
 	}
-	throw std::runtime_error("ErrorR");
+	throw std::runtime_error("Error");
 }
 
-static void printStackVisual(size_t step, char token, const std::stack<int>& stk)
+static void printStackVisual(size_t step, char token,
+							const std::stack<int>& stk,
+							bool isOperation = false, int a = 0, int b = 0)
 {
-	std::cout << "Step " << std::setw(2) << step << " | Token: '" << token << "'\t→ Stack: [";
+	std::cout << BOLD << CYAN << "Step " << std::setw(2) << step << RESET
+		<< " | ";
 
-	if (stk.empty())
+	if (std::isdigit(token))
 	{
-		std::cout << " empty ";
+		std::cout << GREEN << "Token: '" << token << "'" << RESET;
 	}
 	else
 	{
-		std::stack<int> temp = stk;           // copia para no modificar el original
-		std::vector<int> elements;
+		std::cout << YELLOW << "Token: '" << token << "'" << RESET;
+	}
 
+	std::cout << "  →  Stack: " << BOLD << "[" << RESET;
+
+	if (stk.empty())
+	{
+		std::cout << RED << " empty " << RESET;
+	}
+	else
+	{
+		std::stack<int> temp = stk;
+		std::vector<int> elements;
 		while (!temp.empty())
 		{
 			elements.push_back(temp.top());
 			temp.pop();
 		}
-
 		for (int i = static_cast<int>(elements.size()) - 1; i >= 0; --i)
-			std::cout << " " << elements[i] << (i > 0 ? "," : " ");
+		{
+			std::cout << " " << GREEN << elements[i] << RESET;
+			if (i > 0)
+				std::cout << MAGENTA << "," << RESET;
+		}
+		std::cout << " ";
 	}
-	std::cout << "]\n";
+	std::cout << BOLD << "]" << RESET << "\n";
+
+	// new line
+	if (isOperation)
+	{
+		std::cout << "          "
+			<< GREEN << a << RESET
+			<< YELLOW << " " << token << " " << RESET
+			<< GREEN << b << RESET
+			<< "   →   "
+			<< GREEN << stk.top() << RESET
+			<< "\n\n";
+	}
 }
 
 int RPN::calculate(const std::string& expression, bool visualize)
@@ -88,7 +117,8 @@ int RPN::calculate(const std::string& expression, bool visualize)
 	if (visualize)
 	{
 		std::cout << GREEN << "=== RPN VISUALIZER START ===\n" << RESET;
-		std::cout << "Expression: \"" << expression << "\"\n\n";
+		std::cout << CYAN << "Expression: \"" << expression << RESET <<
+			"\"\n\n";
 	}
 
 	for (size_t i = 0; i < expression.length(); ++i)
@@ -109,63 +139,20 @@ int RPN::calculate(const std::string& expression, bool visualize)
 		else if (isOperator(c))
 		{
 			if (stk.size() < 2)
-				throw std::runtime_error("Error");
+				throw std::runtime_error(utils::errorInvalidOperands);
 
-			int b = stk.top(); stk.pop();
-			int a = stk.top(); stk.pop();
+			int b = stk.top();
+			stk.pop();
+			int a = stk.top();
+			stk.pop();
 
 			int result = performOperation(a, b, c);
 			stk.push(result);
 
 			if (visualize)
-				printStackVisual(step, c, stk);
-		}
-		else
-		{
-			throw std::runtime_error("Error");
-		}
-	}
-
-	if (stk.size() != 1)
-		throw std::runtime_error("Error");
-
-	if (visualize)
-		std::cout << "\n=== FINAL RESULT: " << stk.top() << " ===\n";
-
-	return stk.top();
-}
-
-//	"7 5 *"
-//	"7 5 2 * -"
-/*
-int RPN::calculate(const std::string& expression)
-{
-	std::stack<int> localStack;
-	for (size_t i = 0; i < expression.length(); i++)
-	{
-		char currentChar = expression[i];
-
-		if (std::isspace(currentChar))
-			continue;
-
-		if (std::isdigit(currentChar))
-		{
-			localStack.push(currentChar - '0');
-		}
-		else if (isOperator(currentChar))
-		{
-			if (localStack.size() < 2)
 			{
-				throw std::runtime_error(utils::errorInvalidOperands);
+				printStackVisual(step, c, stk, true, a, b);
 			}
-			// b es el de arriba, a es el de abajo
-			int b = localStack.top();
-			localStack.pop();
-
-			int a = localStack.top();
-			localStack.pop();
-
-			localStack.push(performOperation(a, b, currentChar));
 		}
 		else
 		{
@@ -173,10 +160,11 @@ int RPN::calculate(const std::string& expression)
 		}
 	}
 
-	if (localStack.size() != 1)
-	{
+	if (stk.size() != 1)
 		throw std::runtime_error(utils::errorInvalidExpression);
-	}
-	return localStack.top();
+
+	if (visualize)
+		std::cout << "\n=== FINAL RESULT: " << stk.top() << " ===\n";
+
+	return stk.top();
 }
-*/
