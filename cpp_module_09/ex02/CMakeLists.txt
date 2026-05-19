@@ -2,7 +2,8 @@
 file(GLOB SRCS "*.cpp")
 
 if(SRCS)
-    add_executable(cpp09_ex02 ${SRCS})
+    add_executable(cpp09_ex02 ${SRCS}
+            PmergeMe.hpp)
 
     target_compile_options(cpp09_ex02 PRIVATE -Wall -Wextra -Werror -O2 -fsanitize=address)
     target_link_options(cpp09_ex02 PRIVATE -fsanitize=address)
