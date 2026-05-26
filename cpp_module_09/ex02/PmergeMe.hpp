@@ -15,6 +15,9 @@ public:
 	void processSequence(char** argv);
 
 private:
+	std::vector<int> vectorInteger_;
+	std::list<int> listInteger_;
+
 	//	implementation to vector container
 	void sortVector(const std::vector<std::string>& vector);
 	//	implementation to list container

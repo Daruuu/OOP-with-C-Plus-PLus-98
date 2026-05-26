@@ -10,7 +10,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.cpp RPN.hpp
+%.o: %.cpp PMergeMe.hpp Makefile
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
