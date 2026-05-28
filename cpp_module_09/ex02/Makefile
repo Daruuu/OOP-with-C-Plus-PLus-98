@@ -2,7 +2,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = PmergeMe
-SRCS = main.cpp PMergeMe.cpp
+SRCS = main.cpp PmergeMe.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
@@ -10,7 +10,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.cpp PMergeMe.hpp Makefile
+%.o: %.cpp PmergeMe.hpp Makefile
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:

@@ -1,5 +1,6 @@
-#ifndef STARTING_WITH_CPP_PMERGEME_HPP
-#define STARTING_WITH_CPP_PMERGEME_HPP
+#ifndef PMERGEME_HPP
+#define PMERGEME_HPP
+
 #include <list>
 #include <string>
 #include <vector>
@@ -12,7 +13,7 @@ public:
 	PmergeMe& operator=(const PmergeMe& other);
 	~PmergeMe();
 
-	void processSequence(char** argv);
+	bool processSequence(int argc, char** argv);
 
 private:
 	std::vector<int> vectorInteger_;
@@ -30,4 +31,4 @@ private:
 	void insertionSort(const std::vector<std::string>& vector);
 };
 
-#endif //STARTING_WITH_CPP_PMERGEME_HPP
+#endif //PMERGEME_HPP

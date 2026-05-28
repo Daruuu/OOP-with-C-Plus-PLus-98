@@ -3,7 +3,7 @@
 
 int main(int argc, char** argv)
 {
-	if (argc != 2)
+	if (argc < 2)
 	{
 		std::cerr << "Usage: ./PmergeMe \"integer numbers positives\"" <<
 			std::endl;
@@ -11,6 +11,8 @@ int main(int argc, char** argv)
 	}
 	try
 	{
+		PmergeMe test;
+		test.processSequence(argc, &argv[1]);
 	}
 	catch (const std::exception& e)
 	{
