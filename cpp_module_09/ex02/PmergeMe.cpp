@@ -28,30 +28,28 @@ PmergeMe::~PmergeMe()
 
 bool PmergeMe::processSequence(int argc, char** argv)
 {
-	for (int i = 1; i < argc; i++)
+	for (int i = 0; i < argc - 1; ++i)
 	{
 		char* endptr;
 		long value = std::strtol(argv[i], &endptr, 10);
-		if (*endptr != '\0' || argv[i] == endptr)
+		if (*endptr != '\0' || *argv == endptr)
 		{
-			std::cerr << "Error: invalid charaters in argument '" << argv[i] <<
-				"'";
+			std::cerr << utils::ErrorInvalidChar << value << "'\n";
 			return false;
 		}
 		if (value <= 0)
 		{
-			std::cerr << "Error: Only positive integers are allowed (found: " <<
-				value << ")";
+			std::cerr << utils::ErrorNegativeNumber << value << ")\n";
 			return false;
 		}
 		if (value > INT_MAX)
 		{
-			std::cerr << "Error: value overflows integer limit '" << argv[i] <<
-				"'";
+			std::cerr << utils::ErrorOverflowNumber << value << "'\n";
 			return false;
 		}
 		vectorInteger_.push_back(static_cast<int>(value));
 		listInteger_.push_back(static_cast<int>(value));
 	}
+	utils::printContainer(vectorInteger_);
 	return true;
 }

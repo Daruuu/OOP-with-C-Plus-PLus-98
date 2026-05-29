@@ -13,12 +13,18 @@ $(NAME): $(OBJS)
 %.o: %.cpp PmergeMe.hpp Makefile
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+test:
+	@make -C tests
+	@./tests/run_tests
+
 clean:
 	rm -f $(OBJS)
+	@make -C tests clean
 
 fclean: clean
 	rm -f $(NAME)
+	@make -C tests fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re test
