@@ -12,7 +12,7 @@ int main(int argc, char** argv)
 	try
 	{
 		PmergeMe test;
-		test.processSequence(argc, &argv[1]);
+		test.processSequence(argc - 1, &argv[1]);
 	}
 	catch (const std::exception& e)
 	{

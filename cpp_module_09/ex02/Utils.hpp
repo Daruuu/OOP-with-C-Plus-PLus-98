@@ -1,12 +1,15 @@
-#ifndef NAMESPACEUTILS_HPP
-#define NAMESPACEUTILS_HPP
+#ifndef UTILS_HPP
+#define UTILS_HPP
 #include <iostream>
 
 namespace utils
 {
-	const std::string ErrorInvalidChar = "Error: invalid characters in argument '";
-	const std::string ErrorNegativeNumber = "Error: Only positive integers are allowed (found: ";
-	const std::string ErrorOverflowNumber= "Error: value overflows integer limit '";
+	const std::string ErrorInvalidChar =
+		"Error: invalid characters in argument '";
+	const std::string ErrorNegativeNumber =
+		"Error: Only positive integers are allowed (found: ";
+	const std::string ErrorOverflowNumber =
+		"Error: value overflows integer limit '";
 
 	template <typename T>
 	void printContainer(const T& container)
@@ -18,6 +21,20 @@ namespace utils
 		}
 		std::cout << std::endl;
 	}
+
+	template <typename T>
+	void printVectorPairs(const T& container)
+	{
+		typename T::const_iterator it;
+		for (it = container.begin(); it != container.end(); ++it)
+		{
+			std::cout << "("
+				<< it->first
+				<< ", "
+				<< it->second
+				<< ")" << std::endl;
+		}
+	}
 }
 
-#endif //NAMESPACEUTILS_HPP
+#endif //UTILS_HPP

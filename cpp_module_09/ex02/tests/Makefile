@@ -1,7 +1,7 @@
 CXX = c++
 # GoogleTest requiere al menos C++11. Compilamos las pruebas en C++11, 
 # aunque el código de producción siga siendo compatible con C++98.
-CXXFLAGS = -Wall -Wextra -Werror -std=c++14 -I..
+CXXFLAGS = -Wall -Wextra -Werror -std=c++17 -I..
 LDFLAGS = -lgtest -lpthread
 
 NAME = run_tests
