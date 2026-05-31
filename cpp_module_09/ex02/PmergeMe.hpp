@@ -6,36 +6,37 @@
 #include <string>
 #include <vector>
 
-class PmergeMe {
+class PmergeMe
+{
 public:
-  PmergeMe();
-  PmergeMe(const PmergeMe &other);
-  PmergeMe &operator=(const PmergeMe &other);
-  ~PmergeMe();
+	PmergeMe();
+	PmergeMe(const PmergeMe& other);
+	PmergeMe& operator=(const PmergeMe& other);
+	~PmergeMe();
 
-  bool processSequence(int argc, char **argv);
+	// Getters — used by tests to inspect sorted results
+	const std::vector<int>& getSortedVector();
+	const std::list<int>& getSortedList();
+
+	bool processSequence(int argc, char** argv);
 
 private:
-  std::vector<int> vectorInteger_;
-  std::list<int> listInteger_;
-  double timeVector_;
-  double timeList_;
-  unsigned int lastNumberOdd_;
-  unsigned int sizeSequence_;
+	std::vector<int> vectorInteger_;
+	std::list<int> listInteger_;
+	double timeVector_;
+	double timeList_;
+	unsigned int lastNumberOdd_;
+	unsigned int sizeSequence_;
 
-  //	implementation to vector container
-  void sortVector();
-  //	implementation to list container
-  void sortList();
+	void sortVector();
+	void sortList();
 
-  std::vector<int> getInsertionIndices(std::vector<int> jacobSequence,
-                                       int sizePendientList);
-  void fordJohnsonVector(std::vector<int> &sequence);
-  void fordJohnsonList(std::list<int> &sequence);
+	std::vector<int> getInsertionIndices(std::vector<int> jacobSequence,
+										int sizePendientList);
+	void fordJohnsonVector(std::vector<int>& sequence);
+	void fordJohnsonList(std::list<int>& sequence);
 
-  std::vector<int> createJacobsthalSequence(int sizePendientList);
-  void binarySearch(const std::vector<std::string> &vector);
-  void insertionSort(const std::vector<std::string> &vector);
+	std::vector<int> createJacobsthalSequence(int sizePendientList);
 };
 
 #endif // PMERGEME_HPP
