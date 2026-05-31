@@ -14,11 +14,12 @@ public:
 	PmergeMe& operator=(const PmergeMe& other);
 	~PmergeMe();
 
-	// Getters — used by tests to inspect sorted results
+	// Getters - used by tests to inspect sorted results
 	const std::vector<int>& getSortedVector();
 	const std::list<int>& getSortedList();
 
-	bool processSequence(int argc, char** argv);
+	bool parseArguments(int argc, char** argv);
+	void run();
 
 private:
 	std::vector<int> vectorInteger_;
@@ -33,6 +34,8 @@ private:
 
 	std::vector<int> getInsertionIndices(std::vector<int> jacobSequence,
 										int sizePendientList);
+	std::vector<std::pair<int, int> > createOrderedPairs(
+		const std::vector<int>& sequence);
 	void fordJohnsonVector(std::vector<int>& sequence);
 	void fordJohnsonList(std::list<int>& sequence);
 

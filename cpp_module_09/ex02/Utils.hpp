@@ -1,6 +1,7 @@
 #ifndef UTILS_HPP
 #define UTILS_HPP
 #include <iostream>
+#include <vector>
 
 namespace utils
 {
@@ -12,8 +13,11 @@ namespace utils
 		"Error: value overflows integer limit '";
 
 	template <typename T>
-	void printContainer(const T& container)
+	void printContainer(const T& container, std::string titleMessage)
 	{
+		if (!titleMessage.empty())
+			std::cout << "*** " << titleMessage << " ***\n";
+
 		typename T::const_iterator it;
 		for (it = container.begin(); it != container.end(); ++it)
 		{
@@ -23,17 +27,34 @@ namespace utils
 	}
 
 	template <typename T>
-	void printVectorPairs(const T& container)
+	void printSequencePairs(const T& container)
 	{
 		typename T::const_iterator it;
 		for (it = container.begin(); it != container.end(); ++it)
 		{
-			std::cout << "("
-				<< it->first
-				<< ", "
-				<< it->second
+			std::cout << "(" << it->first << ", " << it->second
 				<< ")" << std::endl;
 		}
+	}
+
+	template <typename TContainer>
+	bool isSortedContainer(const TContainer& c)
+	{
+		if (c.size() <= 1)
+			return true;
+
+		typename TContainer::const_iterator prev = c.begin();
+		typename TContainer::const_iterator it = c.begin;
+		++it;
+
+		for (; it != c.end(); ++it, ++prev)
+		{
+			if (*it < *prev)
+			{
+				return false;
+			}
+		}
+		return true;
 	}
 }
 

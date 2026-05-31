@@ -45,11 +45,12 @@ const std::list<int>& PmergeMe::getSortedList()
 	return listInteger_;
 }
 
-bool PmergeMe::processSequence(int argc, char** argv)
+bool PmergeMe::parseArguments(int argc, char** argv)
 {
 	for (int i = 0; i < argc; ++i)
 	{
 		char* endptr;
+
 		long value = std::strtol(argv[i], &endptr, 10);
 		if (*endptr != '\0' || argv[i] == endptr)
 		{
@@ -67,28 +68,31 @@ bool PmergeMe::processSequence(int argc, char** argv)
 			return false;
 		}
 		//	TODO: create validation when 2 numbers are equal in sequence
-
 		vectorInteger_.push_back(static_cast<int>(value));
-		listInteger_.push_back(static_cast<int>(value));
 	}
 	sizeSequence_ = vectorInteger_.size();
-
-	std::cout << "Before: ";
-	utils::printContainer(vectorInteger_);
-
-	sortVector();
-	sortList();
-
-	std::cout << "After:  ";
-	utils::printContainer(vectorInteger_);
-
-	std::cout << "Time to process a range of " << sizeSequence_
-		<< " elements with std::vector : " << timeVector_ << " us" << std::endl;
-	std::cout << "Time to process a range of " << sizeSequence_
-		<< " elements with std::list   : " << timeList_ << " us" << std::endl;
-
 	return true;
 }
+
+void PmergeMe::run()
+{
+	listInteger_ = std::list<int>(vectorInteger_.begin(), vectorInteger_.end());
+
+	std::cout << "Before: ";
+	utils::printContainer(vectorInteger_, "");
+
+	sortVector();
+	// sortList();
+
+	std::cout << "After:  ";
+	utils::printContainer(vectorInteger_, "");
+
+	std::cout << "Time to process a range of " << sizeSequence_
+		<< " elements with std::vector : " << timeVector_ << " us\n";
+	std::cout << "Time to process a range of " << sizeSequence_
+		<< " elements with std::list   : " << timeList_ << " us" << std::endl;
+}
+
 
 /**
  * @brief
@@ -129,8 +133,10 @@ std::vector<int> PmergeMe::getInsertionIndices(std::vector<int> jacobSequence,
 												int sizePendientList)
 {
 	std::vector<int> insertionOrder;
+
 	if (sizePendientList <= 0)
 		return insertionOrder;
+
 	int lastJacobNumber = 1;
 	for (size_t i = 3; i < jacobSequence.size(); ++i)
 	{
@@ -150,6 +156,27 @@ std::vector<int> PmergeMe::getInsertionIndices(std::vector<int> jacobSequence,
 	}
 
 	return insertionOrder;
+}
+
+std::vector<std::pair<int, int> > PmergeMe::createOrderedPairs(const std::vector<int>& sequence)
+{
+	std::vector<std::pair<int, int> > pairs;
+
+	for (size_t i = 0; i < sequence.size(); i += 2)
+	{
+		int num1 = sequence.at(i);
+		int num2 = sequence.at(i + 1);
+
+		if (num1 > num2)
+		{
+			pairs.push_back(std::make_pair(num1, num2));
+		}
+		else
+		{
+			pairs.push_back(std::make_pair(num2, num1));
+		}
+	}
+	return pairs;
 }
 
 /**
@@ -177,27 +204,13 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
 		// Removemos el impar para emparejar solo elementos pares
 	}
 
-	std::vector<std::pair<int, int>> pairs;
+	std::vector<std::pair<int, int> > pairs = createOrderedPairs(sequence);
 
-	for (size_t i = 0; i < sequence.size(); i += 2)
-	{
-		int num1 = sequence.at(i);
-		int num2 = sequence.at(i + 1);
-
-		if (num1 > num2)
-		{
-			pairs.push_back(std::make_pair(num1, num2));
-		}
-		else
-		{
-			pairs.push_back(std::make_pair(num2, num1));
-		}
-	}
-	utils::printVectorPairs(pairs);
-
-	std::vector<std::pair<int, int>>::iterator it;
+	utils::printSequencePairs(pairs);
 
 	// Paso 3: Separar las parejas en Mayores (ANumbers) y Menores (BNumbers)
+	std::vector<std::pair<int, int> >::iterator it;
+
 	for (it = pairs.begin(); it != pairs.end(); ++it)
 	{
 		ANumbers.push_back(it->first); //num mayor
@@ -206,12 +219,16 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
 
 	//	ordenamos numeros mayores
 	fordJohnsonVector(ANumbers);
+	//	TODO: reorder Anumbers con BNumbers, respecto a las posiciones de loas pares.
 
 	//	Insertar el primer elemento menor de BNumbers sin comparación
 	ANumbers.insert(ANumbers.begin(), BNumbers[0]);
 
+
 	// Paso 6: Generar el orden de inserción de Jacobsthal para el resto de elementos
 	std::vector<int> jacobSeq = createJacobsthalSequence(BNumbers.size());
+	utils::printContainer(jacobSeq, "ORDER of JACOB SEQUENCE to insert.");
+
 	std::vector<int> insertionOrder = getInsertionIndices(
 		jacobSeq, BNumbers.size());
 
@@ -222,9 +239,9 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
 		int targetNumLarger = pairs[idx - 1].first;
 
 		// Buscamos la posición actual de su pareja mayor en la cadena principal ordenada
-
 		std::vector<int>::iterator limit = std::find(
 			ANumbers.begin(), ANumbers.end(), targetNumLarger);
+
 		// Hacemos una búsqueda binaria acotada hasta 'limit' para minimizar comparaciones
 
 		std::vector<int>::iterator insertPos = std::upper_bound(
@@ -235,8 +252,8 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
 	}
 	if (hasOdd)
 	{
-		std::vector<int>::iterator insertPosition = std::upper_bound(
-			ANumbers.begin(), ANumbers.end(), static_cast<int>(lastNumberOdd_));
+		std::vector<int>::iterator insertPosition = std::upper_bound(ANumbers.begin(), ANumbers.end(), static_cast<int>(lastNumberOdd_));
+
 		ANumbers.insert(insertPosition, static_cast<int>(lastNumberOdd_));
 	}
 	sequence = ANumbers;
@@ -261,7 +278,7 @@ void PmergeMe::fordJohnsonList(std::list<int>& sequence)
 	}
 
 	// Build pairs by walking the list two elements at a time
-	std::vector<std::pair<int, int>> pairs;
+	std::vector<std::pair<int, int> > pairs;
 	for (std::list<int>::iterator it = sequence.begin(); it != sequence.end();)
 	{
 		int num1 = *it;

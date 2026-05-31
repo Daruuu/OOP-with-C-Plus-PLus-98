@@ -11,14 +11,16 @@ int main(int argc, char** argv)
 	}
 	try
 	{
-		PmergeMe test;
-		test.processSequence(argc - 1, &argv[1]);
+		PmergeMe mergeInsertionSort;
+		if (!mergeInsertionSort.parseArguments(argc - 1, &argv[1]))
+			return 1;
+
+		mergeInsertionSort.run();
 	}
 	catch (const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 		return 1;
 	}
-
 	return 0;
 }
