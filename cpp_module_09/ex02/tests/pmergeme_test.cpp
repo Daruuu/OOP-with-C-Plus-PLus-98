@@ -26,16 +26,24 @@
 struct SuppressStdout
 {
 	std::streambuf* old_;
-	SuppressStdout() : old_(std::cout.rdbuf(nullptr)) {}
-	~SuppressStdout()                { std::cout.rdbuf(old_); }
+
+	SuppressStdout() : old_(std::cout.rdbuf(nullptr))
+	{
+	}
+
+	~SuppressStdout() { std::cout.rdbuf(old_); }
 };
 
 /** Suppresses std::cerr output for the duration of its lifetime. */
 struct SuppressStderr
 {
 	std::streambuf* old_;
-	SuppressStderr() : old_(std::cerr.rdbuf(nullptr)) {}
-	~SuppressStderr()                { std::cerr.rdbuf(old_); }
+
+	SuppressStderr() : old_(std::cerr.rdbuf(nullptr))
+	{
+	}
+
+	~SuppressStderr() { std::cerr.rdbuf(old_); }
 };
 
 /**
@@ -45,8 +53,8 @@ struct SuppressStderr
  * @param argvBuf   keeps the char* pointers alive
  */
 static void buildArgs(const std::vector<int>& nums,
-                      std::vector<std::string>& strBuf,
-                      std::vector<char*>&        argvBuf)
+					std::vector<std::string>& strBuf,
+					std::vector<char*>& argvBuf)
 {
 	strBuf.clear();
 	argvBuf.clear();
@@ -97,16 +105,16 @@ static bool containerMatch(const std::vector<int>& v, const std::list<int>& l)
 
 // Fixed 100-element sequence: numbers 1-100 in a shuffled order (deterministic)
 static const int SEQ_100[] = {
-	50, 23, 87, 14, 62, 33, 91,  7, 45, 78,
-	 3, 67, 29, 55, 82, 16, 40, 73, 11, 96,
-	60, 27, 84, 19, 51, 38,  6, 90, 24, 70,
-	48, 13, 65, 31, 88,  2, 57, 44, 79, 21,
-	93, 36,  9, 68, 25, 80, 42, 15, 76, 53,
-	 1, 85, 30, 72, 17, 63, 39, 94,  8, 47,
-	74, 22, 58, 35, 89,  5, 46, 83, 28, 66,
-	12, 98, 41, 71, 20, 56, 37, 92,  4, 61,
+	50, 23, 87, 14, 62, 33, 91, 7, 45, 78,
+	3, 67, 29, 55, 82, 16, 40, 73, 11, 96,
+	60, 27, 84, 19, 51, 38, 6, 90, 24, 70,
+	48, 13, 65, 31, 88, 2, 57, 44, 79, 21,
+	93, 36, 9, 68, 25, 80, 42, 15, 76, 53,
+	1, 85, 30, 72, 17, 63, 39, 94, 8, 47,
+	74, 22, 58, 35, 89, 5, 46, 83, 28, 66,
+	12, 98, 41, 71, 20, 56, 37, 92, 4, 61,
 	86, 26, 69, 43, 77, 10, 52, 32, 97, 18,
-	64, 49,100, 34, 81, 59, 99, 95, 75, 54
+	64, 49, 100, 34, 81, 59, 99, 95, 75, 54
 };
 static const size_t SEQ_100_SIZE = sizeof(SEQ_100) / sizeof(SEQ_100[0]);
 
@@ -123,25 +131,30 @@ TEST(InputValidation, SanityCheck)
 TEST(InputValidation, InvalidCharactersReturnFalse)
 {
 	PmergeMe pm;
-	char* argv[] = {(char*)"12", (char*)"3", (char*)"9", (char*)"5", (char*)"o"};
-	SuppressStdout ss; SuppressStderr se;
-	EXPECT_FALSE(pm.processSequence(5, argv));
+	char* argv[] = {
+		(char*)"12", (char*)"3", (char*)"9", (char*)"5", (char*)"o"
+	};
+	SuppressStdout ss;
+	SuppressStderr se;
+	EXPECT_FALSE(pm.parseArguments(5, argv));
 }
 
 TEST(InputValidation, NegativeNumberReturnsFalse)
 {
 	PmergeMe pm;
 	char* argv[] = {(char*)"12", (char*)"3", (char*)"9", (char*)"-1"};
-	SuppressStdout ss; SuppressStderr se;
-	EXPECT_FALSE(pm.processSequence(4, argv));
+	SuppressStdout ss;
+	SuppressStderr se;
+	EXPECT_FALSE(pm.parseArguments(4, argv));
 }
 
 TEST(InputValidation, ZeroReturnsFalse)
 {
 	PmergeMe pm;
 	char* argv[] = {(char*)"5", (char*)"0", (char*)"3"};
-	SuppressStdout ss; SuppressStderr se;
-	EXPECT_FALSE(pm.processSequence(3, argv));
+	SuppressStdout ss;
+	SuppressStderr se;
+	EXPECT_FALSE(pm.parseArguments(3, argv));
 }
 
 TEST(InputValidation, MaxIntReturnsTrue)
@@ -149,23 +162,25 @@ TEST(InputValidation, MaxIntReturnsTrue)
 	PmergeMe pm;
 	char* argv[] = {(char*)"1", (char*)"2147483647"};
 	SuppressStdout ss;
-	EXPECT_TRUE(pm.processSequence(2, argv));
+	EXPECT_TRUE(pm.parseArguments(2, argv));
 }
 
 TEST(InputValidation, OverflowReturnsFalse)
 {
 	PmergeMe pm;
 	char* argv[] = {(char*)"1", (char*)"2147483648"};
-	SuppressStdout ss; SuppressStderr se;
-	EXPECT_FALSE(pm.processSequence(2, argv));
+	SuppressStdout ss;
+	SuppressStderr se;
+	EXPECT_FALSE(pm.parseArguments(2, argv));
 }
 
 TEST(InputValidation, FloatReturnsFalse)
 {
 	PmergeMe pm;
 	char* argv[] = {(char*)"3", (char*)"1.5", (char*)"7"};
-	SuppressStdout ss; SuppressStderr se;
-	EXPECT_FALSE(pm.processSequence(3, argv));
+	SuppressStdout ss;
+	SuppressStderr se;
+	EXPECT_FALSE(pm.parseArguments(3, argv));
 }
 
 
@@ -178,7 +193,7 @@ TEST(EdgeCases, SingleElement_VectorSorted)
 	PmergeMe pm;
 	char* argv[] = {(char*)"42"};
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(1, argv));
+	ASSERT_TRUE(pm.parseArguments(1, argv));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 }
 
@@ -187,7 +202,7 @@ TEST(EdgeCases, TwoElements_VectorSorted)
 	PmergeMe pm;
 	char* argv[] = {(char*)"9", (char*)"1"};
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(2, argv));
+	ASSERT_TRUE(pm.parseArguments(2, argv));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 }
 
@@ -196,7 +211,7 @@ TEST(EdgeCases, TwoElements_ListSorted)
 	PmergeMe pm;
 	char* argv[] = {(char*)"9", (char*)"1"};
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(2, argv));
+	ASSERT_TRUE(pm.parseArguments(2, argv));
 	EXPECT_TRUE(isSorted(pm.getSortedList()));
 }
 
@@ -205,7 +220,7 @@ TEST(EdgeCases, ThreeElements_OddStraggler_VectorSorted)
 	PmergeMe pm;
 	char* argv[] = {(char*)"5", (char*)"1", (char*)"3"};
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(3, argv));
+	ASSERT_TRUE(pm.parseArguments(3, argv));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 }
 
@@ -214,7 +229,7 @@ TEST(EdgeCases, ThreeElements_OddStraggler_ListSorted)
 	PmergeMe pm;
 	char* argv[] = {(char*)"5", (char*)"1", (char*)"3"};
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(3, argv));
+	ASSERT_TRUE(pm.parseArguments(3, argv));
 	EXPECT_TRUE(isSorted(pm.getSortedList()));
 }
 
@@ -223,7 +238,7 @@ TEST(EdgeCases, AlreadySorted5_VectorSorted)
 	PmergeMe pm;
 	char* argv[] = {(char*)"1", (char*)"2", (char*)"3", (char*)"4", (char*)"5"};
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(5, argv));
+	ASSERT_TRUE(pm.parseArguments(5, argv));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 }
 
@@ -232,7 +247,7 @@ TEST(EdgeCases, ReverseSorted5_VectorSorted)
 	PmergeMe pm;
 	char* argv[] = {(char*)"5", (char*)"4", (char*)"3", (char*)"2", (char*)"1"};
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(5, argv));
+	ASSERT_TRUE(pm.parseArguments(5, argv));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 }
 
@@ -241,7 +256,7 @@ TEST(EdgeCases, ReverseSorted5_ListSorted)
 	PmergeMe pm;
 	char* argv[] = {(char*)"5", (char*)"4", (char*)"3", (char*)"2", (char*)"1"};
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(5, argv));
+	ASSERT_TRUE(pm.parseArguments(5, argv));
 	EXPECT_TRUE(isSorted(pm.getSortedList()));
 }
 
@@ -251,7 +266,7 @@ TEST(EdgeCases, SubjectExample_VectorCorrect)
 	PmergeMe pm;
 	char* argv[] = {(char*)"3", (char*)"5", (char*)"9", (char*)"1", (char*)"4"};
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(5, argv));
+	ASSERT_TRUE(pm.parseArguments(5, argv));
 
 	const std::vector<int>& result = pm.getSortedVector();
 	ASSERT_EQ(result.size(), (size_t)5);
@@ -271,7 +286,7 @@ class Sort100Test : public ::testing::Test
 {
 protected:
 	std::vector<std::string> strBuf_;
-	std::vector<char*>       argvBuf_;
+	std::vector<char*> argvBuf_;
 
 	void buildFrom(const std::vector<int>& nums)
 	{
@@ -289,7 +304,8 @@ TEST_F(Sort100Test, VectorIsSorted)
 	buildFrom(seq100());
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(
+		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 }
 
@@ -298,7 +314,8 @@ TEST_F(Sort100Test, ListIsSorted)
 	buildFrom(seq100());
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(
+		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(isSorted(pm.getSortedList()));
 }
 
@@ -307,7 +324,8 @@ TEST_F(Sort100Test, VectorAndListMatch)
 	buildFrom(seq100());
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(
+		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(containerMatch(pm.getSortedVector(), pm.getSortedList()));
 }
 
@@ -316,7 +334,8 @@ TEST_F(Sort100Test, VectorHas100Elements)
 	buildFrom(seq100());
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(
+		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_EQ(pm.getSortedVector().size(), SEQ_100_SIZE);
 }
 
@@ -325,7 +344,8 @@ TEST_F(Sort100Test, ListHas100Elements)
 	buildFrom(seq100());
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(
+		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_EQ(pm.getSortedList().size(), SEQ_100_SIZE);
 }
 
@@ -335,7 +355,8 @@ TEST_F(Sort100Test, SortedMatchesStdSort)
 	buildFrom(nums);
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(
+		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 
 	std::sort(nums.begin(), nums.end());
 	EXPECT_EQ(pm.getSortedVector(), nums);
@@ -348,7 +369,8 @@ TEST_F(Sort100Test, ReverseSorted100_VectorSorted)
 	buildFrom(nums);
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(
+		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 }
 
@@ -359,7 +381,8 @@ TEST_F(Sort100Test, ReverseSorted100_ListSorted)
 	buildFrom(nums);
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(
+		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(isSorted(pm.getSortedList()));
 }
 
@@ -370,7 +393,8 @@ TEST_F(Sort100Test, AlreadySorted100_VectorSorted)
 	buildFrom(nums);
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(
+		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 }
 
@@ -381,7 +405,8 @@ TEST_F(Sort100Test, AlreadySorted100_ListSorted)
 	buildFrom(nums);
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(
+		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(isSorted(pm.getSortedList()));
 }
 
@@ -394,7 +419,7 @@ class Sort101Test : public ::testing::Test
 {
 protected:
 	std::vector<std::string> strBuf_;
-	std::vector<char*>       argvBuf_;
+	std::vector<char*> argvBuf_;
 
 	/** 101 numbers: SEQ_100 + one extra element (101) appended at the front */
 	std::vector<int> seq101() const
@@ -412,7 +437,8 @@ TEST_F(Sort101Test, VectorIsSorted)
 	buildArgs(nums, strBuf_, argvBuf_);
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(
+		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 }
 
@@ -422,7 +448,8 @@ TEST_F(Sort101Test, ListIsSorted)
 	buildArgs(nums, strBuf_, argvBuf_);
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(
+		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(isSorted(pm.getSortedList()));
 }
 
@@ -432,7 +459,8 @@ TEST_F(Sort101Test, VectorAndListMatch)
 	buildArgs(nums, strBuf_, argvBuf_);
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(
+		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(containerMatch(pm.getSortedVector(), pm.getSortedList()));
 }
 
@@ -442,7 +470,8 @@ TEST_F(Sort101Test, SortedMatchesStdSort)
 	buildArgs(nums, strBuf_, argvBuf_);
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(
+		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 
 	std::sort(nums.begin(), nums.end());
 	EXPECT_EQ(pm.getSortedVector(), nums);
@@ -456,7 +485,8 @@ TEST_F(Sort101Test, OddStragglerIsSmallest)
 	buildArgs(nums, strBuf_, argvBuf_);
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(
+		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 }
 
@@ -468,7 +498,8 @@ TEST_F(Sort101Test, OddStragglerIsLargest)
 	buildArgs(nums, strBuf_, argvBuf_);
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.processSequence(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(
+		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 	EXPECT_EQ(pm.getSortedVector().back(), 999);
 }

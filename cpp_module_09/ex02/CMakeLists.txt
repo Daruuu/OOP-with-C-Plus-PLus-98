@@ -19,3 +19,6 @@ if(SRCS)
             WHITE="\\033[37m"
     )
 endif()
+
+# ── Tests (GoogleTest) ──────────────────────────────────────────────────────
+add_subdirectory(tests)
