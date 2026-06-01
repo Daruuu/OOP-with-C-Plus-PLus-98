@@ -2,13 +2,13 @@
 
 #include <algorithm>
 #include <cctype>
-#include <cstdlib>
 #include <iostream>
 #include <climits>
 #include <ostream>
 #include <sys/time.h>
 
-PmergeMe::PmergeMe() : lastNumberOdd_(-1), sizeSequence_(-1)
+PmergeMe::PmergeMe() : timeVector_(0), timeList_(0), lastNumberOdd_(-1),
+						sizeSequence_(-1)
 {
 }
 
@@ -181,12 +181,50 @@ std::vector<std::pair<int, int> > PmergeMe::createOrderedPairs(const std::vector
 
 /**
  * @brief
+ * ANumbers esta ordenado
+ * We need to update BNumbers following pairs vector
+ * Before:
+ *		A : [ 9,  12,  15 ]
+ *		B no-order:    [ 3,   7,   2 ]
+ *		pairs:      (12,3)(9,7)(15,2)
+ *
+ * After:
+ *		A:     [ 9,  12,  15 ]
+ *		B:     [ 7,   3,   2 ]
+ *		pairs: [(9,7), (12,3), (15,2)]
+ */
+void PmergeMe::reorderBNumbersWithPairsInfo(const std::vector<int>& ANumbers, std::vector<int>& BNumbers, const std::vector<std::pair< int, int> >& pairsOrdered) const
+{
+	std::vector<int> reorderedB;
+
+	for (size_t i = 0; i < ANumbers.size(); ++i)
+	{
+		int currentA = ANumbers[i];
+		for (size_t j = 0; j < pairsOrdered.size(); ++j)
+		{
+			if (currentA == pairsOrdered[j].first)
+			{
+				reorderedB.push_back(pairsOrdered[j].second);
+				break;
+			}
+		}
+	}
+	BNumbers = reorderedB;
+}
+
+/**
+ * @brief
  * @param sequence
  * Estructurar la recursión en fordJohnsonVector:
  * Crear parejas,
  * separar en mayores ANumbers y menores en BNumbers,
  * ordenar recursivamente los mayores,
  * y usar tu secuencia de inserción para reintegrar los menores mediante búsqueda binaria.
+ * Crear pairs y rellenar ANumbers / BNumbers
+ * ordena solo la cadena de a (mayores).
+ * reordenar pairs y BNumbers para que sigan alineados con ANumbers ordenado.
+ * Insertar BNumbers[0] al inicio de ANumbers
+ * Bucle Jacobsthal usando BNumbers[idx-1] y pairs[idx-1].first.
  */
 void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
 {
@@ -196,17 +234,19 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
 	if (sequence.size() <= 1)
 		return;
 
-	bool hasOdd = (sequence.size() % 2 != 0);
-	if (hasOdd)
+	bool esImpar = (sequence.size() % 2 != 0);
+	if (esImpar)
 	{
 		lastNumberOdd_ = sequence.back();
 		sequence.pop_back();
-		// Removemos el impar para emparejar solo elementos pares
 	}
 
 	std::vector<std::pair<int, int> > pairs = createOrderedPairs(sequence);
 
-	utils::printSequencePairs(pairs);
+	if (utils::DEBUG == 1)
+	{
+		utils::printSequencePairs(pairs);
+	}
 
 	// Paso 3: Separar las parejas en Mayores (ANumbers) y Menores (BNumbers)
 	std::vector<std::pair<int, int> >::iterator it;
@@ -220,6 +260,9 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
 	//	ordenamos numeros mayores
 	fordJohnsonVector(ANumbers);
 	//	TODO: reorder Anumbers con BNumbers, respecto a las posiciones de loas pares.
+	//
+
+	reorderBNumbersWithPairsInfo(ANumbers, BNumbers, pairs);
 
 	//	Insertar el primer elemento menor de BNumbers sin comparación
 	ANumbers.insert(ANumbers.begin(), BNumbers[0]);
@@ -227,7 +270,10 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
 
 	// Paso 6: Generar el orden de inserción de Jacobsthal para el resto de elementos
 	std::vector<int> jacobSeq = createJacobsthalSequence(BNumbers.size());
-	utils::printContainer(jacobSeq, "ORDER of JACOB SEQUENCE to insert.");
+	if (utils::DEBUG == 1)
+	{
+		utils::printContainer(jacobSeq, "ORDER of JACOB SEQUENCE to insert.");
+	}
 
 	std::vector<int> insertionOrder = getInsertionIndices(
 		jacobSeq, BNumbers.size());
@@ -250,7 +296,7 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
 		// Insertamos el elemento en la cadena principal ordenada
 		ANumbers.insert(insertPos, valueToInsert);
 	}
-	if (hasOdd)
+	if (esImpar)
 	{
 		std::vector<int>::iterator insertPosition = std::upper_bound(ANumbers.begin(), ANumbers.end(), static_cast<int>(lastNumberOdd_));
 

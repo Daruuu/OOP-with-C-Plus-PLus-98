@@ -5,6 +5,8 @@
 
 namespace utils
 {
+	enum { DEBUG = 0 };
+
 	const std::string ErrorInvalidChar =
 		"Error: invalid characters in argument '";
 	const std::string ErrorNegativeNumber =

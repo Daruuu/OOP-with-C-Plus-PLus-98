@@ -36,6 +36,9 @@ private:
 										int sizePendientList);
 	std::vector<std::pair<int, int> > createOrderedPairs(
 		const std::vector<int>& sequence);
+	void reorderBNumbersWithPairsInfo(const std::vector<int>& ANumbers, std::vector<int>& BNumbers, const std::vector<std::pair<
+									int, int> >& pairsOrdered) const;
+
 	void fordJohnsonVector(std::vector<int>& sequence);
 	void fordJohnsonList(std::list<int>& sequence);
 
