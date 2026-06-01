@@ -47,6 +47,8 @@ const std::list<int>& PmergeMe::getSortedList()
 
 bool PmergeMe::parseArguments(int argc, char** argv)
 {
+	vectorInteger_.clear();
+
 	for (int i = 0; i < argc; ++i)
 	{
 		char* endptr;
@@ -67,8 +69,19 @@ bool PmergeMe::parseArguments(int argc, char** argv)
 			std::cerr << utils::ErrorOverflowNumber << argv[i] << "'\n";
 			return false;
 		}
-		//	TODO: create validation when 2 numbers are equal in sequence
-		vectorInteger_.push_back(static_cast<int>(value));
+		int	num = static_cast<int>(value);
+		if (std::find(vectorInteger_.begin(), vectorInteger_.end(), num) != vectorInteger_.end())
+		{
+			std::cerr << utils::ErrorDuplicateNumber << argv[i] << "'\n";
+			return false;
+		}
+		vectorInteger_.push_back(num);
+	}
+	if (utils::isSortedContainer(vectorInteger_))
+	{
+		std::cout << utils::ErrorAlreadySorted << "\n";
+		vectorInteger_.clear();
+		return false;
 	}
 	sizeSequence_ = vectorInteger_.size();
 	return true;
@@ -193,7 +206,7 @@ std::vector<std::pair<int, int> > PmergeMe::createOrderedPairs(const std::vector
  *		B:     [ 7,   3,   2 ]
  *		pairs: [(9,7), (12,3), (15,2)]
  */
-void PmergeMe::reorderBNumbersWithPairsInfo(const std::vector<int>& ANumbers, std::vector<int>& BNumbers, const std::vector<std::pair< int, int> >& pairsOrdered) const
+void PmergeMe::reorderBNumbersAndPairs(const std::vector<int>& ANumbers, std::vector<int>& BNumbers, std::vector<std::pair<int, int> >& pairsOrdered)
 {
 	std::vector<int> reorderedB;
 
@@ -210,6 +223,15 @@ void PmergeMe::reorderBNumbersWithPairsInfo(const std::vector<int>& ANumbers, st
 		}
 	}
 	BNumbers = reorderedB;
+	// utils::printSequencePairs(pairsOrdered);
+	pairsOrdered.clear();
+	pairsOrdered.reserve(ANumbers.size());
+
+	for (size_t i = 0; i < ANumbers.size(); ++i)
+	{
+		pairsOrdered.push_back(std::make_pair(ANumbers[i], BNumbers[i]));
+	}
+	utils::printSequencePairs(pairsOrdered);
 }
 
 /**
@@ -259,14 +281,12 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
 
 	//	ordenamos numeros mayores
 	fordJohnsonVector(ANumbers);
-	//	TODO: reorder Anumbers con BNumbers, respecto a las posiciones de loas pares.
-	//
 
-	reorderBNumbersWithPairsInfo(ANumbers, BNumbers, pairs);
+	//	reorder BNumbers and pairs
+	reorderBNumbersAndPairs(ANumbers, BNumbers, pairs);
 
 	//	Insertar el primer elemento menor de BNumbers sin comparación
 	ANumbers.insert(ANumbers.begin(), BNumbers[0]);
-
 
 	// Paso 6: Generar el orden de inserción de Jacobsthal para el resto de elementos
 	std::vector<int> jacobSeq = createJacobsthalSequence(BNumbers.size());

@@ -7,15 +7,21 @@ namespace utils
 {
 	enum { DEBUG = 0 };
 
+	const std::string DefaultMessage=
+		"Usage: ./PmergeMe At least 2 integer numbers positives";
 	const std::string ErrorInvalidChar =
 		"Error: invalid characters in argument '";
 	const std::string ErrorNegativeNumber =
 		"Error: Only positive integers are allowed (found: ";
 	const std::string ErrorOverflowNumber =
 		"Error: value overflows integer limit '";
+	const std::string ErrorDuplicateNumber =
+	"Error: duplicate number '";
+	const std::string ErrorAlreadySorted =
+	"Error: sequence is already sorted, buen intento. :(";
 
 	template <typename T>
-	void printContainer(const T& container, std::string titleMessage)
+	void printContainer(const T& container, const std::string titleMessage)
 	{
 		if (!titleMessage.empty())
 			std::cout << "*** " << titleMessage << " ***\n";
@@ -46,7 +52,7 @@ namespace utils
 			return true;
 
 		typename TContainer::const_iterator prev = c.begin();
-		typename TContainer::const_iterator it = c.begin;
+		typename TContainer::const_iterator it = c.begin();
 		++it;
 
 		for (; it != c.end(); ++it, ++prev)
