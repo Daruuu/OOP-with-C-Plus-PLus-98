@@ -11,7 +11,8 @@
 # =============================================================================
 
 CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++17 -I..
+GTEST_INC = -I$(GTEST_DIR)/googletest/include
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++17 -I.. $(GTEST_INC)
 
 NAME		= run_tests
 SRCS		= pmergeme_test.cpp ../PmergeMe.cpp
