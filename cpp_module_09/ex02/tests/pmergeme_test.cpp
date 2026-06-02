@@ -91,6 +91,17 @@ static bool isSorted(const std::list<int>& l)
 	return true;
 }
 
+/** Parses argv and runs the full sort pipeline (suppresses stdout/stderr). */
+static bool parseAndRun(PmergeMe& pm, int argc, char** argv)
+{
+	SuppressStdout ss;
+	SuppressStderr se;
+	if (!pm.parseArguments(argc, argv))
+		return false;
+	pm.run();
+	return true;
+}
+
 /** Returns true when vector and list contain the same elements in the same order. */
 static bool containerMatch(const std::vector<int>& v, const std::list<int>& l)
 {
@@ -160,7 +171,7 @@ TEST(InputValidation, ZeroReturnsFalse)
 TEST(InputValidation, MaxIntReturnsTrue)
 {
 	PmergeMe pm;
-	char* argv[] = {(char*)"1", (char*)"2147483647"};
+	char* argv[] = {(char*)"2147483647", (char*)"1"};
 	SuppressStdout ss;
 	EXPECT_TRUE(pm.parseArguments(2, argv));
 }
@@ -192,8 +203,7 @@ TEST(EdgeCases, SingleElement_VectorSorted)
 {
 	PmergeMe pm;
 	char* argv[] = {(char*)"42"};
-	SuppressStdout ss;
-	ASSERT_TRUE(pm.parseArguments(1, argv));
+	ASSERT_TRUE(parseAndRun(pm, 1, argv));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 }
 
@@ -201,8 +211,7 @@ TEST(EdgeCases, TwoElements_VectorSorted)
 {
 	PmergeMe pm;
 	char* argv[] = {(char*)"9", (char*)"1"};
-	SuppressStdout ss;
-	ASSERT_TRUE(pm.parseArguments(2, argv));
+	ASSERT_TRUE(parseAndRun(pm, 2, argv));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 }
 
@@ -210,8 +219,7 @@ TEST(EdgeCases, TwoElements_ListSorted)
 {
 	PmergeMe pm;
 	char* argv[] = {(char*)"9", (char*)"1"};
-	SuppressStdout ss;
-	ASSERT_TRUE(pm.parseArguments(2, argv));
+	ASSERT_TRUE(parseAndRun(pm, 2, argv));
 	EXPECT_TRUE(isSorted(pm.getSortedList()));
 }
 
@@ -219,8 +227,7 @@ TEST(EdgeCases, ThreeElements_OddStraggler_VectorSorted)
 {
 	PmergeMe pm;
 	char* argv[] = {(char*)"5", (char*)"1", (char*)"3"};
-	SuppressStdout ss;
-	ASSERT_TRUE(pm.parseArguments(3, argv));
+	ASSERT_TRUE(parseAndRun(pm, 3, argv));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 }
 
@@ -228,26 +235,24 @@ TEST(EdgeCases, ThreeElements_OddStraggler_ListSorted)
 {
 	PmergeMe pm;
 	char* argv[] = {(char*)"5", (char*)"1", (char*)"3"};
-	SuppressStdout ss;
-	ASSERT_TRUE(pm.parseArguments(3, argv));
+	ASSERT_TRUE(parseAndRun(pm, 3, argv));
 	EXPECT_TRUE(isSorted(pm.getSortedList()));
 }
 
-TEST(EdgeCases, AlreadySorted5_VectorSorted)
+TEST(EdgeCases, AlreadySorted5_RejectedByParse)
 {
 	PmergeMe pm;
 	char* argv[] = {(char*)"1", (char*)"2", (char*)"3", (char*)"4", (char*)"5"};
 	SuppressStdout ss;
-	ASSERT_TRUE(pm.parseArguments(5, argv));
-	EXPECT_TRUE(isSorted(pm.getSortedVector()));
+	SuppressStderr se;
+	EXPECT_FALSE(pm.parseArguments(5, argv));
 }
 
 TEST(EdgeCases, ReverseSorted5_VectorSorted)
 {
 	PmergeMe pm;
 	char* argv[] = {(char*)"5", (char*)"4", (char*)"3", (char*)"2", (char*)"1"};
-	SuppressStdout ss;
-	ASSERT_TRUE(pm.parseArguments(5, argv));
+	ASSERT_TRUE(parseAndRun(pm, 5, argv));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 }
 
@@ -255,25 +260,23 @@ TEST(EdgeCases, ReverseSorted5_ListSorted)
 {
 	PmergeMe pm;
 	char* argv[] = {(char*)"5", (char*)"4", (char*)"3", (char*)"2", (char*)"1"};
-	SuppressStdout ss;
-	ASSERT_TRUE(pm.parseArguments(5, argv));
+	ASSERT_TRUE(parseAndRun(pm, 5, argv));
 	EXPECT_TRUE(isSorted(pm.getSortedList()));
 }
 
 TEST(EdgeCases, SubjectExample_VectorCorrect)
 {
-	// Subject example: 3 5 9 1 4  →  1 3 4 5 9
+	// Subject example: 3 5 9 7 4  →  3 4 5 7 9
 	PmergeMe pm;
-	char* argv[] = {(char*)"3", (char*)"5", (char*)"9", (char*)"1", (char*)"4"};
-	SuppressStdout ss;
-	ASSERT_TRUE(pm.parseArguments(5, argv));
+	char* argv[] = {(char*)"3", (char*)"5", (char*)"9", (char*)"7", (char*)"4"};
+	ASSERT_TRUE(parseAndRun(pm, 5, argv));
 
 	const std::vector<int>& result = pm.getSortedVector();
 	ASSERT_EQ(result.size(), (size_t)5);
-	EXPECT_EQ(result[0], 1);
-	EXPECT_EQ(result[1], 3);
-	EXPECT_EQ(result[2], 4);
-	EXPECT_EQ(result[3], 5);
+	EXPECT_EQ(result[0], 3);
+	EXPECT_EQ(result[1], 4);
+	EXPECT_EQ(result[2], 5);
+	EXPECT_EQ(result[3], 7);
 	EXPECT_EQ(result[4], 9);
 }
 
@@ -303,9 +306,8 @@ TEST_F(Sort100Test, VectorIsSorted)
 {
 	buildFrom(seq100());
 	PmergeMe pm;
-	SuppressStdout ss;
-	ASSERT_TRUE(
-		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(parseAndRun(
+		pm, static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 }
 
@@ -313,9 +315,8 @@ TEST_F(Sort100Test, ListIsSorted)
 {
 	buildFrom(seq100());
 	PmergeMe pm;
-	SuppressStdout ss;
-	ASSERT_TRUE(
-		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(parseAndRun(
+		pm, static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(isSorted(pm.getSortedList()));
 }
 
@@ -323,9 +324,8 @@ TEST_F(Sort100Test, VectorAndListMatch)
 {
 	buildFrom(seq100());
 	PmergeMe pm;
-	SuppressStdout ss;
-	ASSERT_TRUE(
-		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(parseAndRun(
+		pm, static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(containerMatch(pm.getSortedVector(), pm.getSortedList()));
 }
 
@@ -333,9 +333,8 @@ TEST_F(Sort100Test, VectorHas100Elements)
 {
 	buildFrom(seq100());
 	PmergeMe pm;
-	SuppressStdout ss;
-	ASSERT_TRUE(
-		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(parseAndRun(
+		pm, static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_EQ(pm.getSortedVector().size(), SEQ_100_SIZE);
 }
 
@@ -343,9 +342,8 @@ TEST_F(Sort100Test, ListHas100Elements)
 {
 	buildFrom(seq100());
 	PmergeMe pm;
-	SuppressStdout ss;
-	ASSERT_TRUE(
-		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(parseAndRun(
+		pm, static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_EQ(pm.getSortedList().size(), SEQ_100_SIZE);
 }
 
@@ -354,9 +352,8 @@ TEST_F(Sort100Test, SortedMatchesStdSort)
 	std::vector<int> nums = seq100();
 	buildFrom(nums);
 	PmergeMe pm;
-	SuppressStdout ss;
-	ASSERT_TRUE(
-		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(parseAndRun(
+		pm, static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 
 	std::sort(nums.begin(), nums.end());
 	EXPECT_EQ(pm.getSortedVector(), nums);
@@ -368,9 +365,8 @@ TEST_F(Sort100Test, ReverseSorted100_VectorSorted)
 	std::sort(nums.begin(), nums.end(), std::greater<int>());
 	buildFrom(nums);
 	PmergeMe pm;
-	SuppressStdout ss;
-	ASSERT_TRUE(
-		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(parseAndRun(
+		pm, static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 }
 
@@ -380,34 +376,21 @@ TEST_F(Sort100Test, ReverseSorted100_ListSorted)
 	std::sort(nums.begin(), nums.end(), std::greater<int>());
 	buildFrom(nums);
 	PmergeMe pm;
-	SuppressStdout ss;
-	ASSERT_TRUE(
-		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(parseAndRun(
+		pm, static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(isSorted(pm.getSortedList()));
 }
 
-TEST_F(Sort100Test, AlreadySorted100_VectorSorted)
+TEST_F(Sort100Test, AlreadySorted100_RejectedByParse)
 {
 	std::vector<int> nums = seq100();
 	std::sort(nums.begin(), nums.end());
 	buildFrom(nums);
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(
-		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
-	EXPECT_TRUE(isSorted(pm.getSortedVector()));
-}
-
-TEST_F(Sort100Test, AlreadySorted100_ListSorted)
-{
-	std::vector<int> nums = seq100();
-	std::sort(nums.begin(), nums.end());
-	buildFrom(nums);
-	PmergeMe pm;
-	SuppressStdout ss;
-	ASSERT_TRUE(
-		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
-	EXPECT_TRUE(isSorted(pm.getSortedList()));
+	SuppressStderr se;
+	EXPECT_FALSE(pm.parseArguments(
+		static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 }
 
 
@@ -436,9 +419,8 @@ TEST_F(Sort101Test, VectorIsSorted)
 	std::vector<int> nums = seq101();
 	buildArgs(nums, strBuf_, argvBuf_);
 	PmergeMe pm;
-	SuppressStdout ss;
-	ASSERT_TRUE(
-		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(parseAndRun(
+		pm, static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 }
 
@@ -447,9 +429,8 @@ TEST_F(Sort101Test, ListIsSorted)
 	std::vector<int> nums = seq101();
 	buildArgs(nums, strBuf_, argvBuf_);
 	PmergeMe pm;
-	SuppressStdout ss;
-	ASSERT_TRUE(
-		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(parseAndRun(
+		pm, static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(isSorted(pm.getSortedList()));
 }
 
@@ -458,9 +439,8 @@ TEST_F(Sort101Test, VectorAndListMatch)
 	std::vector<int> nums = seq101();
 	buildArgs(nums, strBuf_, argvBuf_);
 	PmergeMe pm;
-	SuppressStdout ss;
-	ASSERT_TRUE(
-		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(parseAndRun(
+		pm, static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(containerMatch(pm.getSortedVector(), pm.getSortedList()));
 }
 
@@ -469,9 +449,8 @@ TEST_F(Sort101Test, SortedMatchesStdSort)
 	std::vector<int> nums = seq101();
 	buildArgs(nums, strBuf_, argvBuf_);
 	PmergeMe pm;
-	SuppressStdout ss;
-	ASSERT_TRUE(
-		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(parseAndRun(
+		pm, static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 
 	std::sort(nums.begin(), nums.end());
 	EXPECT_EQ(pm.getSortedVector(), nums);
@@ -479,27 +458,24 @@ TEST_F(Sort101Test, SortedMatchesStdSort)
 
 TEST_F(Sort101Test, OddStragglerIsSmallest)
 {
-	// Straggler = 1 (smallest), should end up at index 0
 	std::vector<int> nums(SEQ_100, SEQ_100 + SEQ_100_SIZE);
-	nums.push_back(1); // duplicate 1 as straggler at the end
+	nums.push_back(1);
 	buildArgs(nums, strBuf_, argvBuf_);
 	PmergeMe pm;
 	SuppressStdout ss;
-	ASSERT_TRUE(
-		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
-	EXPECT_TRUE(isSorted(pm.getSortedVector()));
+	SuppressStderr se;
+	EXPECT_FALSE(pm.parseArguments(
+		static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 }
 
 TEST_F(Sort101Test, OddStragglerIsLargest)
 {
-	// Straggler at the end, value = 999 (larger than all others)
 	std::vector<int> nums(SEQ_100, SEQ_100 + SEQ_100_SIZE);
 	nums.push_back(999);
 	buildArgs(nums, strBuf_, argvBuf_);
 	PmergeMe pm;
-	SuppressStdout ss;
-	ASSERT_TRUE(
-		pm.parseArguments(static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	ASSERT_TRUE(parseAndRun(
+		pm, static_cast<int>(argvBuf_.size()), argvBuf_.data()));
 	EXPECT_TRUE(isSorted(pm.getSortedVector()));
 	EXPECT_EQ(pm.getSortedVector().back(), 999);
 }

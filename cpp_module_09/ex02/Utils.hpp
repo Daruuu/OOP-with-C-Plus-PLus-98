@@ -35,13 +35,14 @@ namespace utils
 	}
 
 	template <typename T>
-	void printSequencePairs(const T& container)
+	void printSequencePairs(const T& container, const std::string& titleString)
 	{
+		if (!titleString.empty())
+			std::cout << "\n" << titleString << "\n";
 		typename T::const_iterator it;
 		for (it = container.begin(); it != container.end(); ++it)
 		{
-			std::cout << "(" << it->first << ", " << it->second
-				<< ")" << std::endl;
+			std::cout << "(" << it->first << ", " << it->second << ")";
 		}
 	}
 
@@ -64,6 +65,24 @@ namespace utils
 		}
 		return true;
 	}
+
+	// TODO: template with this function
+	inline std::vector<int> extractA(const std::vector<std::pair<int,int> >& pairs)
+	{
+		std::vector<int> A;
+		for (size_t i = 0; i < pairs.size(); ++i)
+			A.push_back(pairs[i].first);
+		return A;
+	}
+
+	inline std::vector<int> extractB(const std::vector<std::pair<int,int> >& pairs)
+	{
+		std::vector<int> B;
+		for (size_t i = 0; i < pairs.size(); ++i)
+			B.push_back(pairs[i].second);
+		return B;
+	}
+
 }
 
 #endif //UTILS_HPP

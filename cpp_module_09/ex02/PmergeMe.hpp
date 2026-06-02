@@ -26,7 +26,6 @@ private:
 	std::list<int> listInteger_;
 	double timeVector_;
 	double timeList_;
-	unsigned int lastNumberOdd_;
 	unsigned int sizeSequence_;
 
 	void sortVector();
@@ -36,11 +35,16 @@ private:
 										int sizePendientList);
 	std::vector<std::pair<int, int> > createOrderedPairs(
 		const std::vector<int>& sequence);
-	void reorderBNumbersAndPairs(const std::vector<int>& ANumbers, std::vector<int>& BNumbers, std::vector<std::
-								pair<int, int> >& pairsOrdered);
+	void reorderBNumbersAndPairs(const std::vector<int>& ANumbers,
+								std::vector<int>& BNumbers,
+								std::vector<std::pair<int, int> >& pairs);
 
 	void fordJohnsonVector(std::vector<int>& sequence);
 	void fordJohnsonList(std::list<int>& sequence);
+
+	static std::list<int>::iterator listUpperBound(std::list<int>::iterator begin,
+													std::list<int>::iterator end,
+													int value);
 
 	std::vector<int> createJacobsthalSequence(int sizePendientList);
 };
