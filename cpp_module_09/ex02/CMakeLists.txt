@@ -20,5 +20,5 @@ if(SRCS)
     )
 endif()
 
-# ── Tests (GoogleTest) ──────────────────────────────────────────────────────
+# ── Tests (GoogleTest)
 add_subdirectory(tests)

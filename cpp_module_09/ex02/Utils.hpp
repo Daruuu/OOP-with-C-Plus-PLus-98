@@ -70,16 +70,22 @@ namespace utils
 	inline std::vector<int> extractA(const std::vector<std::pair<int,int> >& pairs)
 	{
 		std::vector<int> A;
+
 		for (size_t i = 0; i < pairs.size(); ++i)
+		{
 			A.push_back(pairs[i].first);
+		}
 		return A;
 	}
 
 	inline std::vector<int> extractB(const std::vector<std::pair<int,int> >& pairs)
 	{
 		std::vector<int> B;
+
 		for (size_t i = 0; i < pairs.size(); ++i)
+		{
 			B.push_back(pairs[i].second);
+		}
 		return B;
 	}
 
