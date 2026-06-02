@@ -1,48 +1,75 @@
-# ─────────────────────────────────────────────────────────────────────────────
-#  PmergeMe — Test Suite (GoogleTest)
+# =============================================================================
+# PmergeMe — unit tests (GoogleTest vendored en el proyecto)
 #
-#  GTest requiere C++11 como mínimo. Compilamos los tests en C++17
-#  (por comodidad con std::size, etc.), pero PmergeMe.cpp sigue siendo
-#  código válido C++98 y compila sin problema bajo C++17.
-# ─────────────────────────────────────────────────────────────────────────────
+# Origen de GTest (en este orden):
+#   1) ../extern/googletest  — si ya hiciste: make -C tests setup
+#   2) FetchContent          — CMake lo descarga en el primer configure/build
+#
+# Ejecutar tests:
+#   ctest --test-dir <build-dir> -V
+#   o:  ./<build-dir>/tests/pmergeme_tests
+# =============================================================================
 
-# ── 1. Localizar GoogleTest instalado en el sistema (libgtest-dev) ──────────
-find_package(GTest REQUIRED)
+cmake_minimum_required(VERSION 3.14)
 
-# ── 2. Registrar el runner de CTest (activa `ctest` y el panel de CLion) ────
-enable_testing()
+set(GTEST_VERSION v1.14.0)
+set(GTEST_LOCAL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../extern/googletest")
 
-# ── 3. Definir el ejecutable de tests ───────────────────────────────────────
-#   - pmergeme_test.cpp : archivo de tests
-#   - ../PmergeMe.cpp   : código de producción (sin main.cpp)
+# --- Obtener GoogleTest (local o descarga automática) ------------------------
+set(BUILD_GMOCK OFF CACHE BOOL "" FORCE)
+set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
+if(EXISTS "${GTEST_LOCAL_DIR}/CMakeLists.txt")
+	message(STATUS "PmergeMe tests: using local GoogleTest at ${GTEST_LOCAL_DIR}")
+	add_subdirectory(
+		"${GTEST_LOCAL_DIR}"
+		"${CMAKE_CURRENT_BINARY_DIR}/googletest-build"
+		EXCLUDE_FROM_ALL
+	)
+else()
+	message(STATUS "PmergeMe tests: downloading GoogleTest ${GTEST_VERSION} (FetchContent)")
+	include(FetchContent)
+	FetchContent_Declare(
+		googletest
+		GIT_REPOSITORY https://github.com/google/googletest.git
+		GIT_TAG        ${GTEST_VERSION}
+		GIT_SHALLOW    TRUE
+	)
+	FetchContent_MakeAvailable(googletest)
+endif()
+
+find_package(Threads REQUIRED)
+
+# --- Ejecutable de tests -----------------------------------------------------
 add_executable(pmergeme_tests
-    pmergeme_test.cpp
-    ../PmergeMe.cpp
+	pmergeme_test.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/../PmergeMe.cpp
 )
 
-# ── 4. Incluir las cabeceras del directorio padre ────────────────────────────
-target_include_directories(pmergeme_tests PRIVATE ..)
+target_include_directories(pmergeme_tests PRIVATE
+	${CMAKE_CURRENT_SOURCE_DIR}/..
+)
 
-# ── 5. Estándar de C++ para este target (C++17 para los tests) ──────────────
 set_target_properties(pmergeme_tests PROPERTIES
-    CXX_STANDARD          17
-    CXX_STANDARD_REQUIRED ON
+	CXX_STANDARD          17
+	CXX_STANDARD_REQUIRED ON
+	CXX_EXTENSIONS        OFF
 )
 
-# ── 6. Flags de compilación ──────────────────────────────────────────────────
-target_compile_options(pmergeme_tests PRIVATE -Wall -Wextra)
+target_compile_options(pmergeme_tests PRIVATE
+	-Wall
+	-Wextra
+	-Werror
+)
 
-# ── 7. Enlazar con GTest + pthread ───────────────────────────────────────────
-#   GTest::gtest      → librería principal
-#   GTest::gtest_main → provee el main() de GTest (podemos omitir el nuestro)
-#   Nota: dejamos nuestro main() en pmergeme_test.cpp, así que usamos
-#         GTest::gtest (sin _main) y pthread explícitamente.
+# gtest_main no: pmergeme_test.cpp define su propio main()
 target_link_libraries(pmergeme_tests
-    PRIVATE
-        GTest::gtest
-        pthread
+	PRIVATE
+		GTest::gtest
+		Threads::Threads
 )
 
-# ── 8. Registrar el test con CTest ───────────────────────────────────────────
-#   Esto permite ejecutar todos los tests con: ctest --test-dir build/
-add_test(NAME PmergeMeTests COMMAND pmergeme_tests)
+# --- CTest / CLion -----------------------------------------------------------
+include(GoogleTest)
+gtest_discover_tests(pmergeme_tests)

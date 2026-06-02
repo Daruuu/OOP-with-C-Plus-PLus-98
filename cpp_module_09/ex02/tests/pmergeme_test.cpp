@@ -2,8 +2,10 @@
  * @file pmergeme_test.cpp
  * @brief GoogleTest suite for PmergeMe (Ford-Johnson sort).
  *
- * Compilation: c++ -std=c++17 -Wall -Wextra -Werror -I..
- *              pmergeme_test.cpp ../PmergeMe.cpp -lgtest -lpthread -o run_tests
+ * Build:  cd tests && make setup && make && ./run_tests
+ * Or:     cd ex02 && make test
+ *
+ * GoogleTest lives in ../extern/googletest (downloaded by tests/Makefile).
  *
  * Test categories:
  *   1. Basic cases       — 1, 2, 3 elements
@@ -92,7 +94,76 @@ static bool isSorted(const std::list<int>& l)
 	return true;
 }
 
+/**
+ * Runs parse + sort like the real program, without printing to the terminal.
+ */
+static bool parseAndRun(PmergeMe& pm, int argc, char** argv)
+{
+	SuppressStdout suppressOut;
+	SuppressStderr suppressErr;
+	if (!pm.parseArguments(argc, argv))
+		return false;
+	pm.run();
+	return true;
+}
+
+/**
+ * Builds N unique positive integers that are NOT already sorted ascending.
+ * Uses  N..1 (reverse order) so tests stay deterministic (same input every run).
+ */
+static std::vector<int> makeInput1ToNReverse(size_t count)
+{
+	std::vector<int> nums;
+	nums.reserve(count);
+	for (size_t i = count; i >= 1; --i)
+		nums.push_back(static_cast<int>(i));
+	return nums;
+}
+
 // -----------------------------------------------------------------------------
+//  Large sort — 100 numbers
+// -----------------------------------------------------------------------------
+
+/**
+ * Fixture: shared buffers for argv-style arguments.
+ * Junior tip: strBuf_ must live while the test runs (char* point into strings).
+ */
+class PmergeMeSort100Test : public ::testing::Test
+{
+protected:
+	PmergeMe pm_;
+	std::vector<std::string> strBuf_;
+	std::vector<char*> argvBuf_;
+
+	void runSort(const std::vector<int>& input)
+	{
+		buildArgs(input, strBuf_, argvBuf_);
+		ASSERT_TRUE(parseAndRun(
+			pm_, static_cast<int>(argvBuf_.size()), argvBuf_.data()));
+	}
+};
+
+TEST_F(PmergeMeSort100Test, Sorts100UniqueNumbersLikeStdSort)
+{
+	// Arrange — 100 unique ints, not ascending (parse accepts this)
+	const size_t count = 100;
+	std::vector<int> input = makeInput1ToNReverse(count);
+	std::vector<int> expected = input;
+	std::sort(expected.begin(), expected.end());
+
+	// Act — same path as ./PmergeMe n1 n2 ...
+	runSort(input);
+
+	// Assert
+	const std::vector<int>& result = pm_.getSortedVector();
+	ASSERT_EQ(result.size(), count);
+	EXPECT_TRUE(isSorted(result));
+	EXPECT_EQ(result, expected);
+	EXPECT_TRUE(isSorted(pm_.getSortedList()));
+}
+
+// -----------------------------------------------------------------------------
+//  Basic & validation
 // -----------------------------------------------------------------------------
 
 // 1. One element (caso base)
@@ -102,13 +173,12 @@ TEST(PmergeMeBasic, OneElement)
 	PmergeMe pm;
 	char* argv[] = {(char*)"42"};
 
-	// WHEN
-	ASSERT_TRUE(pm.parseArguments(1, argv));
-	pm.run();
+	// Act
+	ASSERT_TRUE(parseAndRun(pm, 1, argv));
 
+	// Assert
 	const std::vector<int>& result = pm.getSortedVector();
 
-	// THEN
 	EXPECT_EQ(result.size(), 1u);
 	EXPECT_EQ(result[0], 42);
 }
@@ -120,13 +190,11 @@ TEST(PmergeMeBasic, TwoElements)
 	PmergeMe pm;
 	char* argv[] = {(char*)"9", (char*)"1"};
 
-	// WHEN
-	ASSERT_TRUE(pm.parseArguments(2, argv));
-	pm.run();
+	// Act
+	ASSERT_TRUE(parseAndRun(pm, 2, argv));
 
+	// Assert
 	const std::vector<int>& result = pm.getSortedVector();
-
-	// THEN
 	ASSERT_EQ(result.size(), 2u);
 	EXPECT_EQ(result[0], 1);
 	EXPECT_EQ(result[1], 9);
@@ -140,13 +208,11 @@ TEST(PmergeMeBasic, ThreeElements)
 	PmergeMe pm;
 	char* argv[] = {(char*)"5", (char*)"1", (char*)"3"};
 
-	// WHEN
-	ASSERT_TRUE(pm.parseArguments(3, argv));
-	pm.run();
+	// Act
+	ASSERT_TRUE(parseAndRun(pm, 3, argv));
 
+	// Assert
 	const std::vector<int>& result = pm.getSortedVector();
-
-	// THEN
 	EXPECT_TRUE(isSorted(result));
 	EXPECT_EQ(result[0], 1);
 	EXPECT_EQ(result[1], 3);

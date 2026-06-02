@@ -14,7 +14,7 @@ $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 test:
-	@make -C tests
+	@$(MAKE) -C tests all
 	@./tests/run_tests
 
 clean:
