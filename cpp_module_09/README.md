@@ -21,7 +21,9 @@ El programa `btc` calcula el valor de una cantidad de Bitcoin en una fecha espec
 
 ### [ex01] RPN (Reverse Polish Notation)
 Una calculadora científica que procesa expresiones matemáticas dadas en notación inversa (ej: `1 2 +`).
-- **Aprendizaje**: Implementación de pilas (LIFO) y validación estricta de expresiones.
+- Web para verificar : https://www.rpn-calc.com/
+- Web para entender el problema :  https://notation-visualizer.ajayliu.com/stack
+- **Aprendizaje**: Implementar un stack (LIFO) y entender como fuciona stack y validar estricta de expresiones.
 - **Uso**: `./RPN "8 9 * 9 -"`
 
 ### [ex02] PmergeMe
