@@ -43,6 +43,25 @@ const std::list<int>& PmergeMe::getSortedList()
 	return listInteger_;
 }
 
+/**
+ * @brief Parse and validate input arguments.
+ *
+ * Validates info:
+ * - check contains only numeric characters,
+ * - check is greater than zero,
+ * - it does not overflow INT_MAX,
+ * - not duplicated numbers,
+ * - the whole sequence is not already sorted.
+ *
+ * Valid numbers are stored in vectorInteger_ and the sequence size
+ * is saved in sizeSequence_.
+ *
+ * @param argc Number of args to process.
+ * @param argv Array of string.
+ *
+ * @return true all arguments are valid.
+ * @return false if any validation fails.
+ */
 bool PmergeMe::parseArguments(int argc, char** argv)
 {
 	vectorInteger_.clear();
@@ -201,26 +220,25 @@ std::vector<std::pair<int, int> > PmergeMe::createOrderedPairs(const std::vector
 
 /**
  * @brief
- * ANumbers esta ordenado
- * We need to update BNumbers following pairs vector
- * Before:
- *		A : [ 9,  12,  15 ]
- *		B no-order:    [ 3,   7,   2 ]
- *		pairs:      (12,3)(9,7)(15,2)
+ * To update data in 'BNumbers and pairs', we need to ANumbers info
  *
+ * Before:
+ *		A : [9, 12, 15]
+ *		B no-order: [ 3, 7, 2]
+ *		pairs: (12,3)(9,7)(15,2)
  * After:
- *		A:     [ 9,  12,  15 ]
- *		B:     [ 7,   3,   2 ]
+ *		A: [9, 12, 15]
+ *		B: [7, 3, 2]
  *		pairs: [(9,7), (12,3), (15,2)]
  */
 void PmergeMe::reorderBNumbersAndPairs(const std::vector<int>& ANumbers,
 										std::vector<int>& BNumbers,
 										std::vector<std::pair<int, int> >& pairs)
 {
-	std::vector<int> reorderedB;
+	std::vector<int> newReorderB;
 	std::vector<std::pair<int, int> > reorderedPairs;
 
-	reorderedB.reserve(ANumbers.size());
+	newReorderB.reserve(ANumbers.size());
 	reorderedPairs.reserve(ANumbers.size());
 
 	for (size_t i = 0; i < ANumbers.size(); ++i)
@@ -232,7 +250,7 @@ void PmergeMe::reorderBNumbersAndPairs(const std::vector<int>& ANumbers,
 			if (pairs[j].first == currentA)
 			{
 				reorderedPairs.push_back(pairs[j]);
-				reorderedB.push_back(pairs[j].second);
+				newReorderB.push_back(pairs[j].second);
 				found = true;
 				break;
 			}
@@ -240,7 +258,7 @@ void PmergeMe::reorderBNumbersAndPairs(const std::vector<int>& ANumbers,
 		if (!found)
 			return;
 	}
-	BNumbers = reorderedB;
+	BNumbers = newReorderB;
 	pairs = reorderedPairs;
 }
 
@@ -300,13 +318,16 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
 
 		std::vector<int>::iterator posLimit = std::find(mainChain.begin(), mainChain.end(), targetNumLarger);
 
-		std::vector<int>::iterator insertPos = std::upper_bound(mainChain.begin(), posLimit, valueToInsert);
+		std::vector<int>::iterator insertPos = binarySearchInsertPos(mainChain.begin(), posLimit, valueToInsert);
+		// std::vector<int>::iterator insertPos = std::upper_bound(mainChain.begin(), posLimit, valueToInsert);
 
 		mainChain.insert(insertPos, valueToInsert);
 	}
 	if (pendingImpar >= 0)
 	{
-		std::vector<int>::iterator insertPos = std::upper_bound(mainChain.begin(), mainChain.end(), pendingImpar);
+		std::vector<int>::iterator insertPos = binarySearchInsertPos(mainChain.begin(), mainChain.end(), pendingImpar);
+		// std::vector<int>::iterator insertPos = std::upper_bound(mainChain.begin(), mainChain.end(), pendingImpar);
+
 
 		mainChain.insert(insertPos, pendingImpar);
 	}
@@ -436,4 +457,18 @@ std::vector<int> PmergeMe::createJacobsthalSequence(int sizePendientList)
 		b = nextNumber;
 	}
 	return jacobSequence;
+}
+
+std::vector<int>::iterator PmergeMe::binarySearchInsertPos(
+	std::vector<int>::iterator begin, std::vector<int>::iterator end, int value)
+{
+	while (begin < end)
+	{
+		std::vector<int>::iterator mid = begin + (end - begin) / 2;
+		if (*mid <= value)
+			begin = mid + 1;
+		else
+			end = mid;
+	}
+	return begin;
 }

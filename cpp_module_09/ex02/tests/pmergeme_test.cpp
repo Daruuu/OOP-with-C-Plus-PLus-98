@@ -20,6 +20,7 @@
 
 #include <algorithm>
 #include <list>
+#include <random>
 #include <sstream>
 #include <vector>
 
@@ -108,16 +109,44 @@ static bool parseAndRun(PmergeMe& pm, int argc, char** argv)
 }
 
 /**
- * Builds N unique positive integers that are NOT already sorted ascending.
- * Uses  N..1 (reverse order) so tests stay deterministic (same input every run).
+ * N enteros positivos UNICOS en orden aleatorio (barajado).
+ *
+ * @param count   cuantos numeros (ej. 200)
+ * @param seed    semilla fija → mismo "random" en cada ejecucion (util para depurar).
+ *                Cambia seed (ej. time) si quieres distinto cada vez.
+ *
+ * Cumple parseArguments: sin duplicados y casi nunca ya ordenado.
  */
-static std::vector<int> makeInput1ToNReverse(size_t count)
+static std::vector<int> makeRandomUniqueInput(size_t count, unsigned int seed = 42U)
 {
 	std::vector<int> nums;
 	nums.reserve(count);
-	for (size_t i = count; i >= 1; --i)
+	for (size_t i = 1; i <= count; ++i)
 		nums.push_back(static_cast<int>(i));
+
+	std::mt19937 rng(seed);
+	std::shuffle(nums.begin(), nums.end(), rng);
 	return nums;
+}
+
+/**
+ * N enteros UNICOS elegidos al azar entre [minVal, maxVal] (estilo shuf del subject).
+ * Requiere (maxVal - minVal + 1) >= count.
+ */
+static std::vector<int> makeRandomUniqueInRange(size_t count, int minVal, int maxVal,
+												unsigned int seed = 42U)
+{
+	std::vector<int> pool;
+	for (int v = minVal; v <= maxVal; ++v)
+		pool.push_back(v);
+
+	if (pool.size() < count)
+		return std::vector<int>();
+
+	std::mt19937 rng(seed);
+	std::shuffle(pool.begin(), pool.end(), rng);
+	pool.resize(count);
+	return pool;
 }
 
 // -----------------------------------------------------------------------------
@@ -145,13 +174,38 @@ protected:
 
 TEST_F(PmergeMeSort100Test, Sorts100UniqueNumbersLikeStdSort)
 {
-	// Arrange — 100 unique ints, not ascending (parse accepts this)
+	// Arrange — 100 unicos barajados (1..100 mezclados)
 	const size_t count = 100;
-	std::vector<int> input = makeInput1ToNReverse(count);
+	std::vector<int> input = makeRandomUniqueInput(count, 42U);
+	// utils::printContainer(input, "CASE 100");
 	std::vector<int> expected = input;
 	std::sort(expected.begin(), expected.end());
 
 	// Act — same path as ./PmergeMe n1 n2 ...
+	runSort(input);
+
+	// Assert
+	const std::vector<int>& result = pm_.getSortedVector();
+	ASSERT_EQ(result.size(), count);
+	EXPECT_TRUE(isSorted(result));
+	EXPECT_EQ(result, expected);
+	EXPECT_TRUE(isSorted(pm_.getSortedList()));
+}
+
+TEST_F(PmergeMeSort100Test, Sorts200UniqueRandomNumbersLikeStdSort)
+{
+	// Arrange — 200 numeros unicos barajados (equivalente a orden aleatorio)
+	const size_t count = 200;
+	const unsigned int seed = 12345U; // fija: reproducible; cambia para otra permutacion
+
+	// Valores aleatorios entre 1 y 100000 (similar a: shuf -i 1-100000 -n 200)
+	std::vector<int> input = makeRandomUniqueInRange(count, 1, 100000, seed);
+	ASSERT_FALSE(input.empty());
+
+	std::vector<int> expected = input;
+	std::sort(expected.begin(), expected.end());
+
+	// Act
 	runSort(input);
 
 	// Assert

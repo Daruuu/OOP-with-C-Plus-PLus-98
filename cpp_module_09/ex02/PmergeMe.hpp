@@ -46,6 +46,8 @@ private:
 													std::list<int>::iterator end,
 													int value);
 
+	std::vector<int>::iterator binarySearchInsertPos(std::vector<int>::iterator begin,
+	std::vector<int>::iterator end, int value);
 	std::vector<int> createJacobsthalSequence(int sizePendientList);
 };
 
