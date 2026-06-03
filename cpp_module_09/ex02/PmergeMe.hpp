@@ -31,8 +31,9 @@ private:
 	void sortVector();
 	void sortList();
 
-	std::vector<int> getInsertionIndices(std::vector<int> jacobSequence,
-										int sizePendientList);
+	std::vector<int> buildJacobsthalInsertionOrder(
+		const std::vector<int>& jacobSequence,
+		int sizePendientList);
 	std::vector<std::pair<int, int> > createOrderedPairs(
 		const std::vector<int>& sequence);
 	void reorderBNumbersAndPairs(const std::vector<int>& ANumbers,
@@ -42,12 +43,14 @@ private:
 	void fordJohnsonVector(std::vector<int>& sequence);
 	void fordJohnsonList(std::list<int>& sequence);
 
-	static std::list<int>::iterator listUpperBound(std::list<int>::iterator begin,
-													std::list<int>::iterator end,
-													int value);
+	static std::list<int>::iterator listUpperBound(
+		std::list<int>::iterator begin,
+		std::list<int>::iterator end,
+		int value);
 
-	std::vector<int>::iterator binarySearchInsertPos(std::vector<int>::iterator begin,
-	std::vector<int>::iterator end, int value);
+	std::vector<int>::iterator binarySearchInsertPos(
+		std::vector<int>::iterator begin,
+		std::vector<int>::iterator end, int value);
 	std::vector<int> createJacobsthalSequence(int sizePendientList);
 };
 

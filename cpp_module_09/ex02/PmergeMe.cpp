@@ -53,7 +53,7 @@ const std::list<int>& PmergeMe::getSortedList()
  * - not duplicated numbers,
  * - the whole sequence is not already sorted.
  *
- * Valid numbers are stored in vectorInteger_ and the sequence size
+ * if valid numbers are stored in vectorInteger_ and update sequence size
  * is saved in sizeSequence_.
  *
  * @param argc Number of args to process.
@@ -131,13 +131,11 @@ void PmergeMe::run()
 	{
 		std::cout << "Sequence correct. :)" << std::endl;
 	}
-
 }
-
 
 /**
  * @brief
- * get the vector fiil with sequence of numbers.
+ * get the vector fill with sequence of numbers.
  * check if size of vector is even or odd
  * if odd save the last number in variable
  * get a pair of number in sequence.
@@ -169,8 +167,14 @@ void PmergeMe::sortList()
 	timeList_ = (seconds * 1000000.0) + microseconds;
 }
 
-std::vector<int> PmergeMe::getInsertionIndices(std::vector<int> jacobSequence,
-												int sizePendientList)
+/**
+ * @brief this function builds the insertion order based on Jacobsthal sequence
+ *
+ * @param jacobSequence Jacobsthal numbers used as insertion boundaries.
+ * @param sizePendientList number of pending elements.
+ * @return Insertion order indices (1-based).
+ */
+std::vector<int> PmergeMe::buildJacobsthalInsertionOrder(const std::vector<int>& jacobSequence, int sizePendientList)
 {
 	std::vector<int> insertionOrder;
 
@@ -265,11 +269,10 @@ void PmergeMe::reorderBNumbersAndPairs(const std::vector<int>& ANumbers,
 /**
  * @brief
  * @param sequence
- * Estructurar la recursión en fordJohnsonVector:
  * Crear parejas,
  * separar en mayores ANumbers y menores en BNumbers,
  * ordenar recursivamente los mayores,
- * y usar tu secuencia de inserción para reintegrar los menores mediante búsqueda binaria.
+ * usar la secuencia de inserción para reintegrar los menores mediante búsqueda binaria.
  * Crear pairs y rellenar ANumbers / BNumbers
  * ordena solo la cadena de a (mayores).
  * reordenar pairs y BNumbers para que sigan alineados con ANumbers ordenado.
@@ -306,7 +309,7 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
 	std::vector<int> jacobSeq = createJacobsthalSequence(
 		static_cast<int>(BNumbers.size()));
 
-	std::vector<int> order = getInsertionIndices(
+	std::vector<int> order = buildJacobsthalInsertionOrder(
 		jacobSeq, static_cast<int>(BNumbers.size()));
 
 	for (size_t i = 0; i < order.size(); ++i)
@@ -319,42 +322,17 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
 		std::vector<int>::iterator posLimit = std::find(mainChain.begin(), mainChain.end(), targetNumLarger);
 
 		std::vector<int>::iterator insertPos = binarySearchInsertPos(mainChain.begin(), posLimit, valueToInsert);
-		// std::vector<int>::iterator insertPos = std::upper_bound(mainChain.begin(), posLimit, valueToInsert);
 
 		mainChain.insert(insertPos, valueToInsert);
 	}
 	if (pendingImpar >= 0)
 	{
 		std::vector<int>::iterator insertPos = binarySearchInsertPos(mainChain.begin(), mainChain.end(), pendingImpar);
-		// std::vector<int>::iterator insertPos = std::upper_bound(mainChain.begin(), mainChain.end(), pendingImpar);
-
 
 		mainChain.insert(insertPos, pendingImpar);
 	}
 
 	sequence = mainChain;
-}
-
-std::list<int>::iterator PmergeMe::listUpperBound(std::list<int>::iterator begin,
-													std::list<int>::iterator end,
-													int value)
-{
-	size_t len = static_cast<size_t>(std::distance(begin, end));
-	size_t low = 0;
-	size_t high = len;
-
-	while (low < high)
-	{
-		size_t mid = low + (high - low) / 2;
-		std::list<int>::iterator midIt = begin;
-		std::advance(midIt, static_cast<long>(mid));
-		if (*midIt <= value)
-			low = mid + 1;
-		else
-			high = mid;
-	}
-	std::advance(begin, static_cast<long>(low));
-	return begin;
 }
 
 /**
@@ -405,7 +383,7 @@ void PmergeMe::fordJohnsonList(std::list<int>& sequence)
 
 	std::vector<int> jacobSeq = createJacobsthalSequence(
 		static_cast<int>(BNumbers.size()));
-	std::vector<int> insertionOrder = getInsertionIndices(
+	std::vector<int> insertionOrder = buildJacobsthalInsertionOrder(
 		jacobSeq, static_cast<int>(BNumbers.size()));
 
 	for (size_t i = 0; i < insertionOrder.size(); ++i)
@@ -431,6 +409,42 @@ void PmergeMe::fordJohnsonList(std::list<int>& sequence)
 	sequence = ANumbers;
 }
 
+std::list<int>::iterator PmergeMe::listUpperBound(std::list<int>::iterator begin,
+												std::list<int>::iterator end,
+												int value)
+{
+	size_t len = static_cast<size_t>(std::distance(begin, end));
+	size_t low = 0;
+	size_t high = len;
+
+	while (low < high)
+	{
+		size_t mid = low + (high - low) / 2;
+		std::list<int>::iterator midIt = begin;
+		std::advance(midIt, static_cast<long>(mid));
+		if (*midIt <= value)
+			low = mid + 1;
+		else
+			high = mid;
+	}
+	std::advance(begin, static_cast<long>(low));
+	return begin;
+}
+
+
+std::vector<int>::iterator PmergeMe::binarySearchInsertPos(
+	std::vector<int>::iterator begin, std::vector<int>::iterator end, int value)
+{
+	while (begin < end)
+	{
+		std::vector<int>::iterator mid = begin + (end - begin) / 2;
+		if (*mid <= value)
+			begin = mid + 1;
+		else
+			end = mid;
+	}
+	return begin;
+}
 
 /**
  * @brief
@@ -457,18 +471,4 @@ std::vector<int> PmergeMe::createJacobsthalSequence(int sizePendientList)
 		b = nextNumber;
 	}
 	return jacobSequence;
-}
-
-std::vector<int>::iterator PmergeMe::binarySearchInsertPos(
-	std::vector<int>::iterator begin, std::vector<int>::iterator end, int value)
-{
-	while (begin < end)
-	{
-		std::vector<int>::iterator mid = begin + (end - begin) / 2;
-		if (*mid <= value)
-			begin = mid + 1;
-		else
-			end = mid;
-	}
-	return begin;
 }

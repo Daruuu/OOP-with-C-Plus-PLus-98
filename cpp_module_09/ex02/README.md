@@ -108,6 +108,9 @@ Además de lo que pide el subject (enteros positivos, errores en `stderr`), esta
 
 Mínimo **2 argumentos** numéricos: `./PmergeMe n1 n2`.
 
+Web para generar numero random:
+https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php
+
 ---
 
 ## Tests unitarios
@@ -124,7 +127,7 @@ make test
 make && ./run_tests
 ```
 
-Casos cubiertos: básicos (1–3 elementos), validación, ordenación de 100 y 200 números aleatorios únicos.
+Casos cubiertos: básicos (1–3 elementos), validación, ordenación de 100 y 200, números aleatorios únicos.
 
 ---
 
@@ -151,9 +154,9 @@ ctest --test-dir build
 
 ## Referencias rápidas
 
-| Tema | Dónde |
-|------|--------|
-| Ejemplo 7 números | [docs/exemple-case.md](docs/exemple-case.md) |
-| Diagrama de flujo | [docs/exemple-case.md](docs/exemple-case.md) (mermaid) |
+| Tema                    | Dónde                                                      |
+|-------------------------|------------------------------------------------------------|
+| Ejemplo 7 números       | [docs/exemple-case.md](docs/exemple-case.md)               |
+| Diagrama de flujo       | [docs/exemple-case.md](docs/exemple-case.md) (mermaid)     |
 | Plan de fases en código | [docs/implementation_plan.md](docs/implementation_plan.md) |
-| Subject PDF | `../subject/en.subject_cpp09.pdf` |
+| Subject PDF             | `../subject/en.subject_cpp09.pdf`                          |
