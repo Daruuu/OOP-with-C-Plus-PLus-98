@@ -81,18 +81,10 @@ static bool isSorted(const std::vector<int>& v)
 	return true;
 }
 
-/** Returns true when a std::list<int> is sorted in non-decreasing order. */
-static bool isSorted(const std::list<int>& l)
+/** Converts std::list<int> to std::vector<int> for EXPECT_EQ with vector result. */
+static std::vector<int> listToVector(const std::list<int>& l)
 {
-	std::list<int>::const_iterator prev = l.begin();
-	if (prev == l.end())
-		return true;
-	std::list<int>::const_iterator curr = prev;
-	++curr;
-	for (; curr != l.end(); ++prev, ++curr)
-		if (*curr < *prev)
-			return false;
-	return true;
+	return std::vector<int>(l.begin(), l.end());
 }
 
 /**
@@ -189,7 +181,8 @@ TEST_F(PmergeMeSort100Test, Sorts100UniqueNumbersLikeStdSort)
 	ASSERT_EQ(result.size(), count);
 	EXPECT_TRUE(isSorted(result));
 	EXPECT_EQ(result, expected);
-	EXPECT_TRUE(isSorted(pm_.getSortedList()));
+	EXPECT_EQ(listToVector(pm_.getSortedList()), expected);
+	EXPECT_EQ(listToVector(pm_.getSortedList()), result);
 }
 
 TEST_F(PmergeMeSort100Test, Sorts200UniqueRandomNumbersLikeStdSort)
@@ -213,7 +206,8 @@ TEST_F(PmergeMeSort100Test, Sorts200UniqueRandomNumbersLikeStdSort)
 	ASSERT_EQ(result.size(), count);
 	EXPECT_TRUE(isSorted(result));
 	EXPECT_EQ(result, expected);
-	EXPECT_TRUE(isSorted(pm_.getSortedList()));
+	EXPECT_EQ(listToVector(pm_.getSortedList()), expected);
+	EXPECT_EQ(listToVector(pm_.getSortedList()), result);
 }
 
 // -----------------------------------------------------------------------------
@@ -252,6 +246,7 @@ TEST(PmergeMeBasic, TwoElements)
 	ASSERT_EQ(result.size(), 2u);
 	EXPECT_EQ(result[0], 1);
 	EXPECT_EQ(result[1], 9);
+	EXPECT_EQ(listToVector(pm.getSortedList()), result);
 }
 
 
@@ -271,6 +266,7 @@ TEST(PmergeMeBasic, ThreeElements)
 	EXPECT_EQ(result[0], 1);
 	EXPECT_EQ(result[1], 3);
 	EXPECT_EQ(result[2], 5);
+	EXPECT_EQ(listToVector(pm.getSortedList()), result);
 }
 
 // -----------------------------

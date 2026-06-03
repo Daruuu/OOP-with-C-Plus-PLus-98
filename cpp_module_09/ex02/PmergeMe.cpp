@@ -337,76 +337,67 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
 
 /**
  * @brief Ford-Johnson algorithm implemented for std::list.
+ *
+ * Same phases as fordJohnsonVector; only insertion uses listUpperBound
  */
 void PmergeMe::fordJohnsonList(std::list<int>& sequence)
 {
 	if (sequence.size() <= 1)
 		return;
 
-	int oddElement = -1;
+	int pendingImpar = -1;
 	if (sequence.size() % 2 != 0)
 	{
-		oddElement = sequence.back();
+		pendingImpar = sequence.back();
 		sequence.pop_back();
 	}
 
-	std::vector<std::pair<int, int> > pairs;
-	for (std::list<int>::iterator it = sequence.begin(); it != sequence.end();)
-	{
-		int num1 = *it;
-		++it;
-		int num2 = *it;
-		++it;
-		if (num1 > num2)
-			pairs.push_back(std::make_pair(num1, num2));
-		else
-			pairs.push_back(std::make_pair(num2, num1));
-	}
+	std::vector<int> tmp(sequence.begin(), sequence.end());
+	std::vector<std::pair<int, int> > pairs = createOrderedPairs(tmp);
 
-	std::list<int> ANumbers;
-	std::list<int> BNumbers;
+	std::vector<int> aVec = utils::extractA(pairs);
+	std::vector<int> bVec = utils::extractB(pairs);
 
-	for (size_t i = 0; i < pairs.size(); ++i)
-	{
-		ANumbers.push_back(pairs[i].first);
-		BNumbers.push_back(pairs[i].second);
-	}
+	std::list<int> ANumbers(aVec.begin(), aVec.end());
+	std::list<int> BNumbers(bVec.begin(), bVec.end());
 
 	fordJohnsonList(ANumbers);
 
-	std::vector<int> aVec(ANumbers.begin(), ANumbers.end());
-	std::vector<int> bVec(BNumbers.begin(), BNumbers.end());
+	aVec.assign(ANumbers.begin(), ANumbers.end());
+	bVec.assign(BNumbers.begin(), BNumbers.end());
 	reorderBNumbersAndPairs(aVec, bVec, pairs);
 	BNumbers.assign(bVec.begin(), bVec.end());
 
-	ANumbers.insert(ANumbers.begin(), BNumbers.front());
+	std::list<int> mainChain = ANumbers;
+	if (!BNumbers.empty())
+		mainChain.insert(mainChain.begin(), BNumbers.front());
 
 	std::vector<int> jacobSeq = createJacobsthalSequence(
 		static_cast<int>(BNumbers.size()));
-	std::vector<int> insertionOrder = buildJacobsthalInsertionOrder(
+	std::vector<int> order = buildJacobsthalInsertionOrder(
 		jacobSeq, static_cast<int>(BNumbers.size()));
 
-	for (size_t i = 0; i < insertionOrder.size(); ++i)
+	for (size_t i = 0; i < order.size(); ++i)
 	{
-		int idx = insertionOrder[i];
+		int idx = order[i];
 		int valueToInsert = bVec[idx - 1];
 		int targetNumLarger = pairs[idx - 1].first;
 
-		std::list<int>::iterator limit =
-			std::find(ANumbers.begin(), ANumbers.end(), targetNumLarger);
-		std::list<int>::iterator insertPos =
-			listUpperBound(ANumbers.begin(), limit, valueToInsert);
-		ANumbers.insert(insertPos, valueToInsert);
+		std::list<int>::iterator posLimit = std::find(
+			mainChain.begin(), mainChain.end(), targetNumLarger);
+		std::list<int>::iterator insertPos = listUpperBound(
+			mainChain.begin(), posLimit, valueToInsert);
+		mainChain.insert(insertPos, valueToInsert);
 	}
 
-	if (oddElement >= 0)
+	if (pendingImpar >= 0)
 	{
-		std::list<int>::iterator insertPos =
-			listUpperBound(ANumbers.begin(), ANumbers.end(), oddElement);
-		ANumbers.insert(insertPos, oddElement);
+		std::list<int>::iterator insertPos = listUpperBound(
+			mainChain.begin(), mainChain.end(), pendingImpar);
+		mainChain.insert(insertPos, pendingImpar);
 	}
 
-	sequence = ANumbers;
+	sequence = mainChain;
 }
 
 std::list<int>::iterator PmergeMe::listUpperBound(std::list<int>::iterator begin,
